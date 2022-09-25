@@ -58,10 +58,10 @@ const getUserById = (req,res) => {
 const editProfile = (req,res) => {
     const id = req.params.id;
 
-    const { password, confirmPassword, country} = req.body;
+    const { password, confirmPassword, firstName, lastName ,country} = req.body;
 
     if (password == confirmPassword) {
-        userModel.findOneAndUpdate({_id: id}, {password: password, confirmPassword: confirmPassword, country: country}, {new: true})
+        userModel.findOneAndUpdate({_id: id}, {password: password, confirmPassword: confirmPassword, country: country, firstName: firstName, lastName: lastName}, {new: true})
         .then((result)=>{
             res.status(201);
             res.json(result);
@@ -73,6 +73,20 @@ const editProfile = (req,res) => {
     } else {
         
     }
+};
+
+const deleteProfile = (req,res) => {
+    const id = req.params.id;
+
+    userModel.findOneAndDelete({_id: id})
+    .then((result)=>{
+        res.status(201);
+        res.json(result)
+    })
+    .catch((err)=>{
+        res.status(err.status);
+        res.json(err.message);
+    })
 }
 
-module.exports = {createUser, getAllUsers, getUserById, editProfile}
+module.exports = {createUser, getAllUsers, getUserById, editProfile, deleteProfile}
