@@ -81,9 +81,15 @@ const searchProduct = (req,res) => {
 const filterProduct = (req,res) => {
     const { price } = req.body;
 
-    productModel.find({price: {$gt: greaterPrice, $lt: lessPrice}})
-    .then()
-    .catch()
+    productModel.find({price: price}, {$gt: greaterPrice, $lt: lessPrice})
+    .then((result)=>{
+        res.status(201);
+        res.json(result);
+    })
+    .catch((err)=>{
+        res.status(404);
+        res.json(err.message);
+    })
 }
 
 const updateProductsById = (req,res) => {

@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { createNewProducts, getAllProducts, updateProductsById, getProductsById, deleteProductsById, searchProduct } = require('../controllers/product');
+const { createNewProducts, getAllProducts, updateProductsById, getProductsById, deleteProductsById, searchProduct, filterProduct } = require('../controllers/product');
 
 const productRouter = express.Router();
 
@@ -10,6 +10,6 @@ productRouter.get('/:id',getProductsById);
 productRouter.get('/search',searchProduct);
 productRouter.put('/manage/:id', updateProductsById);
 productRouter.delete('/manage/:id', deleteProductsById);
-
+productRouter.get('/search', filterProduct);
 
 module.exports = productRouter;
