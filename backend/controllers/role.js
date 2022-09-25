@@ -1,6 +1,6 @@
 const roleModel = require('../models/role');
 
-const createRole = (erq,res) => {
+const createRole = (req,res) => {
     const { role,permissions } = req.body;
     
     const newRole = new roleModel(
@@ -13,7 +13,7 @@ const createRole = (erq,res) => {
     newRole.save()
     .then((result)=>{
         res.status(201);
-        res.status(result);
+        res.send(result);
     })
     .catch((err)=>{
         res.status(500);
