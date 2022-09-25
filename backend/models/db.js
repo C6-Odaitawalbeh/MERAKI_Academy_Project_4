@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
+
+const DB_URI = process.env.DB_URI
 
 // connecting to mongodb
-mongoose.connect('mongodb://localhost:27017/DB_Name').then(
+mongoose.connect(DB_URI).then(
   () => {
     console.log("DB Ready To Use");
   },
