@@ -17,8 +17,8 @@ const Register = () => {
     <>
     <div className="rigester-page">
       <div className="sign-up">
-        <p>E-Commerce App</p>
-        <p>Sign-Up</p>
+        <p className="websiteName"><b>E-Commerce App</b></p>
+        <p className="p-sign-up"><b>Sign-Up</b></p>
 
         <form className="rigester-form" onSubmit={handleSubmit}>
 
