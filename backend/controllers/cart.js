@@ -3,10 +3,11 @@ const cartModel = require('../models/cart');
 const sendToCart = (req,res) => {
     const { product,userId } = req.body;
 
+    const { userIdToken } = req.token;
     const cart = new cartModel(
         {
             product,
-            userId
+            userId: userIdToken
         }
     );
 
