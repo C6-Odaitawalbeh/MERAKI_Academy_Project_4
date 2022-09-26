@@ -33,7 +33,7 @@ const createNewProducts = (req,res) => {
         res.json(result);
     })
     .catch((err)=>{
-        res.status(err.status);
+        res.status(404);
         res.json(err.message);
     })
 };
@@ -45,7 +45,7 @@ const getAllProducts = (req,res) => {
         res.json(result);
     })
     .catch((err)=>{
-        res.status(err.status);
+        res.status(404);
         res.json(err.message);
     })
 };
@@ -59,13 +59,13 @@ const getProductsById = (req,res) => {
         res.json(result);
     })
     .catch((err)=>{
-        res.status(err.status);
+        res.status(404);
         res.json(err.message);
     })
 };
 
 const searchProduct = (req,res) => {
-    const { title } = req.body;
+    const title = req.query.title;
 
     productModel.find({title: title})
     .then((result)=>{
@@ -73,7 +73,6 @@ const searchProduct = (req,res) => {
         res.json(result);
     })
     .catch((err)=>{
-        res.status(err.status);
         res.json(err.message);
     })
 };

@@ -13,11 +13,11 @@ const createRole = (req,res) => {
     newRole.save()
     .then((result)=>{
         res.status(201);
-        res.send(result);
+        res.json(result);
     })
     .catch((err)=>{
-        res.status(500);
-        res.send(err.message);
+        res.status(404);
+        res.json(err.message);
     });
 };
 
