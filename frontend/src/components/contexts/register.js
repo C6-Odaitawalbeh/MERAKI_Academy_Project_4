@@ -64,6 +64,7 @@ const RegisterProvider = (props) => {
         setEmail,
         setPassword,
         setMessage,
+        setConfirmPassword,
         message,
         confirmPassword,
         password,
@@ -74,7 +75,7 @@ const RegisterProvider = (props) => {
         firstName,
         addUser
     };
-
+    
     return (
         <RegiContext.Provider value={state}>
             {props.children}

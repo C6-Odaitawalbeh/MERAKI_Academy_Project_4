@@ -20,42 +20,62 @@ const Register = () => {
         <p>E-Commerce App</p>
         <p>Sign-Up</p>
 
-        <form className="rigester-form">
+        <form className="rigester-form" onSubmit={handleSubmit}>
 
           <input 
           className="input"
           type="text"
           placeholder="First Name"
+          onChange={(e) => {RegisterContext.setfirstName(e.target.value)}}
           ></input>
 
           <input
           className="input"
           type="text"
           placeholder="Last Name"
+          onChange={(e)=>{RegisterContext.setlastName(e.target.value)}}
+          ></input>
+
+          
+          <input
+          className="input"
+          type="text"
+          placeholder="Contry"
+          onChange={(e)=>{RegisterContext.setCountry(e.target.value)}}
+          ></input>
+
+          <input
+          className="input"
+          type="text"
+          placeholder="City"
+          onChange={(e)=>{RegisterContext.setCity(e.target.value)}}
           ></input>
 
           <input className="input"
           type="email"
           placeholder="Enter E-mail"
+          onChange={(e)=>{RegisterContext.setEmail(e.target.value)}}
           ></input>
 
           <input
           className="input"
           type="password"
           placeholder="Enter Password"
+          onChange={(e)=>{RegisterContext.setPassword(e.target.value)}}
           ></input>
 
           <input
           className="input"
           type="password"
           placeholder="Confirm Password"
+          onChange={(e)=>{RegisterContext.setConfirmPassword(e.target.value)}}
           ></input>
 
-          <button className="button-register">Sign-Up</button>
+          <button className="button-register" disabled={RegisterContext.setfirstName}>Sign-Up</button>
 
         </form>
 
-        {<div></div>}
+        {RegisterContext.message && <div style={{color: "red"}}>{RegisterContext.message}</div>}
 
       </div>
     </div>
