@@ -73,6 +73,7 @@ const searchProduct = (req,res) => {
         res.json(result);
     })
     .catch((err)=>{
+        res.status(404);
         res.json(err.message);
     })
 };
@@ -101,7 +102,7 @@ const updateProductsById = (req,res) => {
         res.json(result);
     })
     .catch((err)=>{
-        res.status(err.status);
+        res.status(404);
         res.json(err.message);
     })
 };
@@ -115,7 +116,7 @@ const deleteProductsById = (req,res) => {
         res.json(result);
     })
     .catch((err)=>{
-        res.status(err.status);
+        res.status(404);
         res.json(err.message);
     })
 };
