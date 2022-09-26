@@ -60,7 +60,7 @@ const editProfile = (req,res) => {
 
     const { password, confirmPassword, firstName, lastName ,country} = req.body;
 
-    if (password == confirmPassword) {
+    // if (password == confirmPassword) //{
         userModel.findOneAndUpdate({_id: id}, {password: password, confirmPassword: confirmPassword, country: country, firstName: firstName, lastName: lastName}, {new: true})
         .then((result)=>{
             res.status(201);
@@ -70,9 +70,9 @@ const editProfile = (req,res) => {
             res.status(404);
             res.json(err.message);
         })
-    } else {
+    // } else {
         
-    }
+    // }
 };
 
 const deleteProfile = (req,res) => {

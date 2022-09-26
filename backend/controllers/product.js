@@ -67,10 +67,12 @@ const getProductsById = (req,res) => {
 };
 
 const searchProduct = (req,res) => {
+    console.log("test")
     const title = req.query.title;
-
+        console.log(title)
     productModel.find({title: title})
     .then((result)=>{
+        console.log("result : "+ result)
         res.status(201);
         res.json(result);
     })
@@ -82,8 +84,8 @@ const searchProduct = (req,res) => {
 
 const filterProduct = (req,res) => {
     const { price } = req.body;
-
-    productModel.find({price: price}, {$gt: greaterPrice, $lt: lessPrice})
+    
+    productModel.find({price: {$lt: price}})
     .then((result)=>{
         res.status(201);
         res.json(result);

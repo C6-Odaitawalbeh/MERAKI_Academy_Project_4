@@ -9,6 +9,6 @@ const authorization = require('../middlewaers/authorization');
 userRouter.post('/register', createUser);
 userRouter.get('/', getAllUsers);
 userRouter.get('/:id', getUserById);
-userRouter.put('/profile/:id', authentication, authorization("UPDATE_PROFILE"), editProfile);
-userRouter.delete('/profile/:id', authentication, authorization("DELETE_PRODUCT"), deleteProfile);
+userRouter.put('/profile/:id', authentication, editProfile);
+userRouter.delete('/profile/:id', authentication, deleteProfile);
 module.exports = userRouter;
