@@ -12,7 +12,7 @@ const Login = () => {
   const handleSubmit = async  (e) => {
     e.preventDefault();
     await loginCompContext.login();
-    
+
   };
 
   // const path = () => {
@@ -22,12 +22,12 @@ const Login = () => {
   // };
 
   return (
-    <div>
-      <div>
-        <p>E-Commerce App</p>
-        <p>Login</p>
+    <div className="login">
+      <div className="login-page">
+        <p className="website-name"><b>E-Commerce App</b></p>
+        <p className="login-name"><b>Login</b></p>
 
-        <form onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleSubmit}>
 
           <input
           className="input"
@@ -47,11 +47,11 @@ const Login = () => {
 
         </form>
 
-        {loginCompContext.message && <div>{loginCompContext.message}</div>}
+        {loginCompContext.message && <div className="meesage-login">{loginCompContext.message}</div>}
 
 
-        <p>If Dont Have Account</p>
-        <div><Link to='/register'>Create Account</Link></div>
+        {/* <p className="register">If You Dont Have Account</p> */}
+        <div className="link-register"><Link to='/register'>Create Account</Link></div>
 
       </div>
     </div>

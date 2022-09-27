@@ -2,3 +2,56 @@ body {
     margin: 0;
 }
 
+.login {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100hv;
+    padding: 10px;
+    
+}
+
+.login-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #e6e6fab8;
+    border-radius: 6px;
+    justify-items: center;
+}
+
+.login-form {
+    display: grid;
+    /* grid-template-rows: (4,auto); */
+    margin: 10px;
+}
+
+.meesage-login {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.link-register {
+    margin-bottom: 10px;
+}
+
+.website-name {
+    color: black;
+    font-size: 20px;
+}
+
+.login-name {
+    color: black;
+    font-size: 15px;
+}
+
+.button-login {
+    background-color: #1877F2;
+    border-color: #1877F2;
+    border-radius: 3px;
+}
+
+.input {
+    margin-bottom: 30px;
+}
