@@ -66,20 +66,26 @@ const getProductsById = (req,res) => {
     })
 };
 
-const searchProduct = (req,res) => {
+const searchProduct = async (req,res) => {
     console.log("test")
     const title = req.query.title;
-        console.log(title)
-    productModel.find({title: title})
-    .then((result)=>{
-        console.log("result : "+ result)
+        console.log(title);
+    const regex = new RegExp(title, "gi");
+
+    try {
+        const searchProduct = await productModel.find({title: { $regex: regex },});
+    
+    if (searchProduct.length) {
         res.status(201);
-        res.json(result);
-    })
-    .catch((err)=>{
-        res.status(404);
+        res.json({searchProduct});
+    }
+    throw Error;
+
+    } catch (err) {
+        res.status(500);
         res.json(err.message);
-    })
+    }
+    
 };
 
 const filterProduct = (req,res) => {

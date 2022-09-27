@@ -75,7 +75,7 @@ const Register = () => {
 
         </form>
 
-        {RegisterContext.message && <div style={{color: "red"}}>{RegisterContext.message}</div>}
+        {RegisterContext.message && <div className="messamge-register"><b>{RegisterContext.message}</b></div>}
 
       </div>
     </div>

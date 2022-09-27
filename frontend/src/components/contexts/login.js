@@ -20,8 +20,10 @@ const LoginProvider = (props) => {
     },[])
 
     const saveToken = (token) => {
-        setToken(token);
         localStorage.setItem('token', token);
+        if (token) {
+            setToken(token)
+        }
     }
 
     const login = async () => {
