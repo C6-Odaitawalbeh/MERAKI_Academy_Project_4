@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const RegiContext = createContext();
 
 const RegisterProvider = (props) => {
+    
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
     const [country, setCountry] = useState('');
@@ -13,6 +14,7 @@ const RegisterProvider = (props) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
+    const [role, setRole] = useState('6331e12c77850e5ab71f0d4b');
 
     const history = useNavigate();
 
@@ -26,7 +28,8 @@ const RegisterProvider = (props) => {
                 city,
                 email,
                 password,
-                confirmPassword
+                confirmPassword,
+                role
             })
             .then((res)=>{
                 setMessage('Create Account');
@@ -73,6 +76,7 @@ const RegisterProvider = (props) => {
         country,
         lastName,
         firstName,
+        role,
         addUser
     };
     

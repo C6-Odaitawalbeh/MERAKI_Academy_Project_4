@@ -15,29 +15,30 @@ const LoginProvider = (props) => {
 
     const history = useNavigate();
 
+    const saveToken = (token) => {
+            setToken(token);
+            localStorage.setItem('token', token);
+    }
+
     useEffect(() => {
         saveToken(localStorage.getItem('token'));
     },[])
 
-    const saveToken = (token) => {
-        localStorage.setItem('token', token);
-        if (token) {
-            setToken(token)
-        }
-    }
 
     const login = async () => {
         try {
-            const result = await axios.post('http://localhost:5000/user/login', {email,password});
+            const result = await axios.post('http://localhost:5000/login', {email, password});
 
             saveToken(result.data.token);
+            console.log(result.data.token);
 
             history('/'); // main page
 
             setIsLoggedIn(true);
 
         } catch (err) {
-            setMeesage(err.result.data);
+            console.log(err.response.data.message);
+            setMeesage(err.response.data.message);
         }
     }
 

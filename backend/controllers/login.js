@@ -6,9 +6,6 @@ const login = async (req,res) => {
     const {email, password} = req.body;
     try {
         const user = await loginModel.findOne({email: email}).populate("role").exec();
-        console.log(user);
-        console.log(user.email);
-        console.log(user.password);
 
         if (!user) {
         return res.status(404).json({success: false, message: "The email doesn't exist"});
@@ -39,7 +36,8 @@ const login = async (req,res) => {
         res.json({success: false, message: "The password you’ve entered is incorrect"});
         
     } catch (err) {
-        res.status(err.status);
+        console.log(err);
+        res.status(500);
         res.json(err.massage);
     }
 };
