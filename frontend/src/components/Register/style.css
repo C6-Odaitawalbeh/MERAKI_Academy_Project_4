@@ -15,7 +15,7 @@ body {
     justify-items: center;
     justify-content: center;
     color: black;
-    background-color: rgba(239, 246, 242, 0.918);
+    background-color: #e6e6fab8;
     border-radius: 6px;
     padding: 10px;
     width: 300px;
@@ -40,4 +40,10 @@ body {
 .input {
     margin-bottom: 5px;
     width: 250px;
+}
+
+.button-register {
+    background-color: #1877F2;
+    border-color: #1877F2;
+    border-radius: 3px;
 }
