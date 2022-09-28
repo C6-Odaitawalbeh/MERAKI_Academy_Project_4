@@ -5,15 +5,17 @@ import { useNavigate } from "react-router-dom";
 export const productContext = createContext();
 
 const ProductProvider = (props) => {
+  
   const [product, setProduct] = useState([]);
 
   const history = useNavigate();
 
   const showMyProduct = async () => {
+    console.log("showMyProduct")
     try {
       await axios.get(`http://localhost:5000/products`).then((result) => {
         console.log(result);
-        // setProduct([...product, ...result.data]);
+         setProduct([...product, ...result.data]);
       });
     } catch (err) {
       console.log(err);

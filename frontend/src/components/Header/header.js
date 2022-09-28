@@ -36,8 +36,8 @@ const Header = () => {
             <b>e-commerce app</b>
           </p>
 
-          <select name="Tses">
-            <option>tset</option>
+          <select name="Test">
+            <option>test</option>
             <option>test</option>
           </select>
 

@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/main" element={<Main />} />
+        <Route exact path="/" element={<Main />} />
       </Routes>
     </div>
   );

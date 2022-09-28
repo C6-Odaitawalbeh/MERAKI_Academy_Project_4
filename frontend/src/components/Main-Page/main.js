@@ -1,21 +1,34 @@
 import React, { useContext, useEffect } from "react";
 import { productContext } from "../contexts/main";
+import "./style.css";
 
 const Main = () => {
   const productCompContext = useContext(productContext);
 
   useEffect(() => {
+    console.log("Main")
     productCompContext.showMyProduct();
-  }, []);
+    console.log(productCompContext.product)
+  },[]);
 
   return (
     <>
-      <div>
-        {productCompContext.product((item, index) => {
+      <div className="main-page">
+        {productCompContext.product.map((item, index) => {
           return (
             <div key={index}>
-              <img src={item.image} />
-              <p>{item.title}</p>
+
+              <div>
+              <img className="product-image" src={item.image} />
+              </div>
+              
+              <div className="words">
+              <p className="title">{item.title}</p>
+              <p className="description">Description: {item.shortDescription}</p>
+              <p className="location">Located: {item.location}</p>
+              <p className="price">Price: {item.price}</p>
+              </div>
+
             </div>
           );
         })}
