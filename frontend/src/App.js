@@ -3,6 +3,9 @@ import React, { createContext, useState } from "react";
 import Register from "./components/Register";
 import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
+import Header from "./components/Header/header";
+
+
 
 export const newContext = createContext();
 
@@ -11,6 +14,7 @@ function App() {
   // const [isLoogedIn, setIsLoogedIn] = useState(true);
   return ( 
     <div className="App">
+      {<Header />}
       <Routes>
         <Route path="/register" element={<Register />}/>
         <Route path="/login" element={<Login />}/>

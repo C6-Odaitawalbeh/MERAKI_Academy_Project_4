@@ -15,12 +15,6 @@ const Login = () => {
 
   };
 
-  // const path = () => {
-  //   if (loginCompContext.isLoggedIn) {
-  //     history('/register');
-  //   }
-  // };
-
   return (
     <div className="login">
       <div className="login-page">
@@ -50,8 +44,8 @@ const Login = () => {
         {loginCompContext.message && <div className="meesage-login">{loginCompContext.message}</div>}
 
 
-        {/* <p className="register">If You Dont Have Account</p> */}
-        <div className="link-register"><Link to='/register'>Create Account</Link></div>
+        <p className="register">If You Dont Have Account</p>
+        <div className="link-div"><Link className="link-register" to='/register'>Create New Account</Link></div>
 
       </div>
     </div>
