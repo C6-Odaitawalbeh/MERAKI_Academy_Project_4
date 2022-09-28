@@ -16,9 +16,9 @@ const Main = () => {
       <div className="main-page">
         {productCompContext.product.map((item, index) => {
           return (
-            <div key={index}>
+            <div className="product" key={index}>
 
-              <div>
+              <div className="image-div">
               <img className="product-image" src={item.image} />
               </div>
               
