@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const productContext = useContext();
+export const productContext = createContext();
 
-const ProductItem = (props) => {
+const ProductProvider = (props) => {
 
     const [product, setProduct] = useState([]);
 
@@ -12,9 +12,27 @@ const ProductItem = (props) => {
 
     const showMyProduct = async () => {
         try {
-            await axios.get(``)
-        } catch (error) {
-            
+            await axios.get(`http://localhost:5000/products`)
+            .then((result)=>{
+                console.log(result);
+                // setProduct([...product, ...result.data]);
+            })
+        } catch (err) {
+            console.log(err);
         }
-    }
-}
+    };
+
+    const state = {
+        product,
+        setProduct,
+        showMyProduct
+    };
+
+    return (
+        <productContext.Provider value={state}>
+            {props.children}
+        </productContext.Provider>
+    )
+};
+
+export default ProductProvider;

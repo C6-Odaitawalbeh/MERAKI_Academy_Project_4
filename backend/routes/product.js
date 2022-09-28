@@ -7,7 +7,7 @@ const authorization = require('../middlewaers/authorization');
 const productRouter = express.Router();
 
 productRouter.post('/create', authentication, authorization("CREATE_PRODUCT") ,createNewProducts);
-productRouter.get('/',authentication, getAllProducts);
+productRouter.get('/', getAllProducts);
 productRouter.get('/search/:id', getProductsById);
 productRouter.get('/search_1', searchProduct);
 productRouter.put('/manage/:id', authentication, authorization("UPDATE_PRODUCT") ,updateProductsById);

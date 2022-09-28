@@ -4,20 +4,20 @@ import Register from "./components/Register";
 import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
 import Header from "./components/Header/header";
-
-
+import Main from "./components/Main-Page/main";
 
 export const newContext = createContext();
 
 function App() {
   // const [token, setToken] = useState(localStorage.getItem("token") || "");
   // const [isLoogedIn, setIsLoogedIn] = useState(true);
-  return ( 
+  return (
     <div className="App">
       {<Header />}
       <Routes>
-        <Route path="/register" element={<Register />}/>
-        <Route path="/login" element={<Login />}/>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/main" element={<Main />} />
       </Routes>
     </div>
   );
