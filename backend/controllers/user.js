@@ -84,7 +84,7 @@ const deleteProfile = (req,res) => {
         res.json(result)
     })
     .catch((err)=>{
-        res.status(err.status);
+        res.status(404);
         res.json(err.message);
     })
 }

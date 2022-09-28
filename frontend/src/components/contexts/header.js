@@ -9,16 +9,16 @@ const HeaderProvider = (props) => {
     const [filterByPrice, setFilterByPrice] = useState('');
     const [name, setName] = useState('');
 
-    const searchProduct = async () => {
-        try {
-            await axios.get(`http://localhost:5000/products`)
-            .then((rseult)=>{
+    // const searchProduct = async () => {
+    //     try {
+    //         await axios.get(`http://localhost:5000/products`)
+    //         .then((rseult)=>{
 
-            })
-        } catch (error) {
+    //         })
+    //     } catch (error) {
             
-        }
-    }
+    //     }
+    // }
 
     const state = {
         search,
@@ -27,7 +27,7 @@ const HeaderProvider = (props) => {
         setFilterByPrice,
         name,
         setName,
-        searchProduct
+        // searchProduct
     }
 
     return (

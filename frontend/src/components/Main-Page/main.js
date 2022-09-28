@@ -4,9 +4,9 @@ import { productContext } from "../contexts/main";
 const Main = () => {
   const productCompContext = useContext(productContext);
 
-  useEffect(()=>{
+  useEffect(() => {
     productCompContext.showMyProduct();
-  },[]);
+  }, []);
 
   return (
     <>
