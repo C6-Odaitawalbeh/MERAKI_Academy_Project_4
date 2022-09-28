@@ -7,6 +7,7 @@ export const productContext = createContext();
 const ProductProvider = (props) => {
   
   const [product, setProduct] = useState([]);
+  const [productId, setProductId] = useState('');
 
   const history = useNavigate();
 
@@ -23,6 +24,8 @@ const ProductProvider = (props) => {
   const state = {
     product,
     setProduct,
+    productId,
+    setProductId,
     showMyProduct,
   };
 
