@@ -1,5 +1,7 @@
 import axios from "axios";
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { productContext } from "./main";
 
 export const headerContext = createContext();
 
@@ -8,17 +10,22 @@ const HeaderProvider = (props) => {
     const [search, setSearch] = useState('');
     const [filterByPrice, setFilterByPrice] = useState('');
     const [name, setName] = useState('');
+    const [searchProd, setSearchProd] = useState();
 
-    // const searchProduct = async () => {
-    //     try {
-    //         await axios.get(`http://localhost:5000/products`)
-    //         .then((rseult)=>{
+    const history = useNavigate();
 
-    //         })
-    //     } catch (error) {
-            
-    //     }
-    // }
+    const searchProduct = async () => {
+        try {
+            await axios.get(`http://localhost:5000/products/search_1?title=${search}`)
+            .then((rseult)=>{
+                // console.log(rseult.data.searchProduct);
+                setSearchProd(rseult.data.searchProduct);
+                history('/products/search');
+            })
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const state = {
         search,
@@ -27,7 +34,9 @@ const HeaderProvider = (props) => {
         setFilterByPrice,
         name,
         setName,
-        // searchProduct
+        searchProd,
+        setSearchProd,
+        searchProduct
     }
 
     return (

@@ -11,11 +11,9 @@ const ProductProvider = (props) => {
   const history = useNavigate();
 
   const showMyProduct = async () => {
-    console.log("showMyProduct")
     try {
       await axios.get(`http://localhost:5000/products`).then((result) => {
-        console.log(result);
-         setProduct([...product, ...result.data]);
+        setProduct(result.data);
       });
     } catch (err) {
       console.log(err);

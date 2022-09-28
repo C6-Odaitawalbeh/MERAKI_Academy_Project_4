@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
 import Header from "./components/Header/header";
 import Main from "./components/Main-Page/main";
+import Search from "./components/search-page/search";
 
 export const newContext = createContext();
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route exact path="/" element={<Main />} />
+        <Route path="/products/search" element={<Search />} />
       </Routes>
     </div>
   );

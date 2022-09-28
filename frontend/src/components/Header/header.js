@@ -31,7 +31,7 @@ const Header = () => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="header">
-          {/* <div className="header-options"> */}
+
           <p className="name-website" onClick={click}>
             <b>e-commerce app</b>
           </p>
@@ -58,8 +58,6 @@ const Header = () => {
               }}
             />
           </div>
-
-          {/* </div> */}
 
           {loginCompContext.token ? (
             <>
