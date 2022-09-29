@@ -29,7 +29,7 @@ const login = async (req,res) => {
             const token = jwt.sign(payload,secretKey,options);
 
             res.status(200);
-            res.json({success: true, massage: "Valid login credentials", token: token});
+            res.json({success: true, massage: "Valid login credentials", token: token, userId: user._id, role: user.role});
         }
 
         res.status(403);

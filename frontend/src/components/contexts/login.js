@@ -10,6 +10,7 @@ const LoginProvider = (props) => {
   const [token, setToken] = useState("");
   const [message, setMeesage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState('');
 
   const history = useNavigate();
 
@@ -18,8 +19,14 @@ const LoginProvider = (props) => {
     localStorage.setItem("token", token);
   };
 
+  const saveId = (id) => {
+    setUserId(id);
+    localStorage.setItem("userId", id);
+  };
+
   useEffect(() => {
     saveToken(localStorage.getItem("token"));
+    saveId(localStorage.getItem("userId"));
   }, []);
 
   const login = async () => {
@@ -30,7 +37,10 @@ const LoginProvider = (props) => {
       });
 
       saveToken(result.data.token);
+      saveId(result.data.id);
       console.log(result.data.token);
+      console.log(result.data.userId);
+      console.log(result);
 
       history("/"); // main page
 
@@ -52,6 +62,8 @@ const LoginProvider = (props) => {
     setMeesage,
     isLoggedIn,
     setIsLoggedIn,
+    userId,
+    setUserId,
     login,
   };
 

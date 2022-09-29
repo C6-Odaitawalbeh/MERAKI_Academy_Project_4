@@ -1,20 +1,46 @@
-import React, { useContext, useEffect } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { productContext } from "../contexts/main";
 import "./style.css";
 
 const Main = () => {
+
   const productCompContext = useContext(productContext);
 
+  // const [newTitle, setNewTitle] = useState('');
+  // const [newDescription, setNewDescription] = useState('');
+  // const [newPrice, setNewPrice] = useState('');
+  // const [newQuantity, setNewQuantity] = useState('');
+  // const [newLocation, setNewLocation] = useState('');
+  // const [NewShortDescription, setNewShortDescription] = useState('');
+
   useEffect(() => {
-    // console.log("Main")
     productCompContext.showMyProduct();
-    // console.log(productCompContext.product)
   },[]);
 
   const productMoreDetailes = async (id) => {
     productCompContext.setProductId(id);
   }
 
+  // const editProduct = (id) => {
+  //   axios.put(`http://localhost:5000/products/manage/${id}`,
+  //   {
+  //     title: newTitle,
+  //     description: newDescription,
+  //     price: newPrice,
+  //     quantity: newQuantity,
+  //     location: newLocation,
+  //     shortDescription: NewShortDescription 
+  //   })
+  //   .then((result)=>{
+  //     console.log(result);
+  //   })
+  //   .catch((err)=>{
+  //     console.log(err.message);
+  //   })
+  // }
+  // console.log(productCompContext.editState);
   return (
     <>
       <div className="main-page">
@@ -31,6 +57,11 @@ const Main = () => {
               <p className="description">Description: {item.shortDescription}</p>
               <p className="location">Located: {item.location}</p>
               <p className="price">Price: {item.price}</p>
+
+              <div>
+                <p><Link to="/edit/prduct" onClick={(e)=>{productCompContext.setEditState(item._id)}}>Edit Product</Link></p>
+              </div>
+
               </div>
 
             </div>

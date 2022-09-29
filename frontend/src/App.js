@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Header from "./components/Header/header";
 import Main from "./components/Main-Page/main";
 import Search from "./components/search-page/search";
+import EditProduct from "./components/EditProduct/edit";
 
 export const newContext = createContext();
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route exact path="/" element={<Main />} />
         <Route path="/products/search" element={<Search />} />
+        <Route path="/edit/prduct" element={<EditProduct />} />
       </Routes>
     </div>
   );

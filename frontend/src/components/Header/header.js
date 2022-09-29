@@ -47,6 +47,7 @@ const Header = () => {
               placeholder="Search"
               onChange={(e) => {
                 headerCompContext.setSearch(e.target.value);
+                headerCompContext.searchProduct();
               }}
             ></input>
 

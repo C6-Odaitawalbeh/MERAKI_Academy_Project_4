@@ -9,6 +9,8 @@ const ProductProvider = (props) => {
   const [product, setProduct] = useState([]);
   const [productId, setProductId] = useState('');
 
+  const [editState, setEditState] = useState();
+
   const history = useNavigate();
 
   const showMyProduct = async () => {
@@ -26,6 +28,8 @@ const ProductProvider = (props) => {
     setProduct,
     productId,
     setProductId,
+    editState,
+    setEditState,
     showMyProduct,
   };
 
