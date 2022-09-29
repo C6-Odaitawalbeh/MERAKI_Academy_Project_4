@@ -11,6 +11,8 @@ const LoginProvider = (props) => {
   const [message, setMeesage] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState('');
+  const [adminRole, setAdminRole] = useState('');
+  const [found, setFound] = useState(false);
 
   const history = useNavigate();
 
@@ -24,9 +26,14 @@ const LoginProvider = (props) => {
     localStorage.setItem("userId", id);
   };
 
+  const saveRole = (role) => {
+    setAdminRole(role);
+    localStorage.setItem('adminRole', role);
+  }
+
   useEffect(() => {
     saveToken(localStorage.getItem("token"));
-    saveId(localStorage.getItem("userId"));
+    // saveId(localStorage.getItem("userId"));
   }, []);
 
   const login = async () => {
@@ -37,10 +44,13 @@ const LoginProvider = (props) => {
       });
 
       saveToken(result.data.token);
-      saveId(result.data.id);
+      saveId(result.data.userId);
+      saveRole(result.data.role);
       console.log(result.data.token);
       console.log(result.data.userId);
       console.log(result);
+      console.log(result.data.role);
+      setFound(true);
 
       history("/"); // main page
 
@@ -64,6 +74,10 @@ const LoginProvider = (props) => {
     setIsLoggedIn,
     userId,
     setUserId,
+    adminRole,
+    setAdminRole,
+    found,
+    setFound,
     login,
   };
 

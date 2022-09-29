@@ -37,6 +37,7 @@ const Login = () => {
 
           <button
           className="button-login"
+          // onClick={loginCompContext.setFound(true)}
           >Login</button>
 
         </form>
@@ -52,73 +53,3 @@ const Login = () => {
   )
 };
 export default Login;
-
-
-
-
-// import React, { useContext, useState } from "react";
-// import axios from "axios";
-// import { newContext } from "../../App";
-// import { useNavigate } from "react-router-dom";
-// import "./style.css";
-
-// const Login = () => {
-
-//   const { setToken } =useContext(newContext);
-//   const navigate = useNavigate();
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [message, setMessage] = useState("");
-  
-//   const loginButton = () => {
-//     axios
-//       .post(`http://localhost:5000/login`, { email, password })
-//       .then((res) => {
-//         console.log(res.data.token);
-//         setToken(res.data.token);
-//         localStorage.setItem("token", res.data.token);
-//         // navigate("/");
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//         setMessage(err);
-//       });
-//   };
-
-//   return (
-//     <>
-//       <div className="login">
-//         <div className="login-container">
-//           <p>
-//             <b>Login:</b>
-//           </p>
-//           <input
-//             className="login-input"
-//             type="text"
-//             placeholder="Email"
-//             onChange={(e) => {
-//               setEmail(e.target.value);
-//             }}
-//           ></input>
-
-//           <input
-//             className="login-input"
-//             type="password"
-//             placeholder="Password"
-//             onChange={(e) => {
-//               setPassword(e.target.value);
-//             }}
-//           ></input>
-
-//           <button className="login-button" onClick={loginButton}>
-//             Login
-//           </button>
-
-//           <div className="message">{message}</div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Login;

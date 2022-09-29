@@ -8,8 +8,9 @@ const ProductProvider = (props) => {
   
   const [product, setProduct] = useState([]);
   const [productId, setProductId] = useState('');
-
+  console.log(productId);
   const [editState, setEditState] = useState();
+  const [productItemId, setProductItemId] = useState("");
 
   const history = useNavigate();
 
@@ -17,6 +18,7 @@ const ProductProvider = (props) => {
     try {
       await axios.get(`http://localhost:5000/products`).then((result) => {
         setProduct(result.data);
+        
       });
     } catch (err) {
       console.log(err);
@@ -30,6 +32,8 @@ const ProductProvider = (props) => {
     setProductId,
     editState,
     setEditState,
+    productItemId,
+    setProductItemId,
     showMyProduct,
   };
 

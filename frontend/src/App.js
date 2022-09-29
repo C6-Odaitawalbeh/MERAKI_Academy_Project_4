@@ -7,6 +7,7 @@ import Header from "./components/Header/header";
 import Main from "./components/Main-Page/main";
 import Search from "./components/search-page/search";
 import EditProduct from "./components/EditProduct/edit";
+import Cart from "./components/Cart/cart";
 
 export const newContext = createContext();
 
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/" element={<Main />} />
         <Route path="/products/search" element={<Search />} />
         <Route path="/edit/prduct" element={<EditProduct />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );

@@ -1,13 +1,13 @@
 const cartModel = require('../models/cart');
 
 const sendToCart = (req,res) => {
-    const { product,userId } = req.body;
+    const { product} = req.body;
 
-    const { userIdToken } = req.token;
+    const { userId } = req.token;
     const cart = new cartModel(
         {
             product,
-            userId: userIdToken
+            userId: userId
         }
     );
 
@@ -23,7 +23,9 @@ const sendToCart = (req,res) => {
 };
 
 const showCart = (req,res) => {
-    cartModel.find({})
+    const {userId} = req.token;
+    
+    cartModel.find({userId: userId})
     .populate({path:"product"})
     .exec()
     .then((result)=>{

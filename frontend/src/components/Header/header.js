@@ -62,8 +62,8 @@ const Header = () => {
 
           {loginCompContext.token ? (
             <>
-              <div>
-                <Link className="logout" to="/login" onClick={logOut}>
+               <div>
+                <Link className="logout" to="/login" onClick={()=>{logOut(); loginCompContext.setFound(false)}}>
                   logout
                 </Link>
               </div>
