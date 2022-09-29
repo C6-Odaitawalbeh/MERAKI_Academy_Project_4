@@ -33,8 +33,8 @@ const showCart = (req,res) => {
         res.json(result);
     })
     .catch((err)=>{
-        res.status(404);
-        res.json(err.message);
+        res.status(500);
+        res.json(err);
     })
 };
 
@@ -47,7 +47,7 @@ const deleteCart = (req,res) => {
         res.json(result);
     })
     .catch((err)=>{
-        res.status(404);
+        res.status(500);
         res.json(err.message);
     })
 }

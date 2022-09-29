@@ -8,9 +8,10 @@ const ProductProvider = (props) => {
   
   const [product, setProduct] = useState([]);
   const [productId, setProductId] = useState('');
-  console.log(productId);
+  // console.log(productId);
   const [editState, setEditState] = useState();
   const [productItemId, setProductItemId] = useState("");
+  // console.log(productItemId);
 
   const history = useNavigate();
 

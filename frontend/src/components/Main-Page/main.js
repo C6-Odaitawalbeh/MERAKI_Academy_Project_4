@@ -26,15 +26,14 @@ const Main = () => {
   const sendToCart =  (id) => {
       axios.post(`http://localhost:5000/cart`,{
         product: id
-        
-        // productCompContext.productId
       } , {
         headers: {
           Authorization: `Bearer ${loginCompContext.token}`,
         },
       })
       .then((res)=>{
-        // console.log(res.data.product);
+        console.log(res);
+        console.log(res.data.product);
         productCompContext.setProductItemId(res.data.product)
       })
       .catch((err)=>{
@@ -59,11 +58,7 @@ const Main = () => {
               </div>
 
               <div className="words">
-                <p className="title">{item.title}</p>
-                <p className="description">
-                  Description: {item.shortDescription}
-                </p>
-                <p className="location">Located: {item.location}</p>
+                <h3 className="title">{item.title}</h3>
                 <p className="price">Price: {item.price}</p>
 
                 <button id={item._id} onClick={(e)=>{sendToCart(item._id)}}>Add To Cart</button>

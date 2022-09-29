@@ -69,7 +69,7 @@ const Header = () => {
               </div>
 
               <div>
-                <AiOutlineShoppingCart size={28} className="cart-icon" />
+                <AiOutlineShoppingCart size={28} className="cart-icon" onClick={()=>{history("/cart")}}/>
               </div>
             </>
           ) : (

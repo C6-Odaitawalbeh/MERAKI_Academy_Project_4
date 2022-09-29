@@ -68,7 +68,7 @@ const EditProduct = () => {
 
         <input
           className="input"
-          type="tex"
+          type="number"
           placeholder="Price"
           onChange={(e) => {
             setNewPrice(e.target.value);
@@ -77,7 +77,7 @@ const EditProduct = () => {
 
         <input
           className="input"
-          type="tex"
+          type="number"
           placeholder="Quantity"
           onChange={(e) => {
             setNewQuantity(e.target.value);
