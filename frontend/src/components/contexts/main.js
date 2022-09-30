@@ -13,14 +13,17 @@ const ProductProvider = (props) => {
   const [productItemId, setProductItemId] = useState("");
   // console.log(productItemId);
   // const [buttonAddToCart, setButtonAddToCart] = useState(true);
+  const [limit, setLimit] = useState(8);
+  const [pageNumber, setPageNumber] = useState(1);
 
   const history = useNavigate();
 
   const showMyProduct = async () => {
     try {
-      await axios.get(`http://localhost:5000/products`).then((result) => {
+      await axios.get(`http://localhost:5000/products/page?page=${pageNumber}&&limit=${limit}`)
+      .then((result) => {
+        console.log(result.data);
         setProduct(result.data);
-        
       });
     } catch (err) {
       console.log(err);
@@ -36,6 +39,8 @@ const ProductProvider = (props) => {
     setEditState,
     productItemId,
     setProductItemId,
+    pageNumber,
+    setPageNumber,
     showMyProduct,
   };
 

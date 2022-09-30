@@ -8,32 +8,10 @@ import { TiDelete } from "react-icons/ti";
 const Cart = () => {
   const productCompContext = useContext(productContext);
   const loginCompContext = useContext(loginContext);
-
   const [productElem, setProductElem] = useState([]);
-    console.log(productElem);
+    // console.log(productElem);
+  
 
-
-  //   const showCart = async () => {
-  //     try {
-  //       await axios
-  //         .get(`http://localhost:5000/cart/show`, {
-  //           headers: {
-  //             Authorization: `Bearer ${loginCompContext.token}`,
-  //           },
-  //         })
-  //         .then((res) => {
-  //         //   console.log(res.data);
-  //         //   console.log(res.data[0].product);
-  //           setProductElem([...productElem, ...res.data])
-  //         })
-  //         .catch((err) => {
-  //           console.log(err);
-  //         });
-  //     } catch (err) {
-  //       console.log(err);
-  //       throw err;
-  //     }
-  //   };
 
   useEffect(() => {
     axios.get("http://localhost:5000/cart/show", {
@@ -51,7 +29,6 @@ const Cart = () => {
     })
   },[]);
 
-//   showCart();
 
   const deleteFromCart = async (id) => {
     try {

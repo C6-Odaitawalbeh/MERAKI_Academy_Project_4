@@ -11,12 +11,14 @@ const Main = () => {
   const productCompContext = useContext(productContext);
   const loginCompContext = useContext(loginContext);
   const [admin, setAdmin] = useState(true);
+  // const [limit, setLimit] = useState(8);
+  // const [pageNumber, setPageNumber] = useState(1);
 
   const history = useNavigate();
 
   useEffect(() => {
     productCompContext.showMyProduct();
-  }, []);
+  }, [productCompContext.pageNumber]);
 
   const productMoreDetailes = async (id) => {
     productCompContext.setProductId(id);
@@ -52,6 +54,16 @@ const Main = () => {
       btnRef.current.setAttribute("disabled", "disabled");
     }
   }
+
+  // useEffect(()=>{
+  //   axios.get(`http://localhost:5000/products/page?page=${pageNumber}&&limit=${limit}`)
+  //   .then((result)=>{
+  //     console.log(result.data);
+  //   })
+  //   .catch((err)=>{
+  //     console.log(err);
+  //   })
+  // },[pageNumber]);
 
   return (
     <>
@@ -108,6 +120,10 @@ const Main = () => {
             </div>
           );
         })}
+      </div>
+      <div>
+        <button onClick={()=>{productCompContext.setPageNumber(productCompContext.pageNumber+1)}}>More</button>
+        <button onClick={()=>{productCompContext.setPageNumber(productCompContext.pageNumber-1)}}>Less</button>
       </div>
     </>
   );
