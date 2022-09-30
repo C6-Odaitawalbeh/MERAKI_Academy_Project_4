@@ -8,16 +8,16 @@ import Main from "./components/Main-Page/main";
 import Search from "./components/search-page/search";
 import EditProduct from "./components/EditProduct/edit";
 import Cart from "./components/Cart/cart";
+import LoginAd from "./components/Admin/loginad";
 
 export const newContext = createContext();
 
 function App() {
-  // const [token, setToken] = useState(localStorage.getItem("token") || "");
-  // const [isLoogedIn, setIsLoogedIn] = useState(true);
   return (
     <div className="App">
       {<Header />}
       <Routes>
+        <Route path="/login/admin/controller/page" element={<LoginAd />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route exact path="/" element={<Main />} />

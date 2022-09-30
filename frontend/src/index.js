@@ -6,21 +6,21 @@ import RegisterProvider from "./components/contexts/register";
 import LoginProvider from "./components/contexts/login";
 import HeaderProvider from "./components/contexts/header";
 import ProductProvider from "./components/contexts/main";
-import RegisterAdminProvider from "./components/contexts/adminRegister";
+import LoginAdminProvider from "./components/contexts/indexadmin";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
-    <RegisterAdminProvider>
-      <HeaderProvider>
-        <ProductProvider>
-          <RegisterProvider>
-            <LoginProvider>
-              <App />
-            </LoginProvider>
-          </RegisterProvider>
-        </ProductProvider>
-      </HeaderProvider>
-    </RegisterAdminProvider>
+    <LoginAdminProvider>
+        <HeaderProvider>
+          <ProductProvider>
+            <RegisterProvider>
+              <LoginProvider>
+                <App />
+              </LoginProvider>
+            </RegisterProvider>
+          </ProductProvider>
+        </HeaderProvider>
+    </LoginAdminProvider>
   </Router>
 );
