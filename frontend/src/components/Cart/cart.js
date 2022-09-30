@@ -47,7 +47,7 @@ const Cart = () => {
         setProductElem(result.data)
     })
     .catch((err)=>{
-        console.log(err.message);
+        console.log(err);
     })
   },[]);
 
@@ -72,6 +72,8 @@ const Cart = () => {
       throw err;
     }
   };
+
+ 
 
   return (
     <>

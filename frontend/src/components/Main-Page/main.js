@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginContext } from "../contexts/login";
 import { productContext } from "../contexts/main";
@@ -11,7 +11,6 @@ const Main = () => {
   const productCompContext = useContext(productContext);
   const loginCompContext = useContext(loginContext);
   const [admin, setAdmin] = useState(true);
-  
 
   const history = useNavigate();
 
@@ -23,23 +22,36 @@ const Main = () => {
     productCompContext.setProductId(id);
   };
 
-  const sendToCart =  (id) => {
-      axios.post(`http://localhost:5000/cart`,{
-        product: id
-      } , {
-        headers: {
-          Authorization: `Bearer ${loginCompContext.token}`,
+  const sendToCart = (id) => {
+    axios
+      .post(
+        `http://localhost:5000/cart`,
+        {
+          product: id,
         },
-      })
-      .then((res)=>{
+        {
+          headers: {
+            Authorization: `Bearer ${loginCompContext.token}`,
+          },
+        }
+      )
+      .then((res) => {
         console.log(res);
         console.log(res.data.product);
-        productCompContext.setProductItemId(res.data.product)
+        productCompContext.setProductItemId(res.data.product);
       })
-      .catch((err)=>{
+      .catch((err) => {
         console.log(err);
-      })
+      });
   };
+
+  let btnRef = useRef();
+
+  const onBtnClick = e => {
+    if(btnRef.current){
+      btnRef.current.setAttribute("disabled", "disabled");
+    }
+  }
 
   return (
     <>
@@ -61,7 +73,17 @@ const Main = () => {
                 <h3 className="title">{item.title}</h3>
                 <p className="price">Price: {item.price}</p>
 
-                <button id={item._id} onClick={(e)=>{sendToCart(item._id)}}>Add To Cart</button>
+                  <button
+                    ref={btnRef}
+                    id={item._id}
+                    onClick={() => {
+                      sendToCart(item._id);
+                      productCompContext.setButtonAddToCart(false);
+                      onBtnClick();
+                    }}
+                  >
+                    Add To Cart
+                  </button>
 
                 {/* 
               {loginCompContext.adminRole == "6331e15b77850e5ab71f0d4d" ? ( 

@@ -10,10 +10,10 @@ const createNewProducts = (req,res) => {
         location,
         shortDescription,
         image,
-        userId
+        userIdd
     } = req.body;
 
-    const {userIdToken} = req.token;
+    const {userId} = req.token;
 
     const product = new productModel(
         {
@@ -25,7 +25,7 @@ const createNewProducts = (req,res) => {
         location,
         shortDescription,
         image,
-        userId: userIdToken
+        userId: userId
         }
     )
 
