@@ -1,24 +1,22 @@
 import axios from "axios";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginContext } from "../contexts/login";
 import { productContext } from "../contexts/main";
 import "./style.css";
 import { FcDeleteDatabase } from "react-icons/fc";
 import { AiFillEdit } from "react-icons/ai";
+import ReactPaginate from "react-paginate";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Main = () => {
   const productCompContext = useContext(productContext);
   const loginCompContext = useContext(loginContext);
-  const [admin, setAdmin] = useState(true);
-  // const [limit, setLimit] = useState(8);
-  // const [pageNumber, setPageNumber] = useState(1);
-
   const history = useNavigate();
 
   useEffect(() => {
     productCompContext.showMyProduct();
-  }, [productCompContext.pageNumber]);
+  }, [/*productCompContext.pageNumber*/]);
 
   const productMoreDetailes = async (id) => {
     productCompContext.setProductId(id);
@@ -47,23 +45,13 @@ const Main = () => {
       });
   };
 
-  let btnRef = useRef();
+  const handlePageClick = (data) => {
+    //page Number on click button pagination
+    // console.log(data.selected+1);
+    productCompContext.showMyProduct(data.selected+1)
+  };
 
-  const onBtnClick = e => {
-    if(btnRef.current){
-      btnRef.current.setAttribute("disabled", "disabled");
-    }
-  }
-
-  // useEffect(()=>{
-  //   axios.get(`http://localhost:5000/products/page?page=${pageNumber}&&limit=${limit}`)
-  //   .then((result)=>{
-  //     console.log(result.data);
-  //   })
-  //   .catch((err)=>{
-  //     console.log(err);
-  //   })
-  // },[pageNumber]);
+  const pageCount = 10;
 
   return (
     <>
@@ -82,16 +70,15 @@ const Main = () => {
               </div>
 
               <div className="words">
-                <h3 className="title">{item.title}</h3>
-                <p className="price">Price: {item.price}</p>
+                <p className="title">{item.title}</p>
+                {/* <p className="price">{item.shortDescription}</p> */}
 
                   <button
-                    ref={btnRef}
+                  className="addToCart"
                     id={item._id}
                     onClick={() => {
                       sendToCart(item._id);
                       productCompContext.setButtonAddToCart(false);
-                      onBtnClick();
                     }}
                   >
                     Add To Cart
@@ -121,10 +108,30 @@ const Main = () => {
           );
         })}
       </div>
-      <div>
+      {/* <div>
         <button onClick={()=>{productCompContext.setPageNumber(productCompContext.pageNumber+1)}}>More</button>
         <button onClick={()=>{productCompContext.setPageNumber(productCompContext.pageNumber-1)}}>Less</button>
-      </div>
+      </div> */}
+
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="next >"
+        onPageChange={handlePageClick}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={2}
+        pageCount={pageCount}
+        previousLabel="< back"
+        containerClassName={"pagination justify-content-center p-3"}
+        pageClassName={"page-item"}
+        pageLinkClassName={"page-link"}
+        previousClassName={"page-item"}
+        nextClassName={"page-item"}
+        previousLinkClassName={"page-link"}
+        nextLinkClassName={"page-link"}
+        breakClassName={"page-item"}
+        breakLinkClassName={"page-link"}
+        activeClassName={"active"}
+      />
     </>
   );
 };
