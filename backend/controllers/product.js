@@ -66,8 +66,24 @@ const getProductsById = (req,res) => {
     })
 };
 
+const getProductByPage = (req,res) => {
+    const {page,limit}= req.query
+    const skip = (page-1)*8
+    productModel.find()
+    .skip(skip)
+    .limit(limit)
+    .then((result)=>{
+        res.status(201);
+        res.json(result);
+    })
+    .catch((err)=>{
+        res.status(500);
+        res.json(err.message);
+    })
+}
+
 const searchProduct = async (req,res) => {
-    console.log("test")
+    // console.log("test")
     const title = req.query.title;
         console.log(title);
     const regex = new RegExp(title, "gi");
@@ -132,4 +148,4 @@ const deleteProductsById = (req,res) => {
 };
 
 
-module.exports = { createNewProducts, getAllProducts, getProductsById , searchProduct, filterProduct ,updateProductsById, deleteProductsById }
+module.exports = { createNewProducts, getAllProducts, getProductsById , searchProduct, filterProduct ,updateProductsById, deleteProductsById, getProductByPage }
