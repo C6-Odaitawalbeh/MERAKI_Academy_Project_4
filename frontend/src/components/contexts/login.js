@@ -46,10 +46,10 @@ const LoginProvider = (props) => {
       saveToken(result.data.token);
       saveId(result.data.userId);
       saveRole(result.data.role);
-      console.log(result.data.token);
-      console.log(result.data.userId);
-      console.log(result);
-      console.log(result.data.role);
+      // console.log(result.data.token);
+      // console.log(result.data.userId);
+      // console.log(result);
+      // console.log(result.data.role);
       setFound(true);
 
       history("/"); // main page
