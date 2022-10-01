@@ -26,6 +26,24 @@ const Controller = () => {
       });
   }, []);
 
+  const deleteProduct = async (id) => {
+    try {
+        await axios.delete(`http://localhost:5000/products/manage/${id}`,{
+            headers: {
+              Authorization: `Bearer ${loginCompContext.token}`,
+            },
+          }).then((result)=>{
+            const productAfterDelete = getproduct.filter((elem)=>{
+                return elem._id !== id;
+            });
+            setGetProduct(productAfterDelete);
+          })
+    } catch (err) {
+        console.log(err);
+        throw err;
+    }
+  }
+
   return (
     <>
       <div>
@@ -52,7 +70,7 @@ const Controller = () => {
                     <td>{item.quantity}</td>
                     <td>{item.location}</td>
                     <td>{item.price}</td>
-                    <td><FcDeleteDatabase size={28} /></td>
+                    <td><FcDeleteDatabase className="icon-delete" onClick={()=>deleteProduct(item._id)} size={28}/></td>
                     <td><AiFillEdit size={28} /></td>
                 </tr>
               </table>
