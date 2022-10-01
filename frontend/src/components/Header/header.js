@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { headerContext } from "../contexts/header";
 import { loginContext } from "../contexts/login";
@@ -9,7 +9,6 @@ import "./style.css";
 const Header = () => {
   const headerCompContext = useContext(headerContext);
   const loginCompContext = useContext(loginContext);
-
   const history = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -27,6 +26,10 @@ const Header = () => {
     loginCompContext.setIsLoggedIn(false);
   };
 
+  const handelController = () => {
+    history("/admin/manage");
+  }
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -36,10 +39,7 @@ const Header = () => {
             <b>e-commerce app</b>
           </p>
 
-          <select name="Test">
-            <option>test</option>
-            <option>test</option>
-          </select>
+          {loginCompContext.adminRole === "6331e15b77850e5ab71f0d4d" ?( <button onClick={handelController}>Controller</button>) : (<div></div>)}
 
           <div className="search">
             <input
@@ -63,7 +63,7 @@ const Header = () => {
           {loginCompContext.token ? (
             <>
                <div>
-                <Link className="logout" to="/login" onClick={()=>{logOut(); loginCompContext.setFound(false)}}>
+                <Link className="logout" to="/login" onClick={()=>{logOut(); loginCompContext.setFound(false);}}>
                   logout
                 </Link>
               </div>

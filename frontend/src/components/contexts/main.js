@@ -22,7 +22,6 @@ const ProductProvider = (props) => {
     try {
       await axios.get(`http://localhost:5000/products/page?page=${pageNumber}&&limit=${limit}`)
       .then((result) => {
-        // console.log(result.data);
         setProduct(result.data);
       });
     } catch (err) {

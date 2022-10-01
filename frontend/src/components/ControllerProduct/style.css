@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(232, 231, 244);
+}
+
+.image-product {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+table {
+    width: 1300px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+th {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid #000;
+}

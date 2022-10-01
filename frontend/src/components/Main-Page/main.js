@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { loginContext } from "../contexts/login";
 import { productContext } from "../contexts/main";
 import "./style.css";
-import { FcDeleteDatabase } from "react-icons/fc";
-import { AiFillEdit } from "react-icons/ai";
+// import { FcDeleteDatabase } from "react-icons/fc";
+// import { AiFillEdit } from "react-icons/ai";
 import ReactPaginate from "react-paginate";
 import 'bootstrap/dist/css/bootstrap.min.css';
 

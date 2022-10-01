@@ -13,7 +13,7 @@ const LoginProvider = (props) => {
   const [userId, setUserId] = useState('');
   const [adminRole, setAdminRole] = useState('');
   const [found, setFound] = useState(false);
-
+  console.log(adminRole);
   const history = useNavigate();
 
   const saveToken = (token) => {
