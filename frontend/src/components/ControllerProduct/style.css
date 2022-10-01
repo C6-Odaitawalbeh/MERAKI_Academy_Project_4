@@ -25,3 +25,13 @@ table, th, td {
     cursor: pointer;
     color: orangered;
 }
+
+.create-new-product {
+    margin-top: 20px;
+}
+
+.create-product {
+    color:  #0f6ad8;
+    font-weight: 400;
+    text-decoration: none;
+}

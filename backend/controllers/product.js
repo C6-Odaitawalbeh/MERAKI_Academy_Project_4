@@ -10,7 +10,6 @@ const createNewProducts = (req,res) => {
         location,
         shortDescription,
         image,
-        userIdd
     } = req.body;
 
     const {userId} = req.token;

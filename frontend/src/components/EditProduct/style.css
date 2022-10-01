@@ -36,3 +36,25 @@
     border-radius: 4px;
     margin-bottom: 10px;
 }
+
+.back-to-page {
+    display: flex;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+    padding-bottom: 6px;
+}
+
+.back {
+    display: flex;
+    width: 65px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #0e2b50;
+    border-radius: 4px;
+}
+
+.back-string {
+    margin-top: 10px;
+    color: white;
+}

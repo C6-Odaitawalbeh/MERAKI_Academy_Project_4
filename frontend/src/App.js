@@ -9,6 +9,7 @@ import Search from "./components/search-page/search";
 import EditProduct from "./components/EditProduct/edit";
 import Cart from "./components/Cart/cart";
 import Controller from "./components/ControllerProduct/admin";
+import Creat from "./components/Create-Products/createProducts";
 
 // export const newContext = createContext();
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/edit/prduct" element={<EditProduct />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/admin/manage" element={<Controller />}/>
+        <Route path="/admin/manage/create" element={<Creat />} />
       </Routes>
     </div>
   );

@@ -3,10 +3,15 @@ import { productContext } from "../contexts/main";
 import axios from "axios";
 import { loginContext } from "../contexts/login";
 import "./style.css"
+import { AiOutlineRollback } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+
 
 const EditProduct = () => {
   const productCompContext = useContext(productContext);
   const loginCompContext = useContext(loginContext);
+
+  const history = useNavigate();
 
   const [newTitle, setNewTitle] = useState("");
   const [newDescription, setNewDescription] = useState("");
@@ -56,9 +61,14 @@ const EditProduct = () => {
 
   return (
     <>
+    <div className="back">
+          <AiOutlineRollback onClick={history("/admin/manage")} className="back-to-page" size={28} />
+          <p className="back-string">Back</p>
+          </div>
       <div className="container-edit-product">
 
         <input className="upload-image" type="file" id="myFile" name="filename" />
+
         <textarea
           className="input-edit-product"
           type="text"
@@ -86,23 +96,23 @@ const EditProduct = () => {
           }}
         ></textarea>
 
-        <textarea
+        <input
           className="input-edit-product"
           type="number"
           placeholder="Price"
           onChange={(e) => {
             setNewPrice(e.target.value);
           }}
-        ></textarea>
+        ></input>
 
-        <textarea
+        <input
           className="input-edit-product"
           type="number"
           placeholder="Quantity"
           onChange={(e) => {
             setNewQuantity(e.target.value);
           }}
-        ></textarea>
+        ></input>
 
         <textarea
           className="input-edit-product"
@@ -116,7 +126,7 @@ const EditProduct = () => {
         <button
           className="button-update-product"
           onClick={(e) => {
-            updateProduct(productCompContext.idProductEdit); setMeesage("Done! CREATE NEW BRODUCT");
+            updateProduct(productCompContext.idProductEdit); setMeesage("Done! Update Product");
           }}
         >
           UPDATE

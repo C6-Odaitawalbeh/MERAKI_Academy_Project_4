@@ -4,7 +4,7 @@ import { loginContext } from "../contexts/login";
 import { FcDeleteDatabase } from "react-icons/fc";
 import { AiFillEdit } from "react-icons/ai";
 import "./style.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { productContext } from "../contexts/main";
 
 const Controller = () => {
@@ -48,30 +48,9 @@ const Controller = () => {
     };
   };
 
-//   const editProduct = async (id) => {
-//     try {
-//         await axios.put(`http://localhost:5000/products/manage/${id}`,{
-//             title,
-//             description,
-//             shortDescription,
-//             quantity,
-//             price,
-//             location,
-//             image,
-//         },{
-//             headers: {
-//               Authorization: `Bearer ${loginCompContext.token}`,
-//             },
-//           }).then((result)=>{
-
-//           })
-//     } catch (err) {
-        
-//     }
-//   }
-
   return (
     <>
+      <div className="create-new-product"><Link className="create-product" to="/admin/manage/create"><b>CREATE NEW PRODUCTS</b></Link></div>
       <div>
         {getproduct.map((item, index) => {
           return (

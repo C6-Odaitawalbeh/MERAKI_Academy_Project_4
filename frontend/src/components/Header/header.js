@@ -26,13 +26,13 @@ const Header = () => {
     loginCompContext.setIsLoggedIn(false);
   };
 
-  const handelController = () => {
-    history("/admin/manage");
-  }
+  // const handelController = () => {
+  //   history("/admin/manage");
+  // }
 
-  const handleUsers = () => {
-    history("/admin/manage/users")
-  }
+  // const handleUsers = () => {
+  //   history("/admin/manage/users")
+  // }
 
   return (
     <>
@@ -68,8 +68,8 @@ const Header = () => {
             <option>USERS SETTING</option>
           </select>) : (<div></div>)} */}
 
-          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <p className="button-admin" onClick={handelController}><b>PRODUCTS SETTING</b></p>) : (<div></div>)}
-          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <p className="button-admin" onClick={handleUsers}><b>USERS SETTING</b></p>) : (<div></div>)}
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage" >Product Setting</Link>) : (<div></div>)}
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage/users" >User Setting</Link>) : (<div></div>)}
 
 
           {loginCompContext.token ? (
