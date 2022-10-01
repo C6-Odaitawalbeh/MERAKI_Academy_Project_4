@@ -44,6 +44,7 @@ const EditProduct = () => {
             item.shortDescription = result.data.shortDescription;
             item.quantity = result.data.quantity;
           }
+          return newProductAfterUpdate;
         })
       })
       .catch((err) => {
