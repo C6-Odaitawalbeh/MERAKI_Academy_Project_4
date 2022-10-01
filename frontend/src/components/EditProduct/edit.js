@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { productContext } from "../contexts/main";
 import axios from "axios";
 import { loginContext } from "../contexts/login";
+import "./style.css"
 
 const EditProduct = () => {
   const productCompContext = useContext(productContext);
@@ -13,12 +14,15 @@ const EditProduct = () => {
   const [newQuantity, setNewQuantity] = useState(0);
   const [newLocation, setNewLocation] = useState("");
   const [NewShortDescription, setNewShortDescription] = useState("");
+  const [message, setMeesage] = useState('');
+  const [newImage, setNewImage] = useState();
 
   const updateProduct = (id) => {
     axios
       .put(
         `http://localhost:5000/products/manage/${id}`,
         {
+          image: newImage,
           title: newTitle,
           description: newDescription,
           price: newPrice,
@@ -30,6 +34,17 @@ const EditProduct = () => {
       )
       .then((result) => {
         console.log(result);
+        const newProductAfterUpdate = productCompContext.product.map((item,index)=>{
+          if (item._id == id) {
+            item.title = result.data.title;
+            item.image = result.data.image;
+            item.description = result.data.description;
+            item.price = result.data.price;
+            item.location = result.data.location;
+            item.shortDescription = result.data.shortDescription;
+            item.quantity = result.data.quantity;
+          }
+        })
       })
       .catch((err) => {
         console.log(err);
@@ -40,69 +55,73 @@ const EditProduct = () => {
 
   return (
     <>
-      <div>
-        <input
-          className="input"
+      <div className="container-edit-product">
+
+        <input className="upload-image" type="file" id="myFile" name="filename" />
+        <textarea
+          className="input-edit-product"
           type="text"
           placeholder="Title"
           onChange={(e) => {
             setNewTitle(e.target.value);
           }}
-        ></input>
+        ></textarea>
 
-        <input
-          className="input"
+        <textarea
+          className="input-edit-product"
           type="text"
           placeholder="Discription"
           onChange={(e) => {
             setNewDescription(e.target.value);
           }}
-        ></input>
+        ></textarea>
 
-        <input
-          className="input"
+        <textarea
+          className="input-edit-product"
           type="text"
           placeholder="Short Discription"
           onChange={(e) => {
             setNewShortDescription(e.target.value);
           }}
-        ></input>
+        ></textarea>
 
-        <input
-          className="input"
+        <textarea
+          className="input-edit-product"
           type="number"
           placeholder="Price"
           onChange={(e) => {
             setNewPrice(e.target.value);
           }}
-        ></input>
+        ></textarea>
 
-        <input
-          className="input"
+        <textarea
+          className="input-edit-product"
           type="number"
           placeholder="Quantity"
           onChange={(e) => {
             setNewQuantity(e.target.value);
           }}
-        ></input>
+        ></textarea>
 
-        <input
-          className="input"
+        <textarea
+          className="input-edit-product"
           type="tex"
           placeholder="Located"
           onChange={(e) => {
             setNewLocation(e.target.value);
           }}
-        ></input>
+        ></textarea>
 
         <button
-          className="button-update"
+          className="button-update-product"
           onClick={(e) => {
-            updateProduct(productCompContext.idProductEdit);
+            updateProduct(productCompContext.idProductEdit); setMeesage("Done! CREATE NEW BRODUCT");
           }}
         >
           UPDATE
         </button>
+
+        {message && <div className="messamge-update-product">{message}</div>}
       </div>
     </>
   );

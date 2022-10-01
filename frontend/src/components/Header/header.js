@@ -68,8 +68,8 @@ const Header = () => {
             <option>USERS SETTING</option>
           </select>) : (<div></div>)} */}
 
-          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <button className="button-admin" onClick={handelController}><b>PRODUCTS</b></button>) : (<div></div>)}
-          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <button className="button-admin" onClick={handleUsers}><b>USERS</b></button>) : (<div></div>)}
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <p className="button-admin" onClick={handelController}><b>PRODUCTS SETTING</b></p>) : (<div></div>)}
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <p className="button-admin" onClick={handleUsers}><b>USERS SETTING</b></p>) : (<div></div>)}
 
 
           {loginCompContext.token ? (
