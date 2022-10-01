@@ -16,7 +16,7 @@ const ProductProvider = (props) => {
   const [limit, setLimit] = useState(20);
   const [pageNumber, setPageNumber] = useState(1);
 
-  // const [idProductEdit, setIdProductEdit] = useState('')
+  const [idProductEdit, setIdProductEdit] = useState('')
   const [productIdDetailes, setProductIdDetailes] = useState([]);
   console.log(productIdDetailes);
 
@@ -44,8 +44,8 @@ const ProductProvider = (props) => {
     setProductItemId,
     pageNumber,
     setPageNumber,
-    // idProductEdit,
-    // setIdProductEdit,
+    idProductEdit,
+    setIdProductEdit,
     productIdDetailes,
     setProductIdDetailes,
     showMyProduct,

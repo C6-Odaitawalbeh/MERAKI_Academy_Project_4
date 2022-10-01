@@ -28,6 +28,7 @@
 .search-icon {
     margin-left: -29px;
     padding-top: 6px;
+    cursor: pointer;
     /* margin-top: 4px; */
     /* background-color: rgb(223, 157, 26); */
 }
@@ -47,12 +48,14 @@
 
 .cart-icon {
     color: white;
+    cursor: pointer;
 }
 
 .login-link {
     color: white;
     text-decoration: none;
     font-size: 20px;
+    cursor: pointer;
 }
 
 select {
@@ -68,12 +71,14 @@ select {
     color: white;
     text-decoration: none;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .button-admin {
     border: none;
     padding: 3px;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .button-admin {
@@ -81,4 +86,5 @@ select {
     font-size: 18px;
     cursor: pointer;
     text-decoration: none;
+    cursor: pointer;
 }

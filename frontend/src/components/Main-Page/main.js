@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginContext } from "../contexts/login";
 import { productContext } from "../contexts/main";
@@ -7,7 +7,7 @@ import "./style.css";
 // import { FcDeleteDatabase } from "react-icons/fc";
 // import { AiFillEdit } from "react-icons/ai";
 import ReactPaginate from "react-paginate";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { FcLike } from "react-icons/fc";
 
 const Main = () => {
@@ -15,9 +15,14 @@ const Main = () => {
   const loginCompContext = useContext(loginContext);
   const history = useNavigate();
 
-  useEffect(() => {
-    productCompContext.showMyProduct();
-  }, [/*productCompContext.pageNumber*/]);
+  useEffect(
+    () => {
+      productCompContext.showMyProduct();
+    },
+    [
+      /*productCompContext.pageNumber*/
+    ]
+  );
 
   const productMoreDetailes = async (id) => {
     productCompContext.setProductId(id);
@@ -47,16 +52,15 @@ const Main = () => {
   };
 
   const handlePageClick = (data) => {
-    productCompContext.showMyProduct(data.selected+1)
+    productCompContext.showMyProduct(data.selected + 1);
   };
 
   const detailes = (product) => {
     productCompContext.setProductIdDetailes(product);
-    history('/product/detailes');
-  }
+    history("/product/detailes");
+  };
 
   const pageCount = 10;
-
 
   return (
     <>
@@ -71,21 +75,26 @@ const Main = () => {
               }}
             >
               <div className="image-div">
-                <img className="product-image" src={item.image}  onClick={(e)=>{ productCompContext.setProductIdDetailes(item); history("/product/detailes")}}/>
+                <img
+                  className="product-image"
+                  src={item.image}
+                  onClick={(e) => {
+                    productCompContext.setProductIdDetailes(item);
+                    history("/product/detailes");
+                  }}
+                />
               </div>
 
               <div className="words">
-                {/* <p className="title">{item.title}</p> */}
-
-                  <FcLike
+                <FcLike
                   className="addToCart"
                   size={30}
-                    id={item._id}
-                    onClick={() => {
-                      sendToCart(item._id);
-                      productCompContext.setButtonAddToCart(false);
-                    }}
-                  />
+                  id={item._id}
+                  onClick={() => {
+                    sendToCart(item._id);
+                    productCompContext.setButtonAddToCart(false);
+                  }}
+                />
               </div>
             </div>
           );

@@ -3,7 +3,7 @@ import { productContext } from "../contexts/main";
 import axios from "axios";
 import { loginContext } from "../contexts/login";
 import "./style.css"
-import { AiOutlineRollback } from "react-icons/ai";
+// import { AiOutlineRollback } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 
@@ -61,10 +61,6 @@ const EditProduct = () => {
 
   return (
     <>
-    <div className="back">
-          <AiOutlineRollback onClick={history("/admin/manage")} className="back-to-page" size={28} />
-          <p className="back-string">Back</p>
-          </div>
       <div className="container-edit-product">
 
         <input className="upload-image" type="file" id="myFile" name="filename" />

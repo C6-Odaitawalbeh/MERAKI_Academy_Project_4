@@ -1,0 +1,36 @@
+.container-detailes-product {
+    display: grid;
+    grid-template-columns: repeat(5,auto);
+    background-color: white;
+    margin-top: 80px;
+}
+
+.image-product-detailess {
+    width: 500px;
+    height: 500px;
+}
+
+.prduct-detailes-words {
+    margin-top: 40px;
+    width: 500px;
+    height: auto;
+    color: #11386b;
+}
+
+.icon-love-product {
+    margin-top: 40px;
+}
+
+.textt {
+    color: black;
+}
+
+.fclike-icon {
+    margin-bottom: 20px;
+}
+
+.detailess {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: left;
+}
