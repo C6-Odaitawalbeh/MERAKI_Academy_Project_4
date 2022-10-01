@@ -8,6 +8,7 @@ import "./style.css";
 // import { AiFillEdit } from "react-icons/ai";
 import ReactPaginate from "react-paginate";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FcLike } from "react-icons/fc";
 
 const Main = () => {
   const productCompContext = useContext(productContext);
@@ -46,12 +47,16 @@ const Main = () => {
   };
 
   const handlePageClick = (data) => {
-    //page Number on click button pagination
-    // console.log(data.selected+1);
     productCompContext.showMyProduct(data.selected+1)
   };
 
+  const detailes = (product) => {
+    productCompContext.setProductIdDetailes(product);
+    history('/product/detailes');
+  }
+
   const pageCount = 10;
+
 
   return (
     <>
@@ -59,50 +64,28 @@ const Main = () => {
         {productCompContext.product.map((item, index) => {
           return (
             <div
-              className="product"
+              className="products"
               key={index}
               onClick={() => {
                 productMoreDetailes(item._id);
               }}
             >
               <div className="image-div">
-                <img className="product-image" src={item.image} />
+                <img className="product-image" src={item.image}  onClick={(e)=>{ productCompContext.setProductIdDetailes(item); history("/product/detailes")}}/>
               </div>
 
               <div className="words">
-                <p className="title">{item.title}</p>
-                {/* <p className="price">{item.shortDescription}</p> */}
+                {/* <p className="title">{item.title}</p> */}
 
-                  <button
+                  <FcLike
                   className="addToCart"
+                  size={30}
                     id={item._id}
                     onClick={() => {
                       sendToCart(item._id);
                       productCompContext.setButtonAddToCart(false);
                     }}
-                  >
-                    Add To Cart
-                  </button>
-
-                {/* 
-              {loginCompContext.adminRole == "6331e15b77850e5ab71f0d4d" ? ( 
-              <>
-              <div>
-                {admin && <FcDeleteDatabase size={28} />}
-                {admin && <AiFillEdit size={28}  onClick={(e)=>{history('/edit/prduct'); productCompContext.setEditState(item._id)}}/>}
-              </div>
-              </>
-              ) : (
-                <>
-                </>
-              )
-              } */}
-
-                {/* {loginCompContext.adminRole == "6331e15b77850e5ab71f0d4d" ? ( loginCompContext.found && <div>
-                {admin && <FcDeleteDatabase size={28} />}
-                {/* <Link to="/edit/prduct" onClick={(e)=>{productCompContext.setEditState(item._id)}}>Edit Product</Link> */}
-                {/* { admin && <AiFillEdit size={28}  onClick={(e)=>{history('/edit/prduct'); productCompContext.setEditState(item._id)}}/>} */}
-                {/* </div>) : <div></div>} */}
+                  />
               </div>
             </div>
           );

@@ -10,7 +10,8 @@ const product = new mongoose.Schema(
         location: {type: String, required: true},
         shortDescription: {type: String, required: true},
         image: {type: String, default: "https://mobizil.com/wp-content/uploads/2022/09/Apple-iPhone-14-Pro-Max.jpg"},
-        userId: {type: mongoose.Schema.Types.ObjectId, ref: "User"}
+        userId: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
+        count: {type: Number , default: 1}
     }
 );
 

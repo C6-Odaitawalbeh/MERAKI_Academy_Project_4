@@ -10,6 +10,7 @@ import EditProduct from "./components/EditProduct/edit";
 import Cart from "./components/Cart/cart";
 import Controller from "./components/ControllerProduct/admin";
 import Creat from "./components/Create-Products/createProducts";
+import ProductDetailes from "./components/Product-More-Detailes/detailesProduct";
 
 // export const newContext = createContext();
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/admin/manage" element={<Controller />}/>
         <Route path="/admin/manage/create" element={<Creat />} />
+        <Route path="/product/detailes" element={<ProductDetailes />} />
       </Routes>
     </div>
   );
