@@ -9,12 +9,12 @@ const EditProduct = () => {
 
   const [newTitle, setNewTitle] = useState("");
   const [newDescription, setNewDescription] = useState("");
-  const [newPrice, setNewPrice] = useState("");
-  const [newQuantity, setNewQuantity] = useState("");
+  const [newPrice, setNewPrice] = useState(0);
+  const [newQuantity, setNewQuantity] = useState(0);
   const [newLocation, setNewLocation] = useState("");
   const [NewShortDescription, setNewShortDescription] = useState("");
 
-  const editProduct = (id) => {
+  const updateProduct = (id) => {
     axios
       .put(
         `http://localhost:5000/products/manage/${id}`,
@@ -35,6 +35,8 @@ const EditProduct = () => {
         console.log(err);
       });
   };
+
+  console.log(productCompContext.idProductEdit);
 
   return (
     <>
@@ -95,9 +97,8 @@ const EditProduct = () => {
 
         <button
           className="button-update"
-          id={productCompContext.editState}
           onClick={(e) => {
-            editProduct(productCompContext.editState);
+            updateProduct(productCompContext.idProductEdit);
           }}
         >
           UPDATE

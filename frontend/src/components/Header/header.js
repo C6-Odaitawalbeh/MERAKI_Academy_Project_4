@@ -30,6 +30,10 @@ const Header = () => {
     history("/admin/manage");
   }
 
+  const handleUsers = () => {
+    history("/admin/manage/users")
+  }
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -38,8 +42,6 @@ const Header = () => {
           <p className="name-website" onClick={click}>
             <b>e-commerce app</b>
           </p>
-
-          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <button onClick={handelController}>Controller</button>) : (<div></div>)}
 
           <div className="search">
             <input
@@ -59,6 +61,16 @@ const Header = () => {
               }}
             />
           </div>
+
+          {/* {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ? ( <select name='format' id='format'>
+            <option selected disabled>SETTING</option>
+            <option><button onClick={handelController}>PRODUCTS SETTING</button></option>
+            <option>USERS SETTING</option>
+          </select>) : (<div></div>)} */}
+
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <button className="button-admin" onClick={handelController}><b>PRODUCTS</b></button>) : (<div></div>)}
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <button className="button-admin" onClick={handleUsers}><b>USERS</b></button>) : (<div></div>)}
+
 
           {loginCompContext.token ? (
             <>

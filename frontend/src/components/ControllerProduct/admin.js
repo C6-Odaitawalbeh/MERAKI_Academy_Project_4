@@ -4,11 +4,15 @@ import { loginContext } from "../contexts/login";
 import { FcDeleteDatabase } from "react-icons/fc";
 import { AiFillEdit } from "react-icons/ai";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
+import { productContext } from "../contexts/main";
 
 const Controller = () => {
 
   const loginCompContext = useContext(loginContext);
+  const productCompContext = useContext(productContext);
   const [getproduct, setGetProduct] = useState([]);
+  const history = useNavigate();
 
   useEffect(() => {
     axios
@@ -41,8 +45,30 @@ const Controller = () => {
     } catch (err) {
         console.log(err);
         throw err;
-    }
-  }
+    };
+  };
+
+//   const editProduct = async (id) => {
+//     try {
+//         await axios.put(`http://localhost:5000/products/manage/${id}`,{
+//             title,
+//             description,
+//             shortDescription,
+//             quantity,
+//             price,
+//             location,
+//             image,
+//         },{
+//             headers: {
+//               Authorization: `Bearer ${loginCompContext.token}`,
+//             },
+//           }).then((result)=>{
+
+//           })
+//     } catch (err) {
+        
+//     }
+//   }
 
   return (
     <>
@@ -71,7 +97,7 @@ const Controller = () => {
                     <td>{item.location}</td>
                     <td>{item.price}</td>
                     <td><FcDeleteDatabase className="icon-delete" onClick={()=>deleteProduct(item._id)} size={28}/></td>
-                    <td><AiFillEdit size={28} /></td>
+                    <td><AiFillEdit size={28} onClick={()=>{history('/edit/prduct'); productCompContext.setIdProductEdit(item._id)}} /></td>
                 </tr>
               </table>
             </div>

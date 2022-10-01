@@ -16,6 +16,8 @@ const ProductProvider = (props) => {
   const [limit, setLimit] = useState(10);
   const [pageNumber, setPageNumber] = useState(1);
 
+  const [idProductEdit, setIdProductEdit] = useState('')
+
   const history = useNavigate();
 
   const showMyProduct = async (pageNumber) => {
@@ -40,6 +42,8 @@ const ProductProvider = (props) => {
     setProductItemId,
     pageNumber,
     setPageNumber,
+    idProductEdit,
+    setIdProductEdit,
     showMyProduct,
   };
 
