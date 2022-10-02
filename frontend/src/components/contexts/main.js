@@ -18,8 +18,9 @@ const ProductProvider = (props) => {
 
   const [idProductEdit, setIdProductEdit] = useState('')
   const [productIdDetailes, setProductIdDetailes] = useState([]);
-  console.log(productIdDetailes);
-
+  // console.log(productIdDetailes);
+  const [productFilterByPrice, setProductFilterByPrice] = useState([]);
+  console.log(productFilterByPrice);
   const history = useNavigate();
 
   const showMyProduct = async (pageNumber) => {
@@ -48,6 +49,8 @@ const ProductProvider = (props) => {
     setIdProductEdit,
     productIdDetailes,
     setProductIdDetailes,
+    productFilterByPrice,
+    setProductFilterByPrice,
     showMyProduct,
   };
 

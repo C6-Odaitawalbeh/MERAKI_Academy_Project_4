@@ -106,8 +106,10 @@ const searchProduct = async (req, res) => {
 };
 
 const filterProduct = (req, res) => {
-  const { price } = req.body;
 
+  const asc = req.query.asc;
+  const desc = req.query.desc;
+  
   productModel
     .find({ price: {$gt: asc , $lt: desc } })
     .then((result) => {

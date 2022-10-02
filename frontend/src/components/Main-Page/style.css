@@ -39,10 +39,35 @@
 .filter-div {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 .filter-link {
     text-decoration: none;
     font-weight: 600;
+    border: 1px solid #0e2b50;
+    width: 360px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    background-color: #0e2b50;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+.filter-product-price-from-to {
+    display: flex;
+    gap: 30px;
+    margin-left: 30px;
+}
+
+.filter-input {
+    width: 100px;
+    border-radius: 4px;
+}
+
+.filter-button {
+    width: 80px;
+    background-color: #0e2b50;
+    color: white;
+    border-radius: 4px;
 }

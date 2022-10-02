@@ -14,6 +14,7 @@ import ProductDetailes from "./components/Product-More-Detailes/detailesProduct"
 import HandelUsersAndDelete from "./components/Delete-Users/deleteuser";
 import Ascending from "./components/Filter-Products/ascending";
 import Descending from "./components/Filter-Products/descending";
+import FilterByPrice from "./components/Filter-Products/filterByPrice";
 
 // export const newContext = createContext();
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/admin/manage/users" element={<HandelUsersAndDelete />} />
         <Route path="/products/filter_1" element={<Ascending />} />
         <Route path="/products/filter_2" element={<Descending />} />
+        <Route path="/products/search_1" element={<FilterByPrice />} />
       </Routes>
     </div>
   );
