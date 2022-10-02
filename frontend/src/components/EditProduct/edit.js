@@ -67,7 +67,7 @@ const EditProduct = () => {
     </div>
       <div className="container-edit-product">
 
-        <input className="upload-image" type="file" id="myFile" name="filename" />
+        <input className="upload-image" type="file" id="myFile" name="filename" onChange={(e)=>{console.log(e.target.value);}}/>
 
         <textarea
           className="input-edit-product"

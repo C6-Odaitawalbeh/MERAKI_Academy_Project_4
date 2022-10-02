@@ -109,7 +109,7 @@ const filterProduct = (req, res) => {
   const { price } = req.body;
 
   productModel
-    .find({ price: { $lt: price } })
+    .find({ price: {$gt: asc , $lt: desc } })
     .then((result) => {
       res.status(201);
       res.json(result);

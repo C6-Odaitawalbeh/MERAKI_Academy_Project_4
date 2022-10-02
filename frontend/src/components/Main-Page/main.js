@@ -95,11 +95,27 @@ const Main = () => {
       </div> */}
 
         <div className="filter-div">
-          <h5 className="filter-text"><FcFilledFilter size={25}/> Filter Products</h5>
+          <h5 className="filter-text"><FcFilledFilter size={25}/> Filter Products By Price</h5>
           <hr></hr>
           <Link to="/products/filter_1" className="filter-link">From the cheapest to most expensive <TbHandClick /></Link>
-          <Link to="" className="filter-link">From the most expensive to the cheapest <TbHandClick /></Link>
+          <Link to="/products/filter_2" className="filter-link">From the most expensive to the cheapest <TbHandClick /></Link>
           <hr></hr>
+          <div>
+          <input type="number" placeholder="from $"></input>
+          <input type="number" placeholder="to $"></input>
+          </div>
+          <hr></hr>
+          <h5 className="filter-text"><FcFilledFilter size={25}/> Filter Products By Categories</h5>
+          <hr></hr>
+          <Link to="" className="filter-link">Appliances  <TbHandClick /></Link>
+          <Link to="" className="filter-link">Apps & Games <TbHandClick /></Link>
+          <Link to="" className="filter-link">Arts, Crafts, & Sewing <TbHandClick /></Link>
+          <Link to="" className="filter-link">Automotive Parts & Accessories <TbHandClick /></Link>
+          <Link to="" className="filter-link">Baby <TbHandClick /></Link>
+          <Link to="" className="filter-link">Beauty & Personal Care <TbHandClick /></Link>
+          <Link to="" className="filter-link">Clothing, Shoes and Jewelry <TbHandClick /></Link>
+          <Link to="" className="filter-link">Computers <TbHandClick /></Link>
+          <Link to="" className="filter-link">Electronics <TbHandClick /></Link>
         </div>
 
       </div>
