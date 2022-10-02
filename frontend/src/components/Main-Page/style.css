@@ -12,11 +12,10 @@
 }
 
 .products {
-    border: 1px solid #fcfcfc;
+    border: 1px solid rgb(234, 230, 230);
     /* border-radius: 8px; */
     background-color: white;
-    box-shadow: -15px -15px 15px rgba(255,255,255,0.2), 15px 15px 15px rgba(0,0,0,0.1), inset -5px -5px 5px rgba(255,255,255,0.2), inset 5px 5px 5px rgba(0,0,0,0.1);
-
+    height: 220px;
 }
 
 .product-imagee {
@@ -45,12 +44,12 @@
 .filter-link {
     text-decoration: none;
     font-weight: 600;
-    border: 1px solid #0e2b50;
+    border: 1px solid  rgb(234, 230, 230);
     width: 360px;
     margin-left: 20px;
     margin-bottom: 5px;
-    background-color: #0e2b50;
-    color: rgb(255, 255, 255);
+    background-color: rgb(234, 230, 230);
+    color: rgb(0, 0, 0);
     border-radius: 4px;
 }
 
@@ -63,11 +62,13 @@
 .filter-input {
     width: 100px;
     border-radius: 4px;
+    border-color: rgb(234, 230, 230);
 }
 
 .filter-button {
     width: 80px;
-    background-color: #0e2b50;
-    color: white;
+    background-color: rgb(234, 230, 230);
+    color: rgb(1, 0, 0);
     border-radius: 4px;
+    border-color: rgb(234, 230, 230);
 }
