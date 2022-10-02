@@ -19,15 +19,9 @@ table, th, td {
     border: 1px solid #000;
 }
 
-
-
 .icon-delete:hover {
     cursor: pointer;
     color: orangered;
-}
-
-.create-new-product {
-    margin-top: 20px;
 }
 
 .create-product {
@@ -38,4 +32,8 @@ table, th, td {
     background-color: #000000;
     padding: 3px;
     border-radius: 3px;
+}
+
+.edit-icon{
+    cursor: pointer;
 }

@@ -1,153 +1,216 @@
-const productModel = require('../models/product');
+const productModel = require("../models/product");
 
-const createNewProducts = (req,res) => {
-    const {
-        title,
-        description,
-        price,
-        quantity,
-        date,
-        location,
-        image,
-        count,
-        shorttitle
-    } = req.body;
+const createNewProducts = (req, res) => {
+  const {
+    title,
+    description,
+    price,
+    quantity,
+    date,
+    location,
+    image,
+    count,
+    shorttitle,
+  } = req.body;
 
-    const {userId} = req.token;
+  const { userId } = req.token;
 
-    const product = new productModel(
-        {
-        title,
-        description,
-        price,
-        quantity,
-        date,
-        location,
-        image,
-        userId: userId,
-        count,
-        shorttitle
-        }
-    )
+  const product = new productModel({
+    title,
+    description,
+    price,
+    quantity,
+    date,
+    location,
+    image,
+    userId: userId,
+    count,
+    shorttitle,
+  });
 
-    product.save()
-    .then((result)=>{
-        res.status(201);
-        res.json(result);
+  product
+    .save()
+    .then((result) => {
+      res.status(201);
+      res.json(result);
     })
-    .catch((err)=>{
-        res.status(404);
-        res.json(err.message);
-    })
+    .catch((err) => {
+      res.status(404);
+      res.json(err.message);
+    });
 };
 
-const getAllProducts = (req,res) => {
-    productModel.find({})
-    .then((result)=>{
-        res.status(201);
-        res.json(result);
+const getAllProducts = (req, res) => {
+  productModel
+    .find({})
+    .then((result) => {
+      res.status(201);
+      res.json(result);
     })
-    .catch((err)=>{
-        res.status(404);
-        res.json(err.message);
-    })
+    .catch((err) => {
+      res.status(404);
+      res.json(err.message);
+    });
 };
 
-const getProductsById = (req,res) => {
-    const id = req.params.id;
+const getProductsById = (req, res) => {
+  const id = req.params.id;
 
-    productModel.find({_id: id})
-    .then((result)=>{
-        res.status(201);
-        res.json(result);
+  productModel
+    .find({ _id: id })
+    .then((result) => {
+      res.status(201);
+      res.json(result);
     })
-    .catch((err)=>{
-        res.status(404);
-        res.json(err.message);
-    })
+    .catch((err) => {
+      res.status(404);
+      res.json(err.message);
+    });
 };
 
-const getProductByPage = (req,res) => {
-    const {page,limit}= req.query
-    const skip = (page-1)*15
-    productModel.find()
+const getProductByPage = (req, res) => {
+  const { page, limit } = req.query;
+  const skip = (page - 1) * 15;
+  productModel
+    .find()
     .skip(skip)
     .limit(limit)
-    .then((result)=>{
-        res.status(201);
-        res.json(result);
+    .then((result) => {
+      res.status(201);
+      res.json(result);
     })
-    .catch((err)=>{
-        res.status(500);
-        res.json(err.message);
-    })
-}
+    .catch((err) => {
+      res.status(500);
+      res.json(err.message);
+    });
+};
 
-const searchProduct = async (req,res) => {
-    // console.log("test")
-    const title = req.query.title;
-        console.log(title);
-    const regex = new RegExp(title, "gi");
+const searchProduct = async (req, res) => {
+  // console.log("test")
+  const title = req.query.title;
+  console.log(title);
+  const regex = new RegExp(title, "gi");
 
-    try {
-        const searchProduct = await productModel.find({title: { $regex: regex },});
-    
+  try {
+    const searchProduct = await productModel.find({ title: { $regex: regex } });
+
     if (searchProduct.length) {
-        res.status(201);
-        res.json({searchProduct});
+      res.status(201);
+      res.json({ searchProduct });
     }
     throw Error;
-
-    } catch (err) {
-        res.status(500);
-        res.json(err.message);
-    }
-    
+  } catch (err) {
+    res.status(500);
+    res.json(err.message);
+  }
 };
 
-const filterProduct = (req,res) => {
-    const { price } = req.body;
-    
-    productModel.find({price: {$lt: price}})
-    .then((result)=>{
-        res.status(201);
-        res.json(result);
-    })
-    .catch((err)=>{
-        res.status(404);
-        res.json(err.message);
-    })
-}
+const filterProduct = (req, res) => {
+  const { price } = req.body;
 
-const updateProductsById = (req,res) => {
-    const id = req.params.id;
-        
-        const {title,description,price,quantity,date,location,image,userId,shorttitle} = req.body;
-
-    productModel.findOneAndUpdate({_id: id}, {title: title, description: description, price: price, quantity: quantity, date: date, location: location, shorttitle: shorttitle}, {new: true})
-    .then((result)=>{
-        res.status(201);
-        res.json(result);
+  productModel
+    .find({ price: { $lt: price } })
+    .then((result) => {
+      res.status(201);
+      res.json(result);
     })
-    .catch((err)=>{
-        res.status(404);
-        res.json(err.message);
-    })
+    .catch((err) => {
+      res.status(404);
+      res.json(err.message);
+    });
 };
 
-const deleteProductsById = (req,res) => {
-    const id = req.params.id;
+const updateProductsById = (req, res) => {
+  const id = req.params.id;
 
-    productModel.findOneAndDelete({_id: id})
-    .then((result)=>{
-        res.status(201);
-        res.json(result);
+  const {
+    title,
+    description,
+    price,
+    quantity,
+    date,
+    location,
+    image,
+    userId,
+    shorttitle,
+  } = req.body;
+
+  productModel
+    .findOneAndUpdate(
+      { _id: id },
+      {
+        title: title,
+        description: description,
+        price: price,
+        quantity: quantity,
+        date: date,
+        location: location,
+        shorttitle: shorttitle,
+      },
+      { new: true }
+    )
+    .then((result) => {
+      res.status(201);
+      res.json(result);
     })
-    .catch((err)=>{
-        res.status(404);
-        res.json(err.message);
-    })
+    .catch((err) => {
+      res.status(404);
+      res.json(err.message);
+    });
 };
 
+const deleteProductsById = (req, res) => {
+  const id = req.params.id;
 
-module.exports = { createNewProducts, getAllProducts, getProductsById , searchProduct, filterProduct ,updateProductsById, deleteProductsById, getProductByPage }
+  productModel
+    .findOneAndDelete({ _id: id })
+    .then((result) => {
+      res.status(201);
+      res.json(result);
+    })
+    .catch((err) => {
+      res.status(404);
+      res.json(err.message);
+    });
+};
+
+const ascendingProduct = (req, res) => {
+  productModel
+    .find({})
+    .sort({ price: 1 })
+    .then((result) => {
+      res.status(201);
+      res.json(result);
+    })
+    .catch((err) => {
+      res.status(404);
+      res.json(err.message);
+    });
+};
+
+const descendingProduct = (req, res) => {
+  productModel
+    .find({})
+    .sort({ price: -1 })
+    .then((result) => {
+      res.status(201);
+      res.json(result);
+    })
+    .catch((err) => {
+      res.status(404);
+      res.json(err.message);
+    });
+};
+
+module.exports = {
+  createNewProducts,
+  getAllProducts,
+  getProductsById,
+  searchProduct,
+  filterProduct,
+  updateProductsById,
+  deleteProductsById,
+  getProductByPage,
+  ascendingProduct,
+  descendingProduct,
+};

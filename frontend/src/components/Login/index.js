@@ -12,7 +12,6 @@ const Login = () => {
   const handleSubmit = async  (e) => {
     e.preventDefault();
     await loginCompContext.login();
-
   };
 
   return (

@@ -54,8 +54,14 @@ const Header = () => {
             />
           </div>
 
-          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage" ><FcSettings className="setting-icon" size={28} /></Link>) : (<div></div>)}
-          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage/users" ><FcEngineering size={28} /></Link>) : (<div></div>)}
+          {/* <select>
+            <option>Filter</option>
+            <option>Cheapes Products</option>
+            <option>Extensive Products</option>
+          </select> */}
+
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage" >Prod<FcSettings className="setting-icon" size={28} />ucts</Link>) : (<div></div>)}
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage/users" >Us<FcEngineering size={28} />ers</Link>) : (<div></div>)}
 
           {loginCompContext.token ? (
             <>

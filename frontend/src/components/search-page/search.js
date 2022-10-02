@@ -18,9 +18,8 @@ const Search = () => {
 
               <div className="words">
               <p className="title">{item.title}</p>
-              <p className="Date">{item.date}</p>
               <p className="description">Description: {item.description}</p>
-              <p className="description">Description: {item.shortDescription}</p>
+              <p className="description">Description: {item.shorttitle}</p>
               <p className="location">Located: {item.location}</p>
               <p className="price">Price: {item.price}</p>
               <p className="quantity">Quantity: {item.quantity}</p>

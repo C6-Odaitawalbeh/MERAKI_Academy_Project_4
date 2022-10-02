@@ -3,7 +3,7 @@ import { productContext } from "../contexts/main";
 import axios from "axios";
 import { loginContext } from "../contexts/login";
 import "./style.css"
-// import { AiOutlineRollback } from "react-icons/ai";
+import { FcLeft } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 
 
@@ -61,6 +61,10 @@ const EditProduct = () => {
 
   return (
     <>
+    <div className="back">
+    <FcLeft className="back-icon-react" size={30} onClick={()=>{history(-1)}}/>
+    <p className="back-string">Back</p>
+    </div>
       <div className="container-edit-product">
 
         <input className="upload-image" type="file" id="myFile" name="filename" />

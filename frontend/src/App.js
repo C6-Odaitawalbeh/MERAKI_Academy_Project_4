@@ -12,6 +12,7 @@ import Controller from "./components/ControllerProduct/admin";
 import Creat from "./components/Create-Products/createProducts";
 import ProductDetailes from "./components/Product-More-Detailes/detailesProduct";
 import HandelUsersAndDelete from "./components/Delete-Users/deleteuser";
+import Ascending from "./components/Filter-Products/ascending";
 
 // export const newContext = createContext();
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/admin/manage/create" element={<Creat />} />
         <Route path="/product/detailes" element={<ProductDetailes />} />
         <Route path="/admin/manage/users" element={<HandelUsersAndDelete />} />
+        <Route path="/products/filter_1" element={<Ascending />} />
       </Routes>
     </div>
   );

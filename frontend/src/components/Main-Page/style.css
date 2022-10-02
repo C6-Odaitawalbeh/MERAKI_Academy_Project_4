@@ -1,8 +1,14 @@
+.conteainer-main-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 .main-page {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 15px;
     margin: 20px;
+    /* width: 1000px; */
 }
 
 .products {
@@ -14,7 +20,7 @@
 }
 
 .product-imagee {
-    width: 250px;
+    width: 180px;
     height: 150px;
 }
 
@@ -28,4 +34,15 @@
     color: white;
     cursor: pointer;
     color: #ffffff;
+}
+
+.filter-div {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 100px;
+}
+
+.filter-link {
+    text-decoration: none;
+    font-weight: 600;
 }

@@ -4,10 +4,13 @@ import { FcLike, FcUndo } from "react-icons/fc";
 import "./style.css";
 import axios from "axios";
 import { loginContext } from "../contexts/login";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetailes = () => {
   const productCompContext = useContext(productContext);
   const loginCompContext = useContext(loginContext);
+
+  const history = useNavigate();
 
   const sendToCart = (id) => {
     axios
@@ -59,7 +62,7 @@ const ProductDetailes = () => {
 
           <div className="icon-love-product">
             <div className="fclike-icon"><FcLike size={40} onClick={()=>{sendToCart(productCompContext.productIdDetailes._id)}} /></div>
-            <div><FcUndo size={30} /></div>
+            <div><FcUndo className="undo-icon" size={30} onClick={()=>{history(-1)}}/></div>
           </div>
         </div>
       </div>

@@ -37,24 +37,25 @@
     margin-bottom: 10px;
 }
 
-.back-to-page {
-    display: flex;
-    margin-top: 10px;
-    cursor: pointer;
-    color: white;
-    padding-bottom: 6px;
-}
-
 .back {
     display: flex;
-    width: 65px;
-    height: 40px;
+    width: 90px;
+    height: 35px;
     margin-top: 10px;
+    /* padding-bottom: 30px; */
     background-color: #0e2b50;
     border-radius: 4px;
+    margin-left: 30px;
 }
 
 .back-string {
-    margin-top: 10px;
+    margin-top: 5px;
     color: white;
+    margin-left: 15px;
+}
+
+.back-icon-react {
+    cursor: pointer;
+    margin-top: 4px;
+    margin-left: 5px;
 }

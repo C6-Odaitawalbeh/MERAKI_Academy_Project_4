@@ -27,10 +27,15 @@
 
 .fclike-icon {
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .detailess {
     margin-top: 40px;
     margin-bottom: 40px;
     text-align: left;
+}
+
+.undo-icon{
+    cursor: pointer;
 }

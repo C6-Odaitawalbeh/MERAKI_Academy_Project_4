@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { loginContext } from "../contexts/login";
-import { FcDeleteDatabase } from "react-icons/fc";
+import { FcDeleteDatabase, FcLeft } from "react-icons/fc";
 import { AiFillEdit } from "react-icons/ai";
 import "./style.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -50,6 +50,11 @@ const Controller = () => {
 
   return (
     <>
+    <div className="back">
+    <FcLeft className="back-icon-react" size={30} onClick={()=>{history(-1)}}/>
+    <p className="back-string">Back</p>
+    </div>
+
       <div className="create-new-product"><Link className="create-product" to="/admin/manage/create"><b>CREATE NEW PRODUCTS</b></Link></div>
       <div>
         {getproduct.map((item, index) => {
@@ -76,7 +81,7 @@ const Controller = () => {
                     <td>{item.location}</td>
                     <td>{item.price}</td>
                     <td><FcDeleteDatabase className="icon-delete" onClick={()=>deleteProduct(item._id)} size={28}/></td>
-                    <td><AiFillEdit size={28} onClick={()=>{history('/edit/prduct'); productCompContext.setIdProductEdit(item._id)}} /></td>
+                    <td><AiFillEdit className="edit-icon" size={28} onClick={()=>{history('/edit/prduct'); productCompContext.setIdProductEdit(item._id)}} /></td>
                 </tr>
               </table>
             </div>
