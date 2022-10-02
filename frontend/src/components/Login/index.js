@@ -18,7 +18,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="login-page">
-        <p className="website-name"><b>E-Commerce App</b></p>
+        <p className="website-name"><b>e shop</b></p>
         <p className="login-name"><b>Login</b></p>
 
         <form className="login-form" onSubmit={handleSubmit}>

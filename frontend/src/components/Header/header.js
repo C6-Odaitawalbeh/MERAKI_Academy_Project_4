@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { headerContext } from "../contexts/header";
 import { loginContext } from "../contexts/login";
-import { FcSearch } from "react-icons/fc";
+import { FcSearch, FcSettings, FcEngineering, FcShipped } from "react-icons/fc";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import "./style.css";
 
@@ -26,21 +26,13 @@ const Header = () => {
     loginCompContext.setIsLoggedIn(false);
   };
 
-  // const handelController = () => {
-  //   history("/admin/manage");
-  // }
-
-  // const handleUsers = () => {
-  //   history("/admin/manage/users")
-  // }
-
   return (
     <>
       <form onSubmit={handleSubmit}>
         <div className="header">
 
           <p className="name-website" onClick={click}>
-            <b>e-commerce app</b>
+            <b>e <FcShipped size={30} /> shop</b>
           </p>
 
           <div className="search">
@@ -62,19 +54,12 @@ const Header = () => {
             />
           </div>
 
-          {/* {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ? ( <select name='format' id='format'>
-            <option selected disabled>SETTING</option>
-            <option><button onClick={handelController}>PRODUCTS SETTING</button></option>
-            <option>USERS SETTING</option>
-          </select>) : (<div></div>)} */}
-
-          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage" >Product Setting</Link>) : (<div></div>)}
-          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage/users" >User Setting</Link>) : (<div></div>)}
-
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage" ><FcSettings className="setting-icon" size={28} /></Link>) : (<div></div>)}
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage/users" ><FcEngineering size={28} /></Link>) : (<div></div>)}
 
           {loginCompContext.token ? (
             <>
-               <div>
+              <div>
                 <Link className="logout" to="/login" onClick={()=>{logOut(); loginCompContext.setFound(false);}}>
                   logout
                 </Link>

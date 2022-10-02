@@ -39,6 +39,9 @@
     margin-right: 40px;
     font-size: 25px;
     color: rgb(255, 255, 255);
+    font-family:cursive;
+    font-style: oblique;
+    font-weight: 800;
 }
 
 .name-website:hover {
@@ -87,4 +90,8 @@ select {
     cursor: pointer;
     text-decoration: none;
     cursor: pointer;
+}
+
+.setting-icon {
+    color: white;
 }

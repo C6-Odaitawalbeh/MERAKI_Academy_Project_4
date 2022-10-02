@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginContext } from "../contexts/login";
@@ -28,28 +28,28 @@ const Main = () => {
     productCompContext.setProductId(id);
   };
 
-  const sendToCart = (id) => {
-    axios
-      .post(
-        `http://localhost:5000/cart`,
-        {
-          product: id,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${loginCompContext.token}`,
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res);
-        console.log(res.data.product);
-        productCompContext.setProductItemId(res.data.product);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const sendToCart = (id) => {
+  //   axios
+  //     .post(
+  //       `http://localhost:5000/cart`,
+  //       {
+  //         product: id,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${loginCompContext.token}`,
+  //         },
+  //       }
+  //     )
+  //     .then((res) => {
+  //       console.log(res);
+  //       console.log(res.data.product);
+  //       productCompContext.setProductItemId(res.data.product);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const handlePageClick = (data) => {
     productCompContext.showMyProduct(data.selected + 1);
@@ -85,17 +85,17 @@ const Main = () => {
                 />
               </div>
 
-              <div className="words">
+              {/* <div className="words">
                 <FcLike
                   className="addToCart"
                   size={30}
                   id={item._id}
                   onClick={() => {
                     sendToCart(item._id);
-                    productCompContext.setButtonAddToCart(false);
+                    // productCompContext.setButtonAddToCart(false);
                   }}
                 />
-              </div>
+              </div> */}
             </div>
           );
         })}

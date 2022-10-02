@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { productContext } from "../contexts/main";
 import { loginContext } from "../contexts/login";
-import { TiDelete } from "react-icons/ti";
+import { FcDislike , FcApproval, FcCurrencyExchange } from "react-icons/fc";
+import "./style.css";
 
 
 const Cart = () => {
@@ -20,8 +21,6 @@ const Cart = () => {
       },
     })
     .then((result)=>{
-        // console.log(result.data);
-        // setProductElem([...productElem, ...result.data]);
         setProductElem(result.data)
     })
     .catch((err)=>{
@@ -54,55 +53,45 @@ const Cart = () => {
 
   return (
     <>
-      <div>
+    <div className="shopping-cart-name"><h3>Shopping cart</h3></div>
+    <div className="cart-container">
+      <div className="cart">
         {productElem.map((item, index) => {
             console.log(item);
             console.log(item.product);
             console.log(item.product.title);
           return (
-            <div key={index}>
-                <TiDelete size={30} />
-                <div className="image-div">
-                    <img className="product-image" src={item.product.image} />
+            <div key={index} className="cart-prduct">
+                <div className="image-div-cart">
+                    <img className="product-image-cart" src={item.product.image} />
+                    <div className="count">
+                    <button className="button-count">Submit</button>
+                    <input className="input-count"
+                    type="number"></input>
+                    </div>
                 </div>
                 
-                <div className="words">
-                <h2 className="title">{item.product.title}</h2>
-                <h4 className="description">Description:</h4>
-                <p>{item.product.shortDescription}</p>
-                <h4 className="shortDiscription">Short Description:</h4>
-                <p>{item.product.shortDescription}</p>
-                <h4 className="date">Date:</h4>
-                <p>{item.product.date}</p>
-                <h4 className="location">Located:</h4>
-                <p>{item.product.location}</p>
-                <p className="price">Price: {item.product.price}</p>
-                <p>Quantity of products available: {item.product.quantity}</p>
-                <select name="Number of pieces">
-                    <option>Number of pieces</option>
-                    <option>One piece</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                </select>
+                <div className="words-cart">
+                <p className="title">{item.product.title}</p>
+                <hr></hr>
+                <p className="description">{item.product.price}$</p>
+                <hr></hr>
+                <p className="description" >Item Quantity: {item.product.quantity}</p>
+                </div>
+                <div className="delete-item-from-cart">
+                  <FcDislike className="delete-icon" size={24} />
+                  <p>delete item</p>
                 </div>
             </div>
           );
         })}
       </div>
+    <div className="CheckOut">
+      <p className="span-total">Total Price</p>
+      <spnan className="total-price">1000$ <FcCurrencyExchange size={25} /></spnan>
+      <button className="button-checkout">CheckOut <FcApproval className="icon-checkout" size={25}/></button>
+    </div>
+    </div>
     </>
   );
 };

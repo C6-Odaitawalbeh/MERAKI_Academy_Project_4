@@ -16,7 +16,7 @@ const Creat = () => {
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const [location, setLocation] = useState("");
-  const [shortDescription, setShortDescription] = useState("");
+  const [shorttitle, setShortttitle] = useState("");
   const [image, setImage] = useState("");
   const [userId, setUserId] = useState("633791cf37b11ff4da1d5402");
   const [message, setMeesage] = useState("");
@@ -32,7 +32,7 @@ const Creat = () => {
             price,
             quantity,
             location,
-            shortDescription,
+            shorttitle,
             image,
             userId,
           },
@@ -95,7 +95,7 @@ const Creat = () => {
           type="text"
           placeholder="Short Discription"
           onChange={(e) => {
-            setShortDescription(e.target.value);
+            setShortttitle(e.target.value);
           }}
         ></textarea>
 

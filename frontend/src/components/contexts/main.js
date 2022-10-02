@@ -13,7 +13,7 @@ const ProductProvider = (props) => {
   const [productItemId, setProductItemId] = useState("");
   // console.log(productItemId);
   // const [buttonAddToCart, setButtonAddToCart] = useState(true);
-  const [limit, setLimit] = useState(20);
+  const [limit, setLimit] = useState(15);
   const [pageNumber, setPageNumber] = useState(1);
 
   const [idProductEdit, setIdProductEdit] = useState('')

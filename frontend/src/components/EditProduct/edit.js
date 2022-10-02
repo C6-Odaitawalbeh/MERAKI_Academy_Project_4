@@ -33,7 +33,7 @@ const EditProduct = () => {
           price: newPrice,
           quantity: newQuantity,
           location: newLocation,
-          shortDescription: NewShortDescription,
+          shorttitle: NewShortDescription,
         },
         { headers: { Authorization: `Bearer ${loginCompContext.token}` } }
       )
@@ -46,7 +46,7 @@ const EditProduct = () => {
             item.description = result.data.description;
             item.price = result.data.price;
             item.location = result.data.location;
-            item.shortDescription = result.data.shortDescription;
+            item.shorttitle = result.data.shorttitle;
             item.quantity = result.data.quantity;
           }
           return newProductAfterUpdate;

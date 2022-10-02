@@ -48,7 +48,7 @@ const ProductDetailes = () => {
             <hr></hr>
             <h5 className="detailess"><b className="textt">Description:</b> {productCompContext.productIdDetailes.description}</h5>
             <hr></hr>
-            <p className="detailess"><b className="textt">About This Item:</b> {productCompContext.productIdDetailes.shortDescription}</p>
+            <p className="detailess"><b className="textt">About This Item:</b> {productCompContext.productIdDetailes.shorttitle}</p>
             <hr></hr>
             <p className="detailess"><b className="textt">Located:</b> {productCompContext.productIdDetailes.location}</p>
             <hr></hr>

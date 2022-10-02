@@ -8,8 +8,9 @@ const createNewProducts = (req,res) => {
         quantity,
         date,
         location,
-        shortDescription,
         image,
+        count,
+        shorttitle
     } = req.body;
 
     const {userId} = req.token;
@@ -22,9 +23,10 @@ const createNewProducts = (req,res) => {
         quantity,
         date,
         location,
-        shortDescription,
         image,
-        userId: userId
+        userId: userId,
+        count,
+        shorttitle
         }
     )
 
@@ -67,7 +69,7 @@ const getProductsById = (req,res) => {
 
 const getProductByPage = (req,res) => {
     const {page,limit}= req.query
-    const skip = (page-1)*8
+    const skip = (page-1)*15
     productModel.find()
     .skip(skip)
     .limit(limit)
@@ -119,9 +121,10 @@ const filterProduct = (req,res) => {
 
 const updateProductsById = (req,res) => {
     const id = req.params.id;
-    const {title,description,price,quantity,date,location,shortDescription,image,userId} = req.body;
+        
+        const {title,description,price,quantity,date,location,image,userId,shorttitle} = req.body;
 
-    productModel.findOneAndUpdate({_id: id}, {title: title, description: description, price: price, quantity: quantity, date: date, location: location, shortDescription: shortDescription}, {new: true})
+    productModel.findOneAndUpdate({_id: id}, {title: title, description: description, price: price, quantity: quantity, date: date, location: location, shorttitle: shorttitle}, {new: true})
     .then((result)=>{
         res.status(201);
         res.json(result);

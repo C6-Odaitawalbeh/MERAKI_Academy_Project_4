@@ -18,7 +18,7 @@ const Register = () => {
     <div className="rigester-page">
     <img className="background" src="https://t3.ftcdn.net/jpg/02/98/18/60/360_F_298186090_Rimyxol4jsYvYbQg1i6sttQ5N3oebXgt.jpg"/>
       <div className="sign-up">
-        <p className="websiteName"><b>E-Commerce App</b></p>
+        <p className="websiteName"><b>e shop</b></p>
         <p className="p-sign-up"><b>Sign-Up</b></p>
 
         <form className="rigester-form" onSubmit={handleSubmit}>

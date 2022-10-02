@@ -71,7 +71,7 @@ const Controller = () => {
                     <td><img className="image-product" src={item.image}/></td>
                     <td>{item.title}</td>
                     <td>{item.description}</td>
-                    <td>{item.shortdescription}</td>
+                    <td>{item.shorttitle}</td>
                     <td>{item.quantity}</td>
                     <td>{item.location}</td>
                     <td>{item.price}</td>
