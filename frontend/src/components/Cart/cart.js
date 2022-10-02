@@ -39,6 +39,10 @@ const Cart = () => {
         })
         .then((res) => {
           console.log(res);
+          const newCart = productElem.filter((item,index)=>{
+            return item._id !== id;
+          });
+          setProductElem(newCart);
         })
         .catch((err) => {
           console.log(err);
@@ -48,8 +52,6 @@ const Cart = () => {
       throw err;
     }
   };
-
- 
 
   return (
     <>
@@ -79,7 +81,7 @@ const Cart = () => {
                 <p className="description" >Item Quantity: {item.product.quantity}</p>
                 </div>
                 <div className="delete-item-from-cart">
-                  <FcDislike className="delete-icon" size={24} />
+                  <FcDislike className="delete-icon" size={24} onClick={()=>{deleteFromCart(item._id)}}/>
                   <p>delete item</p>
                 </div>
             </div>
