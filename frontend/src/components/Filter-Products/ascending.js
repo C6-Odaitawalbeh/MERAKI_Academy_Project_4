@@ -28,12 +28,12 @@ const Ascending = () => {
               </div>
 
               <div className="">
-              <p className="">{item.title}</p>
-              <p className="">Description: {item.description}</p>
-              <p className="">Description: {item.shorttitle}</p>
-              <p className="">Located: {item.location}</p>
-              <p className="">Price: {item.price}</p>
-              <p className="">Quantity: {item.quantity}</p>
+                <p className="">{item.title}</p>
+                <p className="">Description: {item.description}</p>
+                <p className="">Description: {item.shorttitle}</p>
+                <p className="">Located: {item.location}</p>
+                <p className="">Price: {item.price}</p>
+                <p className="">Quantity: {item.quantity}</p>
               </div>
             </div>
           );

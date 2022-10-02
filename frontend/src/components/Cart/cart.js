@@ -2,7 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { productContext } from "../contexts/main";
 import { loginContext } from "../contexts/login";
-import { FcDislike, FcApproval, FcCurrencyExchange, FcPlus } from "react-icons/fc";
+import {
+  FcDislike,
+  FcApproval,
+  FcCurrencyExchange,
+  FcPlus,
+} from "react-icons/fc";
 import { AiFillMinusCircle } from "react-icons/ai";
 import "./style.css";
 
@@ -62,7 +67,7 @@ const Cart = () => {
 
   const handelTotal = (price) => {
     setProductNumber([...productNumber, price]);
-  }; 
+  };
 
   return (
     <>
@@ -80,20 +85,17 @@ const Cart = () => {
                     src={item.product.image}
                   />
 
-                    <div className="count">
+                  <div className="count">
+                    <button className="button-count">Submit</button>
 
-                      <button className="button-count">Submit</button>
-
-                      <input
-                        className="input-count"
-                        type="number"
-                        onChange={(e) => {
-                          handelTotal(e.target.value * item.product.price);
-                        }}
-                      ></input>
-
-                    </div>
-
+                    <input
+                      className="input-count"
+                      type="number"
+                      onChange={(e) => {
+                        handelTotal(e.target.value * item.product.price);
+                      }}
+                    ></input>
+                  </div>
                 </div>
 
                 <div className="words-cart">

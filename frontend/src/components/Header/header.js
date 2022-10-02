@@ -30,9 +30,10 @@ const Header = () => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="header">
-
           <p className="name-website" onClick={click}>
-            <b>e <FcShipped size={30} /> shop</b>
+            <b>
+              e <FcShipped size={30} /> shop
+            </b>
           </p>
 
           <div className="search">
@@ -54,25 +55,48 @@ const Header = () => {
             />
           </div>
 
-          {/* <select>
-            <option>Filter</option>
-            <option>Cheapes Products</option>
-            <option>Extensive Products</option>
-          </select> */}
-
-          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage" >Prod<FcSettings className="setting-icon" size={28} />ucts</Link>) : (<div></div>)}
-          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ?( <Link className="button-admin" to="/admin/manage/users" >Us<FcEngineering size={28} />ers</Link>) : (<div></div>)}
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ? (
+            <Link className="button-admin" to="/admin/manage">
+              Prod
+              <FcSettings className="setting-icon" size={28} />
+              ucts
+            </Link>
+          ) : (
+            <div></div>
+          )}
+          {loginCompContext.adminRole === "633790d637b11ff4da1d53fe" ? (
+            <Link className="button-admin" to="/admin/manage/users">
+              Us
+              <FcEngineering size={28} />
+              ers
+            </Link>
+          ) : (
+            <div></div>
+          )}
 
           {loginCompContext.token ? (
             <>
               <div>
-                <Link className="logout" to="/login" onClick={()=>{logOut(); loginCompContext.setFound(false);}}>
+                <Link
+                  className="logout"
+                  to="/login"
+                  onClick={() => {
+                    logOut();
+                    loginCompContext.setFound(false);
+                  }}
+                >
                   logout
                 </Link>
               </div>
 
               <div>
-                <AiOutlineShoppingCart size={28} className="cart-icon" onClick={()=>{history("/cart")}}/>
+                <AiOutlineShoppingCart
+                  size={28}
+                  className="cart-icon"
+                  onClick={() => {
+                    history("/cart");
+                  }}
+                />
               </div>
             </>
           ) : (

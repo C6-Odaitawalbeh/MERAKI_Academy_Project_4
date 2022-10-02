@@ -2,10 +2,9 @@ import React, { useContext, useState } from "react";
 import { productContext } from "../contexts/main";
 import axios from "axios";
 import { loginContext } from "../contexts/login";
-import "./style.css"
+import "./style.css";
 import { FcLeft } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
-
 
 const EditProduct = () => {
   const productCompContext = useContext(productContext);
@@ -19,7 +18,7 @@ const EditProduct = () => {
   const [newQuantity, setNewQuantity] = useState(0);
   const [newLocation, setNewLocation] = useState("");
   const [NewShortDescription, setNewShortDescription] = useState("");
-  const [message, setMeesage] = useState('');
+  const [message, setMeesage] = useState("");
   const [newImage, setNewImage] = useState();
 
   const updateProduct = (id) => {
@@ -39,18 +38,20 @@ const EditProduct = () => {
       )
       .then((result) => {
         console.log(result);
-        const newProductAfterUpdate = productCompContext.product.map((item,index)=>{
-          if (item._id == id) {
-            item.title = result.data.title;
-            item.image = result.data.image;
-            item.description = result.data.description;
-            item.price = result.data.price;
-            item.location = result.data.location;
-            item.shorttitle = result.data.shorttitle;
-            item.quantity = result.data.quantity;
+        const newProductAfterUpdate = productCompContext.product.map(
+          (item, index) => {
+            if (item._id == id) {
+              item.title = result.data.title;
+              item.image = result.data.image;
+              item.description = result.data.description;
+              item.price = result.data.price;
+              item.location = result.data.location;
+              item.shorttitle = result.data.shorttitle;
+              item.quantity = result.data.quantity;
+            }
+            return newProductAfterUpdate;
           }
-          return newProductAfterUpdate;
-        })
+        );
       })
       .catch((err) => {
         console.log(err);
@@ -61,13 +62,26 @@ const EditProduct = () => {
 
   return (
     <>
-    <div className="back">
-    <FcLeft className="back-icon-react" size={30} onClick={()=>{history(-1)}}/>
-    <p className="back-string">Back</p>
-    </div>
+      <div className="back">
+        <FcLeft
+          className="back-icon-react"
+          size={30}
+          onClick={() => {
+            history(-1);
+          }}
+        />
+        <p className="back-string">Back</p>
+      </div>
       <div className="container-edit-product">
-
-        <input className="upload-image" type="file" id="myFile" name="filename" onChange={(e)=>{console.log(e.target.value);}}/>
+        <input
+          className="upload-image"
+          type="file"
+          id="myFile"
+          name="filename"
+          onChange={(e) => {
+            console.log(e.target.value);
+          }}
+        />
 
         <textarea
           className="input-edit-product"
@@ -126,7 +140,8 @@ const EditProduct = () => {
         <button
           className="button-update-product"
           onClick={(e) => {
-            updateProduct(productCompContext.idProductEdit); setMeesage("Done! Update Product");
+            updateProduct(productCompContext.idProductEdit);
+            setMeesage("Done! Update Product");
           }}
         >
           UPDATE

@@ -2,14 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Descending = () => {
-    
   const [descendingProducts, setDescendingProducts] = useState([]);
 
   useEffect(() => {
     axios
       .get(`http://localhost:5000/products/filter_2`)
       .then((result) => {
-        // console.log(result.data);
         setDescendingProducts(result.data);
       })
       .catch((err) => {
