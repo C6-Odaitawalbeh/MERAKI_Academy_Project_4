@@ -4,6 +4,8 @@ import { loginContext } from "../contexts/login";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineRollback } from "react-icons/ai";
 import { productContext } from "../contexts/main";
+import { FcLeft } from "react-icons/fc";
+
 
 const Creat = () => {
   const loginCompContext = useContext(loginContext);
@@ -18,8 +20,31 @@ const Creat = () => {
   const [location, setLocation] = useState("");
   const [shorttitle, setShortttitle] = useState("");
   const [image, setImage] = useState("");
+  const [file, setFile] = useState(null);
   const [userId, setUserId] = useState("633791cf37b11ff4da1d5402");
   const [message, setMeesage] = useState("");
+  const [categories, setCategories] = useState("");
+
+  // cloudName => dykjbbeoi
+  // POST https://api.cloudinary.com/v1_1/demo/image/upload
+  // add upload preset =>  eeshop
+
+  const uploadImage = async () => {
+
+    const form = new FormData();
+    form.append('file', file);
+    form.append('upload_preset', "eeshop");
+
+    // send form to cloudenary
+    await axios.post(`https://api.cloudinary.com/v1_1/dykjbbeoi/upload`,form)
+    .then((result)=>{
+      console.log(result.data.secure_url);
+      setImage(result.data.secure_url);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  };
 
   const addNewProduct = async () => {
     try {
@@ -35,6 +60,7 @@ const Creat = () => {
             shorttitle,
             image,
             userId,
+            categories
           },
           {
             headers: {
@@ -57,20 +83,26 @@ const Creat = () => {
 
   return (
     <>
+    <div className="back">
+        <FcLeft
+          className="back-icon-react"
+          size={30}
+          onClick={() => {
+            history(-1);
+          }}
+        />
+        <p className="back-string">Back</p>
+      </div>
       <div className="container-edit-product">
-        <div className="back">
-          <p>
-            <AiOutlineRollback className="back-to-page" size={28} />
-          </p>
-          <p className="back-string">Back</p>
-        </div>
-
         <input
           className="upload-image"
           type="file"
           id="myFile"
           name="filename"
+          onChange={(e)=>{setFile(e.target.files[0])}}
         />
+
+        <button onClick={uploadImage}>upload</button>
 
         <textarea
           className="input-edit-product"
@@ -123,6 +155,15 @@ const Creat = () => {
           placeholder="Located"
           onChange={(e) => {
             setLocation(e.target.value);
+          }}
+        ></textarea>
+
+        <textarea
+          className="input-edit-product"
+          type="tex"
+          placeholder="Categories"
+          onChange={(e) => {
+            setCategories(e.target.value);
           }}
         ></textarea>
 

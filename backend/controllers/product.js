@@ -11,6 +11,7 @@ const createNewProducts = (req, res) => {
     image,
     count,
     shorttitle,
+    categories
   } = req.body;
 
   const { userId } = req.token;
@@ -26,6 +27,7 @@ const createNewProducts = (req, res) => {
     userId: userId,
     count,
     shorttitle,
+    categories
   });
 
   product
