@@ -1,6 +1,7 @@
 .conteainer-main-page {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 80px;
 }
 
 .main-page {
@@ -39,6 +40,9 @@
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
     margin-top: 20px;
+    border-left: 6px solid rgb(17, 58, 134);
+    height: 500px;
+    padding-left: 5px;
 }
 
 .filter-link {
@@ -48,8 +52,8 @@
     width: 360px;
     margin-left: 20px;
     margin-bottom: 5px;
-    background-color: rgb(234, 230, 230);
-    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    /* color: rgb(0, 0, 0); */
     border-radius: 4px;
 }
 
@@ -61,14 +65,120 @@
 
 .filter-input {
     width: 100px;
-    border-radius: 4px;
-    border-color: rgb(234, 230, 230);
+    border-radius: 2px;
+    border: none;
 }
 
 .filter-button {
     width: 80px;
-    background-color: rgb(234, 230, 230);
-    color: rgb(1, 0, 0);
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     border-radius: 4px;
-    border-color: rgb(234, 230, 230);
+    border: none;
+}
+
+footer {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap: row wrap;
+    padding: 50px;
+    color: rgb(255, 255, 255);
+    background-color: #25242a;
+}
+
+.footer > * {
+    flex: 1 100%;
+}
+
+.left-area {
+    margin-right: -7.5px;
+}
+
+.footer-buttom img {
+    width: 15%
+}
+
+h2 {
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    letter-spacing: 3px;
+}
+
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer li {
+    line-height: 1.25;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.right-area {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap: row wrap;
+}
+
+.right-area > * {
+    flex: 1 50%;
+    margin-right: 1px;
+}
+
+.box a {
+    color: rgb(146, 140, 140);
+}
+
+.footer-buttom {
+    text-align: center;
+    color: rgb(146, 140, 140);
+    padding-top: 50px;
+}
+
+.left-area p {
+    padding-right: 20%;
+    color: rgb(146, 140, 140);
+}
+
+.socials {
+    margin-top: 1.5px;
+}
+
+.socials a i {
+    color: #e7f2f4;
+    padding: 10px 12px;
+    font-size: 20px;
+}
+
+.btnn {
+    border: none;
+    background-color: rgb(255, 255, 255);
+    color: #020000;
+    padding: 4px 30px;
+    margin-left: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.search-box input {
+    height: 31px;
+}
+
+.web {
+    color: #ffffff;
+}
+
+h2 {
+    margin-top: 20px;
 }

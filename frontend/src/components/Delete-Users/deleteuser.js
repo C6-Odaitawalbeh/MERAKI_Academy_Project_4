@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { loginContext } from "../contexts/login";
 import axios from "axios";
-import { FcDeleteDatabase } from "react-icons/fc";
+import { FcDeleteDatabase, FcLeft  } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
 
 const HandelUsersAndDelete = () => {
   const loginCompContext = useContext(loginContext);
   const [users, setUsers] = useState([]);
+
+  const history = useNavigate();
 
   useEffect(() => {
     axios
@@ -24,6 +27,16 @@ const HandelUsersAndDelete = () => {
 
   return (
     <>
+      <div className="back">
+        <FcLeft
+          className="back-icon-react"
+          size={30}
+          onClick={() => {
+            history(-1);
+          }}
+        />
+        <p className="back-string">Back</p>
+      </div>
       <div>
         {users.map((user, index) => {
           console.log(user);

@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    background-color: wheat;
 }
 
 .background {
@@ -33,7 +32,7 @@ body {
     justify-items: center;
     justify-content: center;
     color: black;
-    background-color: #28558f;
+    background-color: #25242a;
     border-radius: 6px;
     padding: 10px;
    /* margin-left: 200px; */
