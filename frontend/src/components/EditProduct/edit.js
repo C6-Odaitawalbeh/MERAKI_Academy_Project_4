@@ -19,7 +19,8 @@ const EditProduct = () => {
   const [newLocation, setNewLocation] = useState("");
   const [NewShortDescription, setNewShortDescription] = useState("");
   const [message, setMeesage] = useState("");
-  const [newImage, setNewImage] = useState();
+  const [newImage, setNewImage] = useState("");
+  const [file, setFile] = useState(null);
 
   const updateProduct = (id) => {
     axios
@@ -33,6 +34,7 @@ const EditProduct = () => {
           quantity: newQuantity,
           location: newLocation,
           shorttitle: NewShortDescription,
+          image: newImage
         },
         { headers: { Authorization: `Bearer ${loginCompContext.token}` } }
       )
@@ -58,7 +60,28 @@ const EditProduct = () => {
       });
   };
 
-  console.log(productCompContext.idProductEdit);
+  // cloudName => dykjbbeoi
+  // POST https://api.cloudinary.com/v1_1/demo/image/upload
+  // add upload preset =>  eeshop
+
+  const uploadImage = async () => {
+
+    const form = new FormData();
+    form.append('file', file);
+    form.append('upload_preset', "eeshop");
+
+    // send form to cloudenary
+    await axios.post(`https://api.cloudinary.com/v1_1/dykjbbeoi/upload`,form)
+    .then((result)=>{
+      console.log(result.data.secure_url);
+      setNewImage(result.data.secure_url);
+    })
+    .catch((err)=>{
+      console.log(err);
+      throw err;
+    })
+  };
+
 
   return (
     <>
@@ -79,9 +102,11 @@ const EditProduct = () => {
           id="myFile"
           name="filename"
           onChange={(e) => {
-            console.log(e.target.value);
+            setFile(e.target.files[0]);
           }}
         />
+
+        <button onClick={uploadImage}>upload</button>
 
         <textarea
           className="input-edit-product"

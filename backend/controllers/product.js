@@ -149,6 +149,7 @@ const updateProductsById = (req, res) => {
         date: date,
         location: location,
         shorttitle: shorttitle,
+        image: image
       },
       { new: true }
     )

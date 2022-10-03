@@ -75,7 +75,6 @@ const Main = () => {
         >
           Appliances
         </Link>
-
         <Link
           to="/products/categories/apps&games"
           className="categories-links"
@@ -85,7 +84,6 @@ const Main = () => {
         >
           Apps & Games
         </Link>
-
         <Link
           to="/products/categories/arts&crafts&sewing"
           className="categories-links"
@@ -97,7 +95,6 @@ const Main = () => {
         >
           Arts, Crafts, & Sewing
         </Link>
-
         <Link
           to="/products/categories/automotiveParts&accessories"
           className="categories-links"
@@ -109,7 +106,6 @@ const Main = () => {
         >
           Automotive Parts & Accessories
         </Link>
-
         <Link
           to="/products/categories/baby"
           className="categories-links"
@@ -117,7 +113,6 @@ const Main = () => {
         >
           Baby
         </Link>
-
         <Link
           to="/products/categories/beauty&personalcare"
           className="categories-links"
@@ -129,7 +124,6 @@ const Main = () => {
         >
           Beauty & Personal Care
         </Link>
-
         <Link
           to="/products/categories/clothing&shoes&jewelry"
           className="categories-links"
@@ -141,7 +135,6 @@ const Main = () => {
         >
           Clothing, Shoes and Jewelry
         </Link>
-
         <Link
           to="/products/categories/computers"
           className="categories-links"
@@ -149,7 +142,6 @@ const Main = () => {
         >
           Computers
         </Link>
-
         <Link
           to="/products/categories/electronics"
           className="categories-links"
@@ -323,6 +315,28 @@ const Main = () => {
         </div>
       </div>
 
+      <div className="pagin">
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={2}
+          pageCount={pageCount}
+          previousLabel="< back"
+          containerClassName={"pagination justify-content-center p-3"}
+          pageClassName={"page-item"}
+          pageLinkClassName={"page-link"}
+          previousClassName={"page-item"}
+          nextClassName={"page-item"}
+          previousLinkClassName={"page-link"}
+          nextLinkClassName={"page-link"}
+          breakClassName={"page-item"}
+          breakLinkClassName={"page-link"}
+          activeClassName={"active"}
+        />
+      </div>
+
       <hr></hr>
 
       <div className="brand-container">
@@ -394,30 +408,7 @@ const Main = () => {
             src="https://i.pinimg.com/736x/6d/2c/cd/6d2ccd795e409bb68eec5db364e797ef.jpg"
           />
         </div>
-      <hr></hr>
-
-      </div>
-
-      <div className="pagin">
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel="next >"
-          onPageChange={handlePageClick}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={2}
-          pageCount={pageCount}
-          previousLabel="< back"
-          containerClassName={"pagination justify-content-center p-3"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"page-item"}
-          nextClassName={"page-item"}
-          previousLinkClassName={"page-link"}
-          nextLinkClassName={"page-link"}
-          breakClassName={"page-item"}
-          breakLinkClassName={"page-link"}
-          activeClassName={"active"}
-        />
+        <hr></hr>
       </div>
 
       <footer className="footer">
