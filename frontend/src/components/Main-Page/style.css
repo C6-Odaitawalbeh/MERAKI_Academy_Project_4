@@ -1,7 +1,7 @@
 .conteainer-main-page {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
 }
 
 .main-page {
@@ -40,8 +40,8 @@
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
     margin-top: 20px;
-    border-left: 6px solid rgb(17, 58, 134);
-    height: 500px;
+    border-left: 4px solid #25242a;
+    height: 800px;
     padding-left: 5px;
 }
 
@@ -181,4 +181,62 @@ h2 {
 
 h2 {
     margin-top: 20px;
+}
+
+.brand-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* border-top: 3px solid #25242a;
+    border-bottom: 2px solid #25242a; */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.brand-div1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-left: 12px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.brand-div2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-left: 12px;
+}
+
+.image-brand {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 90px;
+}
+
+.categories-div-link {
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: none;
+    height: 60px;
+    background-color: #25242ab4;
+}
+
+.categories-links {
+    border: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-decoration: none;
+    background-color: #25242ab4;
+    border-radius: 2px;
+    padding-top: 1px;
+    color: white;
 }

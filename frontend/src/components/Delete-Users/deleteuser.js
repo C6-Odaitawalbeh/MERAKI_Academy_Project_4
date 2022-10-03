@@ -25,6 +25,26 @@ const HandelUsersAndDelete = () => {
       });
   }, []);
 
+  const deleteUser = async (id) => {
+    try {
+      await axios
+        .delete(`http://localhost:5000/user/profile/${id}`, {
+          headers: {
+            Authorization: `Bearer ${loginCompContext.token}`,
+          },
+        })
+        .then((result) => {
+          const userAfterDelete = users.filter((elem) => {
+            return elem._id !== id;
+          });
+          setUsers(userAfterDelete);
+        });
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  };
+
   return (
     <>
       <div className="back">
@@ -58,7 +78,7 @@ const HandelUsersAndDelete = () => {
                   <td>{user.city}</td>
                   <td>{user.email}</td>
                   <td>
-                    <FcDeleteDatabase className="icon-delete" size={28} />
+                    <FcDeleteDatabase className="icon-delete" size={28} onClick={()=>{deleteUser(user._id)}}/>
                   </td>
                 </tr>
               </table>

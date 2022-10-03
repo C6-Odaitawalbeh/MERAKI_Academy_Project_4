@@ -205,6 +205,19 @@ const descendingProduct = (req, res) => {
     });
 };
 
+const getProductsByCategories = (req,res) => {
+  const categories = req.query.categories;
+
+  productModel.find({categories: categories}).then((result)=>{
+    res.status(201);
+    res.json(result);
+  })
+  .catch((err)=>{
+    res.status(404);
+    res.json(err.message);
+  });
+};
+
 module.exports = {
   createNewProducts,
   getAllProducts,
@@ -216,4 +229,5 @@ module.exports = {
   getProductByPage,
   ascendingProduct,
   descendingProduct,
+  getProductsByCategories
 };

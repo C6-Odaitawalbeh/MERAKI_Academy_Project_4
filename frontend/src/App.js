@@ -15,8 +15,23 @@ import HandelUsersAndDelete from "./components/Delete-Users/deleteuser";
 import Ascending from "./components/Filter-Products/ascending";
 import Descending from "./components/Filter-Products/descending";
 import FilterByPrice from "./components/Filter-Products/filterByPrice";
+import ProtectedRouter from "./components/ProtuctedRoute/protucted";
+import AppliancesCategories from "./components/Caterories/appliances";
+import ElectronicsCategories from "./components/Caterories/electronics";
+import Computers from "./components/Caterories/computers";
+import ClothingAndShoesAndJewelry from "./components/Caterories/clothingAndShoesAndJewelry";
+import BeautyAndpersonalcare from "./components/Caterories/beautyAndPersonalca";
+import Baby from "./components/Caterories/baby";
+import AutomotivePartsAccessories from "./components/Caterories/automotivePartsAndAccessories";
+import ArtsAndCraftsSewing from "./components/Caterories/artsAndCraftsAndSewing";
+import AppsAGames from "./components/Caterories/appsAndGames";
 
-// export const newContext = createContext();
+
+// let [usertoken,role,user,admin] = ProtectedRouter()
+// console.log(usertoken);
+// console.log(role);
+// console.log(user);
+// console.log(admin);
 
 function App() {
   return (
@@ -36,6 +51,15 @@ function App() {
         <Route path="/products/filter_1" element={<Ascending />} />
         <Route path="/products/filter_2" element={<Descending />} />
         <Route path="/products/search_1" element={<FilterByPrice />} />
+        <Route path="/products/categories/appliances" element={<AppliancesCategories />} />
+        <Route path="/products/categories/electronics" element={<ElectronicsCategories />} />
+        <Route path="/products/categories/computers" element={<Computers />} />
+        <Route path="/products/categories/clothing&shoes&jewelry" element={<ClothingAndShoesAndJewelry />} />
+        <Route path="/products/categories/beauty&personalcare" element={<BeautyAndpersonalcare />} />
+        <Route path="/products/categories/baby" element={<Baby />} />
+        <Route path="/products/categories/automotiveParts&accessories" element={<AutomotivePartsAccessories />} />
+        <Route path="/products/categories/arts&crafts&sewing" element={<ArtsAndCraftsSewing />} />
+        <Route path="/products/categories/apps&games" element={<AppsAGames />} />
       </Routes>
     </div>
   );

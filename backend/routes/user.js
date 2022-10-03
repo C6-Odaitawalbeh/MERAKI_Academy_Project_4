@@ -10,6 +10,6 @@ userRouter.post('/register', createUser);
 userRouter.get('/',authentication, getAllUsers);
 userRouter.get('/:id', getUserById);
 userRouter.put('/profile/:id', authentication, authorization("UPDATE_PROFILE") ,editProfile);
-userRouter.delete('/profile/:id', authentication, authorization("DELETE_PRODUCT") ,deleteProfile);
+userRouter.delete('/profile/:id', authentication ,deleteProfile);
 
 module.exports = userRouter;

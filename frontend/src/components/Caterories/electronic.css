@@ -1,0 +1,29 @@
+
+.cart-containerr {
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    margin-top: 30px;
+}
+
+.electronic {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.electronic-prduct {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 3px;
+    margin: 10px;
+    background: #ffffff;
+    box-shadow: -15px -15px 15px rgba(255,255,255,0.2), 15px 15px 15px rgba(0,0,0,0.1), inset -5px -5px 5px rgba(255,255,255,0.2), inset 5px 5px 5px rgba(0,0,0,0.1);
+    border-right: 6px solid #25242a;
+
+}
+
+.product-image-electronic {
+    height: 400px;
+    max-width: 250px;
+    margin-top: 80px;
+}

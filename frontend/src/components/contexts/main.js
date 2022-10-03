@@ -18,6 +18,8 @@ const ProductProvider = (props) => {
 
   const [productFilterByPrice, setProductFilterByPrice] = useState([]);
 
+  const [categoriesFilter, setCategoriesFilter] = useState([]);
+
   const showMyProduct = async (pageNumber) => {
     try {
       await axios
@@ -26,9 +28,24 @@ const ProductProvider = (props) => {
         )
         .then((result) => {
           setProduct(result.data);
+          setCategoriesFilter(result.data)
         });
     } catch (err) {
       console.log(err);
+      throw err;
+    }
+  };
+
+  const filterByCategories = async (categories) => {
+    try {
+    await axios.get(`http://localhost:5000/products/categories?categories=${categories}`)
+    .then((result)=>{
+      console.log(result.data);
+      setCategoriesFilter(result.data);
+    })
+    } catch (err) {
+      console.log(err);
+      throw err;
     }
   };
 
@@ -49,7 +66,10 @@ const ProductProvider = (props) => {
     setProductIdDetailes,
     productFilterByPrice,
     setProductFilterByPrice,
+    categoriesFilter,
+    setCategoriesFilter,
     showMyProduct,
+    filterByCategories
   };
 
   return (

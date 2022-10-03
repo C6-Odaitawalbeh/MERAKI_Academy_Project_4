@@ -1,10 +1,16 @@
 import React from "react";
 import { useContext } from "react";
 import { RegiContext, RegisterContext } from "../contexts/register";
+import { FcShipped, FcLeft } from "react-icons/fc";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { BsTwitter } from "react-icons/bs";
+import { ImYoutube } from "react-icons/im";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
 const Register = () => {
   const RegisterContext = useContext(RegiContext);
+  const history = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,11 +19,17 @@ const Register = () => {
 
   return (
     <>
-      <div className="rigester-page">
-        <img
-          className="background"
-          src="https://t3.ftcdn.net/jpg/02/98/18/60/360_F_298186090_Rimyxol4jsYvYbQg1i6sttQ5N3oebXgt.jpg"
+      <div className="back">
+        <FcLeft
+          className="back-icon-react"
+          size={30}
+          onClick={() => {
+            history(-1);
+          }}
         />
+        <p className="back-string">Back</p>
+      </div>
+      <div className="rigester-page">
         <div className="sign-up">
           <p className="websiteName">
             <b>e shop</b>
@@ -104,11 +116,106 @@ const Register = () => {
             </div>
           )}
         </div>
-        <img
-          className="backgroundd"
-          src="https://t3.ftcdn.net/jpg/02/98/18/60/360_F_298186090_Rimyxol4jsYvYbQg1i6sttQ5N3oebXgt.jpg"
-        />
       </div>
+
+      <footer className="footer">
+        <div className="div1">
+          <div className="left-area">
+            <h2>Content</h2>
+            <ul className="box">
+              <li>e.shop.support@gmail.com</li>
+              <li>+189-8469-1898</li>
+              <li>Amman, JORDAN</li>
+              <li>www.eshop.com</li>
+              <li>9989</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="div2-grid">
+          <ul className="reigth-area">
+            <div>
+              <li className="link-area">
+                <h2>Useful Link</h2>
+                <ul className="box h-box">
+                  <li>
+                    <Link to="#">Home</Link>
+                  </li>
+                  <li>
+                    <a href="#">Pricing</a>
+                  </li>
+                  <li>
+                    <a href="#">Policy</a>
+                  </li>
+                  <li>
+                    <a href="#">Terms</a>
+                  </li>
+                </ul>
+              </li>
+            </div>
+
+            <div>
+              <li>
+                <h2>Recent Post</h2>
+                <ul className="box">
+                  <li>
+                    <a href="#">Lorem</a>
+                  </li>
+                  <li>
+                    <a href="#">Lorem</a>
+                  </li>
+                  <li>
+                    <a href="#">Lorem</a>
+                  </li>
+                  <li>
+                    <a href="#">Lorem</a>
+                  </li>
+                </ul>
+              </li>
+            </div>
+          </ul>
+        </div>
+        <div>
+          <h2>Newletter</h2>
+          <form action="" className="form-search">
+            <div className="search-box">
+              <input type="text" name="" id=""></input>
+              <button className="btnn" type="submit">
+                search
+              </button>
+            </div>
+          </form>
+
+          <div className="socials">
+            <a href="#">
+              <i className="fa fa-facebook">
+                <FaFacebookF />
+              </i>
+            </a>
+            <a href="#">
+              <i className="fa fa-instagram">
+                <FaInstagram />
+              </i>
+            </a>
+            <a href="#">
+              <i className="fa fa-twitter">
+                <BsTwitter />
+              </i>
+            </a>
+            <a href="#">
+              <i className="fa fa-youtube">
+                <ImYoutube />
+              </i>
+            </a>
+          </div>
+        </div>
+        <div className="footer-buttom">
+          <h2 className="web">
+            e <FcShipped size={50} /> shop
+          </h2>
+          <p>All Right reversed by &copy;creativo 2022</p>
+        </div>
+      </footer>
     </>
   );
 };

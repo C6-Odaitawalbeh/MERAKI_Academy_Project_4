@@ -28,12 +28,11 @@ const LoginProvider = (props) => {
 
   const saveRole = (role) => {
     setAdminRole(role);
-    localStorage.setItem("adminRole", role);
+    localStorage.setItem("Role", role);
   };
 
   useEffect(() => {
     saveToken(localStorage.getItem("token"));
-    // saveId(localStorage.getItem("userId"));
   }, []);
 
   const login = async () => {
@@ -44,7 +43,7 @@ const LoginProvider = (props) => {
       });
 
       saveToken(result.data.token);
-      saveId(result.data.userId);
+      saveId(result.data);
       saveRole(result.data.role);
       setFound(true);
       history("/"); // main page

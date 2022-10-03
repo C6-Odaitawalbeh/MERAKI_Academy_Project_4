@@ -10,7 +10,8 @@ body {
     flex-wrap: wrap;
     height: 100hv;
     padding: 10px;
-    margin-top: 10%;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .login-page {
