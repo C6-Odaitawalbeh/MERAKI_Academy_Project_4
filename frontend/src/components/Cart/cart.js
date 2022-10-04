@@ -12,10 +12,13 @@ import {
 import { AiFillMinusCircle } from "react-icons/ai";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import { orderContext } from "../contexts/order";
 
 const Cart = () => {
   const productCompContext = useContext(productContext);
   const loginCompContext = useContext(loginContext);
+  const orderCompContext = useContext(orderContext);
+
   const [productElem, setProductElem] = useState([]);
 
   const history = useNavigate();
@@ -93,11 +96,6 @@ const Cart = () => {
     setProductNumber([...productNumber, price]);
   };
 
-  const orderProduct = () => {
-    axios.post(`http://localhost:5000/order`, {
-      
-    })
-  }
 
   return (
     <>

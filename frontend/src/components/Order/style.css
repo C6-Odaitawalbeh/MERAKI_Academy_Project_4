@@ -1,0 +1,52 @@
+.shipping-container {
+    display: grid;
+    grid-template-columns: repeat(1,center);
+}
+
+.header-text {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.collection-input {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    height: 700px;
+}
+
+.country-options {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.name-ship-flex {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.inputt {
+    margin-right: 5px;
+    width: 150px;
+    height: 30px;
+}
+
+.label {
+    padding-right: 5px;
+}
+
+.input-order {
+    width: 600px;
+    height: 35px;
+}
+
+.button-ship {
+    background: #f0c14b;
+    border-color: #a88734 #9c7e31 #846a29;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    height: 35px;
+}

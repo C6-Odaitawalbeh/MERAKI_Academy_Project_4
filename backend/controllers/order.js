@@ -21,7 +21,7 @@ const addOrder = (req,res) => {
         res.json(result);
     })
     .catch((err)=>{
-        res.status(500);
+        res.status(404);
         res.json(err.message);
     });
 };

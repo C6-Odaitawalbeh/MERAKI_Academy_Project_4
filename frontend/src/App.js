@@ -26,6 +26,7 @@ import AutomotivePartsAccessories from "./components/Caterories/automotivePartsA
 import ArtsAndCraftsSewing from "./components/Caterories/artsAndCraftsAndSewing";
 import AppsAGames from "./components/Caterories/appsAndGames";
 import Order from "./components/Order/order";
+import Payment from "./components/Payment/payment";
 
 
 // let [usertoken,role,user,admin] = ProtectedRouter()
@@ -62,6 +63,7 @@ function App() {
         <Route path="/products/categories/arts&crafts&sewing" element={<ArtsAndCraftsSewing />} />
         <Route path="/products/categories/apps&games" element={<AppsAGames />} />
         <Route path="/cart/by" element={<Order />} />
+        <Route path="/cart/payment" element={<Payment />} />
       </Routes>
     </div>
   );
