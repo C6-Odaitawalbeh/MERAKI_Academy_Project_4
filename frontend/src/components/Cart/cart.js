@@ -62,19 +62,24 @@ const Cart = () => {
     }
   };
 
-  // const [productTotalPrice, setProductTotalPrice] = useState(0);
-
-  const updateTotalPrice = (id) => {
-    axios
+  const updateTotalPrice = async (id) => {
+   await axios
       .put(
-        `http://localhost:5000/cart/update/${id}`,
+        `http://localhost:5000/products/manage/${id}`,
         {
-          totalPrice: totlaPrice,
+          count: orderCompContext.count,
         },
         { headers: { Authorization: `Bearer ${loginCompContext.token}` } }
       )
       .then((result) => {
         console.log(result);
+        const newProductAfterUpdate = productCompContext.product.map(
+          (item, index) => {
+            if (item._id == id) {
+              item.count = result.data.count;
+            }
+            return newProductAfterUpdate;
+          })
       })
       .catch((err) => {
         console.log(err);
@@ -85,24 +90,25 @@ const Cart = () => {
   const [productNumber, setProductNumber] = useState([]);
   // console.log(productNumber);
 
-  let initialValue = 0;
-  const totlaPrice = productNumber.reduce(
-    (previousValue, currentValue) => previousValue + currentValue,
-    initialValue
-  );
+  // let initialValue = 0;
+  // const totlaPrice = productNumber.reduce(
+  //   (previousValue, currentValue) => previousValue + currentValue,
+  //   initialValue
+  // );
   // console.log(totlaPrice);
 
-  const handelTotal = (price) => {
-    setProductNumber([...productNumber, price]);
-  };
+  // const handelTotal = (price) => {
+  //   setProductNumber([...productNumber, price]);
+  // };
 
+  var totalCount = 0;
+  console.log(totalCount);
+
+  orderCompContext.setTotalPrice(totalCount);
 
   return (
     <>
-    <div className="shopping-cart-name">
-        <h3>Shopping cart</h3>
-      </div>
-    <div className="back">
+     <div className="back">
         <FcLeft
           className="back-icon-react"
           size={30}
@@ -112,9 +118,14 @@ const Cart = () => {
         />
         <p className="back-string">Back</p>
       </div>
+    <div className="shopping-cart-name">
+        <h3>Shopping cart</h3>
+      </div>
       <div className="cart-container">
         <div className="cart">
           {productElem.map((item, index) => {
+            totalCount = totalCount + item.product.price * item.product.count;
+            orderCompContext.setTotalPrice(totalCount);
             return (
               <>
                 <div key={index} className="cart-prduct">
@@ -125,13 +136,13 @@ const Cart = () => {
                     />
 
                     <div className="count">
-                      <button className="button-count">Submit</button>
+                      <button className="button-count" onClick={()=>{updateTotalPrice(item.product._id)}}>Submit</button>
 
                       <input
                         className="input-count"
                         type="number"
                         onChange={(e) => {
-                          handelTotal(e.target.value * item.product.price);
+                          orderCompContext.setCount(e.target.value);
                         }}
                       ></input>
                     </div>
@@ -166,7 +177,7 @@ const Cart = () => {
         <div className="CheckOut">
           <p className="span-total">Total Price</p>
           <spnan className="total-price">
-            {totlaPrice} $ <FcCurrencyExchange size={25} />
+            {totalCount} $ <FcCurrencyExchange size={25} />
           </spnan>
           <button className="button-checkout" onClick={()=>{history("/cart/by")}}>
             CheckOut <FcApproval className="icon-checkout" size={25} />

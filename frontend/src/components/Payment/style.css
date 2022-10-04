@@ -1,0 +1,14 @@
+.total-pricee {
+    /* border: 1px solid rgb(255, 255, 255); */
+    /* background-color: white; */
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    /* margin-left: 44%; */
+    color: rgb(199, 4, 4);
+}
+
+.user-detailes {
+    margin-top: 50px;
+}

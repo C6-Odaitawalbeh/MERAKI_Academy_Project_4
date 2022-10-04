@@ -11,7 +11,7 @@ const createNewProducts = (req, res) => {
     image,
     count,
     shorttitle,
-    categories
+    categories,
   } = req.body;
 
   const { userId } = req.token;
@@ -136,6 +136,7 @@ const updateProductsById = (req, res) => {
     image,
     userId,
     shorttitle,
+    count,
   } = req.body;
 
   productModel
@@ -149,7 +150,8 @@ const updateProductsById = (req, res) => {
         date: date,
         location: location,
         shorttitle: shorttitle,
-        image: image
+        count: count,
+        image: image,
       },
       { new: true }
     )

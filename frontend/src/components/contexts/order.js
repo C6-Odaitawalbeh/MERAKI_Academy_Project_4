@@ -11,6 +11,10 @@ const OrderProvider = (props) => {
     const [address, setAddress] = useState("");
     const [statee, setStatee] = useState("");
     const [zipCode, setZipCode] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [count, setCount] = useState(1);
+    console.log(`Total Price ${totalPrice}`);
+    console.log(`Count: ${count}`);
 
     const state = {
         fullName,
@@ -26,7 +30,11 @@ const OrderProvider = (props) => {
         statee,
         setStatee,
         zipCode,
-        setZipCode
+        setZipCode,
+        totalPrice,
+        setTotalPrice,
+        count,
+        setCount
     };
 
     return (

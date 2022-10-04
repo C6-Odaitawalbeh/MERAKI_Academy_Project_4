@@ -4,6 +4,7 @@ import { orderContext } from "../contexts/order";
 import axios from "axios";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import {FcLeft} from "react-icons/fc";
 
 const Order = () => {
   const loginCompContext = useContext(loginContext);
@@ -14,7 +15,8 @@ const Order = () => {
   const history = useNavigate();
 
   const orderProduct = async () => {
-    await axios
+    try {
+        await axios
       .post(
         `http://localhost:5000/order`,
         {
@@ -25,7 +27,7 @@ const Order = () => {
           address: orderCompContext.address,
           state: orderCompContext.statee,
           zipCode: orderCompContext.zipCode,
-          //   totalPrice: totlaPrice,
+          totalPrice: orderCompContext.totalPrice,
         },
         {
           headers: {
@@ -36,16 +38,43 @@ const Order = () => {
       .then((result) => {
         console.log(result);
         console.log(result.data.statusText);
-        // setMessage()
+        setMessage("Done!")
+        history('/cart/payment')
+      }).catch((err)=>{
+        if (!orderCompContext.country) {
+            setMessage("Enter Country");
+        } else if (!orderCompContext.fullName) {
+            setMessage("Enter Full Name");
+        } else if (!orderCompContext.phoneNumber) {
+            setMessage("Enter Phone Number");
+        } else if (!orderCompContext.city) {
+            setMessage("Enter City");
+        } else if (!orderCompContext.address) {
+            setMessage("Enter Address");
+        } else if (!orderCompContext.statee) {
+            setMessage("Enter State");
+        } else if (!orderCompContext.zipCode) {
+            setMessage("Enter ZipCode");
+        }
       })
-      .catch((err) => {
-        console.log(err);
-        // setMessage(err.response.data);
-      });
+    } catch (err) {
+        throw err;
+    }
   };
 
   return (
     <>
+     <div className="back">
+        <FcLeft
+          className="back-icon-react"
+          size={30}
+          onClick={() => {
+            history(-1);
+          }}
+        />
+        <p className="back-string">Back</p>
+      </div>
+      
       <div className="shipping-container">
         <div className="header-text">
           <h3><b>Select a shipping address</b></h3>
@@ -424,9 +453,9 @@ const Order = () => {
             ></input>
           </div>
           <div>
-          <button className="button-ship" onClick={()=>{orderProduct(); setMessage("Done !"); history('/cart/payment')}}>Deliver to this address</button>
+          <button className="button-ship" onClick={orderProduct}>Deliver to this address</button>
           </div>
-          {<div>{message}</div>}
+          {message && <div className="message-div"><p className="messamge-register">{message}</p></div>}
         </div>
       </div>
     </>
