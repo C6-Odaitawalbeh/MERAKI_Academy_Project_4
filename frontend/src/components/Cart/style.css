@@ -14,6 +14,7 @@
 .cart {
     display: grid;
     grid-template-columns: 1fr;
+    /* width: 1000px; */
 }
 
 .cart-prduct {
@@ -26,6 +27,8 @@
     background: #ffffff;
     box-shadow: -15px -15px 15px rgba(255,255,255,0.2), 15px 15px 15px rgba(0,0,0,0.1), inset -5px -5px 5px rgba(255,255,255,0.2), inset 5px 5px 5px rgba(0,0,0,0.1);
     border-right: 6px solid #25242a;
+    width: 1200px;
+
 }
 
 .product-image-cart {

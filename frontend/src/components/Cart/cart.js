@@ -10,11 +10,14 @@ import {
 } from "react-icons/fc";
 import { AiFillMinusCircle } from "react-icons/ai";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const productCompContext = useContext(productContext);
   const loginCompContext = useContext(loginContext);
   const [productElem, setProductElem] = useState([]);
+
+  const history = useNavigate();
 
   useEffect(() => {
     axios
@@ -55,15 +58,35 @@ const Cart = () => {
     }
   };
 
+  // const [productTotalPrice, setProductTotalPrice] = useState(0);
+
+  const updateTotalPrice = (id) => {
+    axios
+      .put(
+        `http://localhost:5000/cart/update/${id}`,
+        {
+          totalPrice: totlaPrice,
+        },
+        { headers: { Authorization: `Bearer ${loginCompContext.token}` } }
+      )
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      });
+  };
+
   const [productNumber, setProductNumber] = useState([]);
-  console.log(productNumber);
+  // console.log(productNumber);
 
   let initialValue = 0;
   const totlaPrice = productNumber.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
-  console.log(totlaPrice);
+  // console.log(totlaPrice);
 
   const handelTotal = (price) => {
     setProductNumber([...productNumber, price]);
@@ -78,46 +101,50 @@ const Cart = () => {
         <div className="cart">
           {productElem.map((item, index) => {
             return (
-              <div key={index} className="cart-prduct">
-                <div className="image-div-cart">
-                  <img
-                    className="product-image-cart"
-                    src={item.product.image}
-                  />
+              <>
+                <div key={index} className="cart-prduct">
+                  <div className="image-div-cart">
+                    <img
+                      className="product-image-cart"
+                      src={item.product.image}
+                    />
 
-                  <div className="count">
-                    <button className="button-count">Submit</button>
+                    <div className="count">
+                      <button className="button-count">Submit</button>
 
-                    <input
-                      className="input-count"
-                      type="number"
-                      onChange={(e) => {
-                        handelTotal(e.target.value * item.product.price);
+                      <input
+                        className="input-count"
+                        type="number"
+                        onChange={(e) => {
+                          handelTotal(e.target.value * item.product.price);
+                        }}
+                      ></input>
+                    </div>
+                  </div>
+
+                  <div className="words-cart">
+                    <p className="title">{item.product.title}</p>
+                    <hr></hr>
+                    <p className="description">{item.product.price}$</p>
+                    <hr></hr>
+                    <p className="description">
+                      Item Quantity: {item.product.quantity}
+                    </p>
+                  </div>
+                  <div className="delete-item-from-cart">
+                    <FcDislike
+                      className="delete-icon"
+                      size={24}
+                      onClick={() => {
+                        deleteFromCart(item._id);
                       }}
-                    ></input>
+                    />
+                    <p>delete item</p>
                   </div>
                 </div>
 
-                <div className="words-cart">
-                  <p className="title">{item.product.title}</p>
-                  <hr></hr>
-                  <p className="description">{item.product.price}$</p>
-                  <hr></hr>
-                  <p className="description">
-                    Item Quantity: {item.product.quantity}
-                  </p>
-                </div>
-                <div className="delete-item-from-cart">
-                  <FcDislike
-                    className="delete-icon"
-                    size={24}
-                    onClick={() => {
-                      deleteFromCart(item._id);
-                    }}
-                  />
-                  <p>delete item</p>
-                </div>
-              </div>
+                
+              </>
             );
           })}
         </div>
@@ -126,7 +153,7 @@ const Cart = () => {
           <spnan className="total-price">
             {totlaPrice} $ <FcCurrencyExchange size={25} />
           </spnan>
-          <button className="button-checkout">
+          <button className="button-checkout" onClick={()=>{history("/cart/by")}}>
             CheckOut <FcApproval className="icon-checkout" size={25} />
           </button>
         </div>

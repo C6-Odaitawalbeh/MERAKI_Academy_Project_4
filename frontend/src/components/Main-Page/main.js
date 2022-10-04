@@ -183,10 +183,10 @@ const Main = () => {
           </h5>
           <hr></hr>
 
-          <Link to="/products/filter_1" className="filter-link">
+          <Link to="/products/filter_1" className="filter-linke">
             From the cheapest to most expensive <TbHandClick />
           </Link>
-          <Link to="/products/filter_2" className="filter-link">
+          <Link to="/products/filter_2" className="filter-linke">
             From the most expensive to the cheapest <TbHandClick />
           </Link>
           <hr></hr>
@@ -223,15 +223,15 @@ const Main = () => {
           </h5>
           <hr></hr>
 
-          <Link
+          <li><Link
             to="/products/categories/appliances"
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Appliances")}
           >
-            Appliances
-          </Link>
+           Appliances
+          </Link></li>
 
-          <Link
+          <li><Link
             to="/products/categories/apps&games"
             className="filter-link"
             onClick={() =>
@@ -239,9 +239,9 @@ const Main = () => {
             }
           >
             Apps & Games
-          </Link>
+          </Link></li>
 
-          <Link
+          <li><Link
             to="/products/categories/arts&crafts&sewing"
             className="filter-link"
             onClick={() =>
@@ -251,9 +251,9 @@ const Main = () => {
             }
           >
             Arts, Crafts, & Sewing
-          </Link>
+          </Link></li>
 
-          <Link
+          <li><Link
             to="/products/categories/automotiveParts&accessories"
             className="filter-link"
             onClick={() =>
@@ -263,17 +263,17 @@ const Main = () => {
             }
           >
             Automotive Parts & Accessories
-          </Link>
+          </Link></li>
 
-          <Link
+          <li><Link
             to="/products/categories/baby"
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Baby")}
           >
             Baby
-          </Link>
+          </Link></li>
 
-          <Link
+          <li><Link
             to="/products/categories/beauty&personalcare"
             className="filter-link"
             onClick={() =>
@@ -283,9 +283,9 @@ const Main = () => {
             }
           >
             Beauty & Personal Care
-          </Link>
+          </Link></li>
 
-          <Link
+          <li><Link
             to="/products/categories/clothing&shoes&jewelry"
             className="filter-link"
             onClick={() =>
@@ -295,23 +295,23 @@ const Main = () => {
             }
           >
             Clothing, Shoes and Jewelry
-          </Link>
+          </Link></li>
 
-          <Link
+          <li><Link
             to="/products/categories/computers"
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Computers")}
           >
             Computers
-          </Link>
+          </Link></li>
 
-          <Link
+          <li><Link
             to="/products/categories/electronics"
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Electronics")}
           >
             Electronics
-          </Link>
+          </Link></li>
         </div>
       </div>
 

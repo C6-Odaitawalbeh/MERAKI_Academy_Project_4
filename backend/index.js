@@ -15,6 +15,7 @@ const roleRouter = require("./routes/role");
 const productRouter = require("./routes/product");
 const cartRouter = require("./routes/cart");
 const loginRoute = require("./routes/login");
+const orderRouter = require("./routes/order");
 
 // Routes Middleware
 app.use("/user", userRouter);
@@ -22,6 +23,7 @@ app.use('/roles', roleRouter)
 app.use('/products', productRouter);
 app.use('/cart', cartRouter);
 app.use('/login', loginRoute);
+app.use('/order', orderRouter);
 
 // Handles any other endpoints [unassigned - endpoints]
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
