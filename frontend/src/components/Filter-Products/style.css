@@ -1,0 +1,6 @@
+.words-search-ascen {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin-left: 40px;
+    margin-top: 20px;
+}

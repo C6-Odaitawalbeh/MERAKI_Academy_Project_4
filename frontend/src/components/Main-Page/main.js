@@ -194,7 +194,7 @@ const Main = () => {
             <input
               className="filter-input"
               type="number"
-              placeholder="from $"
+              placeholder="From"
               onChange={(e) => {
                 setPriceFilterFrom(e.target.value);
               }}
@@ -202,7 +202,7 @@ const Main = () => {
             <input
               className="filter-input"
               type="number"
-              placeholder="to $"
+              placeholder="To"
               onChange={(e) => {
                 setPriceFilterTo(e.target.value);
               }}
@@ -214,7 +214,7 @@ const Main = () => {
                 history("/products/search_1");
               }}
             >
-              Go
+              Search
             </button>
           </div>
           <hr></hr>
@@ -223,15 +223,15 @@ const Main = () => {
           </h5>
           <hr></hr>
 
-          <li><Link
+          <Link
             to="/products/categories/appliances"
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Appliances")}
           >
            Appliances
-          </Link></li>
+          </Link>
 
-          <li><Link
+          <Link
             to="/products/categories/apps&games"
             className="filter-link"
             onClick={() =>
@@ -239,9 +239,9 @@ const Main = () => {
             }
           >
             Apps & Games
-          </Link></li>
+          </Link>
 
-          <li><Link
+          <Link
             to="/products/categories/arts&crafts&sewing"
             className="filter-link"
             onClick={() =>
@@ -251,9 +251,9 @@ const Main = () => {
             }
           >
             Arts, Crafts, & Sewing
-          </Link></li>
+          </Link>
 
-          <li><Link
+          <Link
             to="/products/categories/automotiveParts&accessories"
             className="filter-link"
             onClick={() =>
@@ -263,17 +263,17 @@ const Main = () => {
             }
           >
             Automotive Parts & Accessories
-          </Link></li>
+          </Link>
 
-          <li><Link
+          <Link
             to="/products/categories/baby"
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Baby")}
           >
             Baby
-          </Link></li>
+          </Link>
 
-          <li><Link
+          <Link
             to="/products/categories/beauty&personalcare"
             className="filter-link"
             onClick={() =>
@@ -283,9 +283,9 @@ const Main = () => {
             }
           >
             Beauty & Personal Care
-          </Link></li>
+          </Link>
 
-          <li><Link
+          <Link
             to="/products/categories/clothing&shoes&jewelry"
             className="filter-link"
             onClick={() =>
@@ -295,23 +295,23 @@ const Main = () => {
             }
           >
             Clothing, Shoes and Jewelry
-          </Link></li>
+          </Link>
 
-          <li><Link
+          <Link
             to="/products/categories/computers"
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Computers")}
           >
             Computers
-          </Link></li>
+          </Link>
 
-          <li><Link
+          <Link
             to="/products/categories/electronics"
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Electronics")}
           >
             Electronics
-          </Link></li>
+          </Link>
         </div>
       </div>
 

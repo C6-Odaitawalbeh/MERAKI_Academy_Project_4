@@ -6,19 +6,21 @@ import RegisterProvider from "./components/contexts/register";
 import LoginProvider from "./components/contexts/login";
 import HeaderProvider from "./components/contexts/header";
 import ProductProvider from "./components/contexts/main";
-
+import OrderProvider from "./components/contexts/order";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
-        <HeaderProvider>
-          <ProductProvider>
-            <RegisterProvider>
-              <LoginProvider>
-                <App />
-              </LoginProvider>
-            </RegisterProvider>
-          </ProductProvider>
-        </HeaderProvider>
+    <OrderProvider>
+      <HeaderProvider>
+        <ProductProvider>
+          <RegisterProvider>
+            <LoginProvider>
+              <App />
+            </LoginProvider>
+          </RegisterProvider>
+        </ProductProvider>
+      </HeaderProvider>
+    </OrderProvider>
   </Router>
 );

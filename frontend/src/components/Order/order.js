@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { orderContext } from "../contexts/order";
 
 const Order = () => {
-    const [fullName, setFullName] = useState("");
-    const [country, setCountry] = useState("");
-    const [ohoneNumber, setPhoneNumber] = useState("");
-    const [city, setCity] = useState("");
-    const [address, setAddress] = useState("");
+    // const [fullName, setFullName] = useState("");
+    // const [country, setCountry] = useState("");
+    // const [ohoneNumber, setPhoneNumber] = useState(0);
+    // const [city, setCity] = useState("");
+    // const [address, setAddress] = useState("");
+    // const [state, setState] = useState("");
+    // const [zipCode, setZipCode] = useState(0);
+
+    const orderCompContext = useContext(orderContext);
 
     return (
     <>
@@ -13,38 +18,38 @@ const Order = () => {
 
     <h6>Country/Region</h6>
     <select id="country" name="country" class="input-order">
-        <option value="Afghanistan" onClick={()=>setCountry("Afghanistan")}>Afghanistan</option>
-        <option value="Åland Islands" onClick={()=>setCountry("Åland Islands")}>Åland Islands</option>
-        <option value="Albania" onClick={()=>setCountry("Albania")}>Albania</option>
-        <option value="Algeria" onClick={()=>setCountry("Algeria")}>Algeria</option>
-        <option value="American Samoa" onClick={()=>setCountry("American Samoa")}>American Samoa</option>
-        <option value="Andorra" onClick={()=>setCountry("Andorra")}>Andorra</option>
-        <option value="Angola" onClick={()=>setCountry("Angola")}>Angola</option>
-        <option value="Anguilla" onClick={()=>setCountry("Anguilla")}>Anguilla</option>
-        <option value="Antarctica" onClick={()=>setCountry("Antarctica")}>Antarctica</option>
-        <option value="Antigua and Barbuda" onClick={()=>setCountry("Antigua and Barbuda")}>Antigua and Barbuda</option>
-        <option value="Argentina" onClick={()=>setCountry("Argentina")}>Argentina</option>
-        <option value="Armenia" onClick={()=>setCountry("Armenia")}>Armenia</option>
-        <option value="Aruba" onClick={()=>setCountry("Aruba")}>Aruba</option>
-        <option value="Australia" onClick={()=>setCountry("Australia")}>Australia</option>
-        <option value="Austria" onClick={()=>setCountry("Austria")}>Austria</option>
-        <option value="Azerbaijan" onClick={()=>setCountry("Azerbaijan")}>Azerbaijan</option>
-        <option value="Bahamas" onClick={()=>setCountry("Bahamas")}>Bahamas</option>
-        <option value="Bahrain" onClick={()=>setCountry("Bahrain")}>Bahrain</option>
-        <option value="Bangladesh" onClick={()=>setCountry("Bangladesh")}>Bangladesh</option>
-        <option value="Barbados" onClick={()=>setCountry("Barbados")}>Barbados</option>
-        <option value="Belarus" onClick={()=>setCountry("Belarus")}>Belarus</option>
-        <option value="Belgium" onClick={()=>setCountry("Belgium")}>Belgium</option>
-        <option value="Belize" onClick={()=>setCountry("Belize")}>Belize</option>
-        <option value="Benin" onClick={()=>setCountry("Benin")}>Benin</option>
-        <option value="Bermuda" onClick={()=>setCountry("Bermuda")}>Bermuda</option>
-        <option value="Bhutan" onClick={()=>setCountry("Bhutan")}>Bhutan</option>
-        <option value="Bolivia" onClick={()=>setCountry("Bolivia")}>Bolivia</option>
-        <option value="Bosnia and Herzegovina" onClick={()=>setCountry("Bosnia and Herzegovina")}>Bosnia and Herzegovina</option>
-        <option value="Botswana" onClick={()=>setCountry("Botswana")}>Botswana</option>
-        <option value="Bouvet Island" onClick={()=>setCountry("Bouvet Island")}>Bouvet Island</option>
-        <option value="Brazil" onClick={()=>setCountry("Brazil")}>Brazil</option>
-        <option value="British Indian Ocean Territory" onClick={()=>setCountry("British Indian Ocean Territory")}>
+        <option value="Afghanistan" onClick={()=>orderCompContext.setCountry("Afghanistan")}>Afghanistan</option>
+        <option value="Åland Islands" onClick={()=>orderCompContext.setCountry("Åland Islands")}>Åland Islands</option>
+        <option value="Albania" onClick={()=>orderCompContext.setCountry("Albania")}>Albania</option>
+        <option value="Algeria" onClick={()=>orderCompContext.setCountry("Algeria")}>Algeria</option>
+        <option value="American Samoa" onClick={()=>orderCompContext.setCountry("American Samoa")}>American Samoa</option>
+        <option value="Andorra" onClick={()=>orderCompContext.setCountry("Andorra")}>Andorra</option>
+        <option value="Angola" onClick={()=>orderCompContext.setCountry("Angola")}>Angola</option>
+        <option value="Anguilla" onClick={()=>orderCompContext.setCountry("Anguilla")}>Anguilla</option>
+        <option value="Antarctica" onClick={()=>orderCompContext.setCountry("Antarctica")}>Antarctica</option>
+        <option value="Antigua and Barbuda" onClick={()=>orderCompContext.setCountry("Antigua and Barbuda")}>Antigua and Barbuda</option>
+        <option value="Argentina" onClick={()=>orderCompContext.setCountry("Argentina")}>Argentina</option>
+        <option value="Armenia" onClick={()=>orderCompContext.setCountry("Armenia")}>Armenia</option>
+        <option value="Aruba" onClick={()=>orderCompContext.setCountry("Aruba")}>Aruba</option>
+        <option value="Australia" onClick={()=>orderCompContext.setCountry("Australia")}>Australia</option>
+        <option value="Austria" onClick={()=>orderCompContext.setCountry("Austria")}>Austria</option>
+        <option value="Azerbaijan" onClick={()=>orderCompContext.setCountry("Azerbaijan")}>Azerbaijan</option>
+        <option value="Bahamas" onClick={()=>orderCompContext.setCountry("Bahamas")}>Bahamas</option>
+        <option value="Bahrain" onClick={()=>orderCompContext.setCountry("Bahrain")}>Bahrain</option>
+        <option value="Bangladesh" onClick={()=>orderCompContext.setCountry("Bangladesh")}>Bangladesh</option>
+        <option value="Barbados" onClick={()=>orderCompContext.setCountry("Barbados")}>Barbados</option>
+        <option value="Belarus" onClick={()=>orderCompContext.setCountry("Belarus")}>Belarus</option>
+        <option value="Belgium" onClick={()=>orderCompContext.setCountry("Belgium")}>Belgium</option>
+        <option value="Belize" onClick={()=>orderCompContext.setCountry("Belize")}>Belize</option>
+        <option value="Benin" onClick={()=>orderCompContext.setCountry("Benin")}>Benin</option>
+        <option value="Bermuda" onClick={()=>orderCompContext.setCountry("Bermuda")}>Bermuda</option>
+        <option value="Bhutan" onClick={()=>orderCompContext.setCountry("Bhutan")}>Bhutan</option>
+        <option value="Bolivia" onClick={()=>orderCompContext.setCountry("Bolivia")}>Bolivia</option>
+        <option value="Bosnia and Herzegovina" onClick={()=>orderCompContext.setCountry("Bosnia and Herzegovina")}>Bosnia and Herzegovina</option>
+        <option value="Botswana" onClick={()=>orderCompContext.setCountry("Botswana")}>Botswana</option>
+        <option value="Bouvet Island" onClick={()=>orderCompContext.setCountry("Bouvet Island")}>Bouvet Island</option>
+        <option value="Brazil" onClick={()=>orderCompContext.setCountry("Brazil")}>Brazil</option>
+        <option value="British Indian Ocean Territory" onClick={()=>orderCompContext.setCountry("British Indian Ocean Territory")}>
         British Indian Ocean Territory
         </option>
         <option value="Brunei Darussalam">Brunei Darussalam</option>
@@ -305,7 +310,7 @@ const Order = () => {
         type="text"
         placeholder="Full Name"
         onClick={(e) => {
-        setFullName(e.target.value);
+            orderCompContext.setFullName(e.target.value);
         }}
     ></input>
 
@@ -315,18 +320,9 @@ const Order = () => {
         type="number"
         placeholder="Phone number"
         onClick={(e) => {
-            setPhoneNumber(e.target.value);
+            orderCompContext.setPhoneNumber(e.target.value);
             }}
         ></input>
-
-        <h6>City</h6>
-        <input
-        className="input-order"
-        type="text"
-        placeholder="City"
-        onClick={(e) => {
-            setCity(e.target.value);
-            }}></input>
 
         <h6>Address</h6>
         <input
@@ -334,9 +330,42 @@ const Order = () => {
         type="text"
         placeholder="Address"
         onClick={(e) => {
-            setCity(e.target.value);
+            orderCompContext.setAddress(e.target.value);
             }}
         ></input>
+
+        <div>
+        <h6>City</h6>
+        <input
+        className="input-order"
+        type="text"
+        placeholder="City"
+        onClick={(e) => {
+            orderCompContext.setCity(e.target.value);
+            }}></input>
+
+        <h6>State</h6>
+        <input
+        className="input-order"
+        type="text"
+        placeholder="State"
+        onClick={(e) => {
+            orderCompContext.setStatee(e.target.value);
+            }}
+        ></input>
+
+        <h6>ZIP Code</h6>
+        <input
+        className="input-order"
+        type="text"
+        placeholder="ZIP Code"
+        onClick={(e) => {
+            orderCompContext.setZipCode(e.target.value);
+            }}
+        ></input>
+        </div>
+
+        <button>Deliver to this address</button>
     </>
   );
 };

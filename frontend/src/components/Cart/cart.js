@@ -7,6 +7,7 @@ import {
   FcApproval,
   FcCurrencyExchange,
   FcPlus,
+  FcLeft
 } from "react-icons/fc";
 import { AiFillMinusCircle } from "react-icons/ai";
 import "./style.css";
@@ -92,10 +93,26 @@ const Cart = () => {
     setProductNumber([...productNumber, price]);
   };
 
+  const orderProduct = () => {
+    axios.post(`http://localhost:5000/order`, {
+      
+    })
+  }
+
   return (
     <>
-      <div className="shopping-cart-name">
+    <div className="shopping-cart-name">
         <h3>Shopping cart</h3>
+      </div>
+    <div className="back">
+        <FcLeft
+          className="back-icon-react"
+          size={30}
+          onClick={() => {
+            history(-1);
+          }}
+        />
+        <p className="back-string">Back</p>
       </div>
       <div className="cart-container">
         <div className="cart">

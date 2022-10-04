@@ -21,33 +21,28 @@ const BeautyAndpersonalcare = () => {
         />
         <p className="back-string">Back</p>
       </div>
-      <div className="electronic-container">
-        <div className="electronic">
+        <div className="search-products-page">
           {productCompContext.categoriesFilter.map((item, index) => {
             return (
-              <div key={index} className="electronic-prduct">
-                <div className="image-div-electronic">
+              <div key={index} className="product-search">
+                <div className="image-div-search">
                   <img
-                    className="product-image-electronic"
+                    className="product-image"
                     src={item.image}
                   />
                 </div>
 
-                <div className="words-cart">
-                  <p className="title">{item.title}</p>
-                  <hr></hr>
-                  <p className="description">{item.price}$</p>
-                  <hr></hr>
-                  <p className="description">
+                <div className="words-search-ascen">
+                  <h6 className="title">{item.description}</h6>
+                  <h6 className="price"><b>{item.price}</b> $</h6>
+                  {/* <p className="description">
                     {item.shorttitle}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             );
           })}
         </div>
-        
-      </div>
     </>
   );
 };
