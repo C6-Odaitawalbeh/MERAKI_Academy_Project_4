@@ -16,18 +16,21 @@
 }
 
 .search-bar {
-    padding-left: 150px;
-    padding-right: 150px;
+    /* padding-left: 150px; */
+    /* padding-right: 150px; */
     padding-top: 2px;
     padding-bottom: 2px;
     border: 1px solid rgba(252, 252, 252, 0.348);
     border-radius: 5px;
     font-size: 20px;
+    height: 38px;
+    width: 800px;
+    margin-left: 20px;
 }
 
 .search-icon {
-    margin-left: -29px;
-    padding-top: 6px;
+    margin-left: -40px;
+    /* padding-top: 1px; */
     cursor: pointer;
     /* margin-top: 4px; */
     /* background-color: rgb(223, 157, 26); */
@@ -37,13 +40,25 @@
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 40px;
-    font-size: 25px;
-    color: rgb(255, 255, 255);
+    font-size: 30px;
+    color: rgb(183, 7, 7);
+    /* color: darkorange; */
     font-family:cursive;
     font-style: oblique;
     font-weight: 800;
     font-weight: 1000;
     transition: transform .2s;
+    
+}
+
+.web-name-eshop {
+    position: relative;
+    animation: websiteName 8s infinite;
+}
+
+@keyframes websiteName {
+    from {left: 0px;}
+    to {left: 100px;}
 }
 
 .name-website:hover {
@@ -118,4 +133,8 @@ select {
     font-size: 20px;
     /* padding-top: 10px; */
     margin-top: 10px;
+}
+
+.icons-react {
+    color: rgb(228, 11, 11);
 }

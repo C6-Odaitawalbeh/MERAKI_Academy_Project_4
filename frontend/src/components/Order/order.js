@@ -5,13 +5,14 @@ import axios from "axios";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import {FcLeft} from "react-icons/fc";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 const Order = () => {
   const loginCompContext = useContext(loginContext);
   const orderCompContext = useContext(orderContext);
-
   const [message, setMessage] = useState("");
-
+  const stripe = useStripe();
+  const element = useElements();
   const history = useNavigate();
 
   const orderProduct = async () => {
@@ -39,7 +40,7 @@ const Order = () => {
         console.log(result);
         console.log(result.data.statusText);
         setMessage("Done!")
-        history('/cart/payment')
+        // history('/cart/payment');
       }).catch((err)=>{
         if (!orderCompContext.country) {
             setMessage("Enter Country");
@@ -64,7 +65,7 @@ const Order = () => {
 
   return (
     <>
-     <div className="back">
+      <div className="back">
         <FcLeft
           className="back-icon-react"
           size={30}
@@ -82,7 +83,7 @@ const Order = () => {
 
         <div className="collection-input">
           <div className="country-options">
-            <h6>Country/Region</h6>
+            <h6><b>Country/Region</b></h6>
             <select id="country" name="country" class="input-order" onClick={(e)=>{orderCompContext.setCountry(e.target.value)}}>
               <option value="Afghanistan">Afghanistan</option>
               <option value="Åland Islands">Åland Islands</option>
@@ -452,6 +453,21 @@ const Order = () => {
               }}
             ></input>
           </div>
+          <div className="payment">
+          <CardElement
+        options={{
+          hidePostalCode: true,
+          style: {
+            base: {
+              fontSize: "20px",
+            },
+            invalid: {
+              color: "red",
+            },
+          },
+        }}
+      />
+      </div>
           <div>
           <button className="button-ship" onClick={orderProduct}>Deliver to this address</button>
           </div>

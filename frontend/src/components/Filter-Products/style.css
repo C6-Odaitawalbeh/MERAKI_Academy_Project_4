@@ -1,6 +1,12 @@
 .words-search-ascen {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    margin-left: 40px;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-left: 10px;
     margin-top: 20px;
+    width: 200px;
+}
+
+.show-more-detailes {
+    cursor: pointer;
+    color: rgb(15, 100, 227);
 }

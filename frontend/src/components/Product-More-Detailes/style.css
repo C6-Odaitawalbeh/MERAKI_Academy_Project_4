@@ -2,12 +2,12 @@
     display: grid;
     grid-template-columns: repeat(5,auto);
     background-color: white;
-    margin-top: 80px;
 }
 
 .image-product-detailess {
     width: 500px;
     height: 500px;
+    margin-top: 40px;
 }
 
 .prduct-detailes-words {

@@ -5,12 +5,18 @@ import { productContext } from "../contexts/main";
 import "./style.css";
 import ReactPaginate from "react-paginate";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FcFilledFilter, FcShipped } from "react-icons/fc";
+import { FcFilledFilter, FcShipped, FcAutomotive } from "react-icons/fc";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
-import { TbHandClick } from "react-icons/tb";
+import { TbSortAscending2, TbSortDescending2 } from "react-icons/tb";
 import { BsTwitter } from "react-icons/bs";
 import { ImYoutube } from "react-icons/im";
 import axios from "axios";
+import { MdComputer } from "react-icons/md";
+import { CgSmartHomeWashMachine } from "react-icons/cg";
+import { GiNestedHearts, GiElectricalResistance } from "react-icons/gi";
+import { TbBabyCarriage } from "react-icons/tb";
+import { IoManOutline } from "react-icons/io5";
+import { AiOutlineAppstore, AiOutlineShopping } from "react-icons/ai";
 
 const Main = () => {
   const productCompContext = useContext(productContext);
@@ -67,127 +73,23 @@ const Main = () => {
 
   return (
     <>
-      <div className="categories-div-link">
-        <Link
-          to="/products/categories/appliances"
-          className="categories-links"
-          onClick={() => productCompContext.filterByCategories("Appliances")}
-        >
-          Appliances
-        </Link>
-        <Link
-          to="/products/categories/apps&games"
-          className="categories-links"
-          onClick={() =>
-            productCompContext.filterByCategories("Apps" || "Games")
-          }
-        >
-          Apps & Games
-        </Link>
-        <Link
-          to="/products/categories/arts&crafts&sewing"
-          className="categories-links"
-          onClick={() =>
-            productCompContext.filterByCategories(
-              "Arts" || "Crafts" || "Sewing"
-            )
-          }
-        >
-          Arts, Crafts, & Sewing
-        </Link>
-        <Link
-          to="/products/categories/automotiveParts&accessories"
-          className="categories-links"
-          onClick={() =>
-            productCompContext.filterByCategories(
-              "AutomotiveParts" || "Accessories"
-            )
-          }
-        >
-          Automotive Parts & Accessories
-        </Link>
-        <Link
-          to="/products/categories/baby"
-          className="categories-links"
-          onClick={() => productCompContext.filterByCategories("Baby")}
-        >
-          Baby
-        </Link>
-        <Link
-          to="/products/categories/beauty&personalcare"
-          className="categories-links"
-          onClick={() =>
-            productCompContext.filterByCategories(
-              "Beauty" || "Personal" || "Care"
-            )
-          }
-        >
-          Beauty & Personal Care
-        </Link>
-        <Link
-          to="/products/categories/clothing&shoes&jewelry"
-          className="categories-links"
-          onClick={() =>
-            productCompContext.filterByCategories(
-              "Clothing" || "Shoes" || "Jewelry"
-            )
-          }
-        >
-          Clothing, Shoes and Jewelry
-        </Link>
-        <Link
-          to="/products/categories/computers"
-          className="categories-links"
-          onClick={() => productCompContext.filterByCategories("Computers")}
-        >
-          Computers
-        </Link>
-        <Link
-          to="/products/categories/electronics"
-          className="categories-links"
-          onClick={() => productCompContext.filterByCategories("Electronics")}
-        >
-          Electronics
-        </Link>
-      </div>
-
+      {/* <div className="image-cover">
+        <img src="https://www.mobiloitte.com/images/ecommerce-banner.png" />
+      </div> */}
       <div className="conteainer-main-page">
-        <div className="main-page">
-          {productCompContext.product.map((item, index) => {
-            return (
-              <div
-                className="products"
-                key={index}
-                onClick={() => {
-                  productMoreDetailes(item._id);
-                }}
-              >
-                <div className="image-div">
-                  <img
-                    className="product-image"
-                    src={item.image}
-                    onClick={(e) => {
-                      productCompContext.setProductIdDetailes(item);
-                      history("/product/detailes");
-                    }}
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
         <div className="filter-div">
           <h5 className="filter-text">
             <FcFilledFilter size={25} /> Filter Products By Price
           </h5>
           <hr></hr>
 
-          <Link to="/products/filter_1" className="filter-linke">
-            From the cheapest to most expensive <TbHandClick />
+          <Link to="/products/filter_1" className="filter-link">
+            <TbSortAscending2 className="icons-react" size={20} /> From the
+            cheapest to most expensive
           </Link>
-          <Link to="/products/filter_2" className="filter-linke">
-            From the most expensive to the cheapest <TbHandClick />
+          <Link to="/products/filter_2" className="filter-link">
+            <TbSortDescending2 className="icons-react" size={20} />
+            From the most expensive to the cheapest
           </Link>
           <hr></hr>
           <div className="filter-product-price-from-to">
@@ -219,7 +121,8 @@ const Main = () => {
           </div>
           <hr></hr>
           <h5 className="filter-text">
-            <FcFilledFilter size={25} /> Filter Products By Categories
+            <FcFilledFilter size={25} className="icons-react" /> Filter Products
+            By Categories
           </h5>
           <hr></hr>
 
@@ -228,7 +131,8 @@ const Main = () => {
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Appliances")}
           >
-           Appliances
+            <CgSmartHomeWashMachine size={20} className="icons-react" />{" "}
+            Appliances
           </Link>
 
           <Link
@@ -238,7 +142,7 @@ const Main = () => {
               productCompContext.filterByCategories("Apps" || "Games")
             }
           >
-            Apps & Games
+            <AiOutlineAppstore size={20} className="icons-react" /> Apps & Games
           </Link>
 
           <Link
@@ -250,7 +154,7 @@ const Main = () => {
               )
             }
           >
-            Arts, Crafts, & Sewing
+            <GiNestedHearts size={20} className="icons-react" /> Arts & Crafts
           </Link>
 
           <Link
@@ -262,7 +166,7 @@ const Main = () => {
               )
             }
           >
-            Automotive Parts & Accessories
+            <FcAutomotive size={20} className="icons-react" /> Automotive Parts
           </Link>
 
           <Link
@@ -270,7 +174,7 @@ const Main = () => {
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Baby")}
           >
-            Baby
+            <TbBabyCarriage size={20} className="icons-react" /> Baby
           </Link>
 
           <Link
@@ -282,7 +186,8 @@ const Main = () => {
               )
             }
           >
-            Beauty & Personal Care
+            <IoManOutline size={20} className="icons-react" /> Beauty & Personal
+            Care
           </Link>
 
           <Link
@@ -294,7 +199,8 @@ const Main = () => {
               )
             }
           >
-            Clothing, Shoes and Jewelry
+            <AiOutlineShopping size={20} className="icons-react" /> Clothing,
+            Shoes and Jewelry
           </Link>
 
           <Link
@@ -302,7 +208,7 @@ const Main = () => {
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Computers")}
           >
-            Computers
+            <MdComputer size={20} className="icons-react" /> Computers
           </Link>
 
           <Link
@@ -310,8 +216,34 @@ const Main = () => {
             className="filter-link"
             onClick={() => productCompContext.filterByCategories("Electronics")}
           >
+            <GiElectricalResistance size={20} className="icons-react" />{" "}
             Electronics
           </Link>
+        </div>
+
+        <div className="main-page">
+          {productCompContext.product.map((item, index) => {
+            return (
+              <div
+                className="products"
+                key={index}
+                onClick={() => {
+                  productMoreDetailes(item._id);
+                }}
+              >
+                <div className="image-div">
+                  <img
+                    className="product-imagee"
+                    src={item.image}
+                    onClick={(e) => {
+                      productCompContext.setProductIdDetailes(item);
+                      history("/product/detailes");
+                    }}
+                  />
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -408,7 +340,6 @@ const Main = () => {
             src="https://i.pinimg.com/736x/6d/2c/cd/6d2ccd795e409bb68eec5db364e797ef.jpg"
           />
         </div>
-        <hr></hr>
       </div>
 
       <footer className="footer">

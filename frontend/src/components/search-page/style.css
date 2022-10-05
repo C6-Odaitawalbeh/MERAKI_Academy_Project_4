@@ -14,8 +14,9 @@
 
 .product-search {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr ;
     background-color: white;
+    margin-bottom: 20px;
 }
 
 .product {
@@ -38,7 +39,9 @@
 .words-search {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-    margin-left: 40px;
+    margin-left: 15px;
+    height: 300px;
+    overflow: auto;
 }
 
 .image-div-search {

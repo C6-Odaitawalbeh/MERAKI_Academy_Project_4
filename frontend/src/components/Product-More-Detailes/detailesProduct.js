@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { productContext } from "../contexts/main";
-import { FcLike, FcUndo } from "react-icons/fc";
+import { FcLike, FcUndo, FcLeft } from "react-icons/fc";
 import "./style.css";
 import axios from "axios";
 import { loginContext } from "../contexts/login";
@@ -39,6 +39,16 @@ const ProductDetailes = () => {
 
   return (
     <>
+     <div className="back">
+        <FcLeft
+          className="back-icon-react"
+          size={30}
+          onClick={() => {
+            history(-1);
+          }}
+        />
+        <p className="back-string">Back</p>
+      </div>
       <div>
         <div className="container-detailes-product">
           <div>

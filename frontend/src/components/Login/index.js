@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { loginContext } from "../contexts/login";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,16 +6,38 @@ import { FcShipped, FcLeft } from "react-icons/fc";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import { ImYoutube } from "react-icons/im";
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { gapi } from 'gapi-script';
 
 const Login = () => {
   const loginCompContext = useContext(loginContext);
-
+  
   const history = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await loginCompContext.login();
   };
+
+  const clientId = `922531268610-dvasq8corobmvg4j4lr1ovq2a74u90m2.apps.googleusercontent.com`;
+
+  useEffect(() => {
+    const initClient = () => {
+          gapi.client.init({
+          clientId: clientId,
+          scope: ''
+        });
+     };
+     gapi.load('client:auth2', initClient);
+ });
+
+ const onSuccess = (res) => {
+  loginCompContext.setProfile(res.profileObj);
+};
+
+const onFailure = (err) => {
+  console.log('failed', err);
+}
 
   return (
     <>
@@ -58,6 +80,16 @@ const Login = () => {
             ></input>
 
             <button className="button-login">Login</button>
+            
+            <GoogleLogin
+                    clientId={clientId}
+                    buttonText="Sign in with Google"
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    cookiePolicy={'single_host_origin'}
+                    isSignedIn={true}
+                />
+            
           </form>
 
           {loginCompContext.message && (
