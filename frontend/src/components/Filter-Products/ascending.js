@@ -3,9 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { FcLeft } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
-import { FcFilledFilter, FcShipped } from "react-icons/fc";
+import { FcShipped } from "react-icons/fc";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
-import { TbHandClick } from "react-icons/tb";
 import { BsTwitter } from "react-icons/bs";
 import { ImYoutube } from "react-icons/im";
 import { productContext } from "../contexts/main";
@@ -24,14 +23,14 @@ const Ascending = () => {
         setAscendingProducts(result.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         throw err;
       });
   }, []);
 
   return (
     <>
-    <div className="back">
+      <div className="back">
         <FcLeft
           className="back-icon-react"
           size={30}
@@ -51,11 +50,18 @@ const Ascending = () => {
 
               <div className="words-search-ascen">
                 <h6 className="">Description: {item.title}</h6>
-                <h6 className="price"><b>{item.price}</b> $</h6>
-                <p className="show-more-detailes"  onClick={(e) => {
-                      productCompContext.setProductIdDetailes(item);
-                      history("/product/detailes");
-                    }}>Show More Detailes</p>
+                <h6 className="price">
+                  <b>{item.price}</b> $
+                </h6>
+                <p
+                  className="show-more-detailes"
+                  onClick={(e) => {
+                    productCompContext.setProductIdDetailes(item);
+                    history("/product/detailes");
+                  }}
+                >
+                  Show More Detailes
+                </p>
               </div>
             </div>
           );

@@ -17,6 +17,7 @@ import { GiNestedHearts, GiElectricalResistance } from "react-icons/gi";
 import { TbBabyCarriage } from "react-icons/tb";
 import { IoManOutline } from "react-icons/io5";
 import { AiOutlineAppstore, AiOutlineShopping } from "react-icons/ai";
+import Help from "./helpAndCustomerService";
 
 const Main = () => {
   const productCompContext = useContext(productContext);
@@ -59,7 +60,8 @@ const Main = () => {
         productCompContext.setProductFilterByPrice(result.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+        throw err;
       });
   };
 
@@ -71,11 +73,14 @@ const Main = () => {
     productCompContext.filterByCategories();
   }, []);
 
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+
   return (
     <>
-      {/* <div className="image-cover">
-        <img src="https://www.mobiloitte.com/images/ecommerce-banner.png" />
-      </div> */}
       <div className="conteainer-main-page">
         <div className="filter-div">
           <h5 className="filter-text">
@@ -379,20 +384,11 @@ const Main = () => {
             </div>
 
             <div>
-              <li>
-                <h2>Recent Post</h2>
+              <li className="conditons_footer">
+                <h3>Conditions of Use</h3>
                 <ul className="box">
-                  <li>
-                    <a href="#">Lorem</a>
-                  </li>
-                  <li>
-                    <a href="#">Lorem</a>
-                  </li>
-                  <li>
-                    <a href="#">Lorem</a>
-                  </li>
-                  <li>
-                    <a href="#">Lorem</a>
+                  <li className="li">
+                    <p onClick={()=>{history("eshop/help")}}> Help & Customer Service </p>
                   </li>
                 </ul>
               </li>

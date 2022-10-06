@@ -26,20 +26,21 @@ const ProductDetailes = () => {
         }
       )
       .then((res) => {
-        console.log(res);
-        console.log(res.data.product);
+        // console.log(res);
+        // console.log(res.data.product);
         productCompContext.setProductItemId(res.data.product);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+        throw err;
       });
   };
 
-  console.log(productCompContext.productIdDetailes._id);
+  // console.log(productCompContext.productIdDetailes._id);
 
   return (
     <>
-     <div className="back">
+      <div className="back">
         <FcLeft
           className="back-icon-react"
           size={30}

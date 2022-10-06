@@ -2,9 +2,8 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FcLeft } from "react-icons/fc";
-import { FcFilledFilter, FcShipped } from "react-icons/fc";
+import { FcShipped } from "react-icons/fc";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
-import { TbHandClick } from "react-icons/tb";
 import { BsTwitter } from "react-icons/bs";
 import { ImYoutube } from "react-icons/im";
 import { productContext } from "../contexts/main";
@@ -22,7 +21,7 @@ const Descending = () => {
         setDescendingProducts(result.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         throw err;
       });
   }, []);

@@ -13,7 +13,7 @@ const RegisterProvider = (props) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [role, setRole] = useState("6331e12c77850e5ab71f0d4b");
+  const [role] = useState("6331e12c77850e5ab71f0d4b");
 
   const history = useNavigate();
 

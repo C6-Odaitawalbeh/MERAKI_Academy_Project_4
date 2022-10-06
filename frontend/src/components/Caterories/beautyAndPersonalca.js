@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { productContext } from "../contexts/main";
 import "./electronic.css";
-import { FcLeft } from "react-icons/fc";
+import { FcLeft, FcHome } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { FcShipped } from "react-icons/fc";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
@@ -15,41 +15,55 @@ const BeautyAndpersonalcare = () => {
 
   return (
     <>
-    <div className="back">
-        <FcLeft
-          className="back-icon-react"
-          size={30}
-          onClick={() => {
-            history(-1);
-          }}
-        />
-        <p className="back-string">Back</p>
-      </div>
-        <div className="search-products-page">
-          {productCompContext.categoriesFilter.map((item, index) => {
-            return (
-              <div key={index} className="product-search">
-                <div className="image-div-search">
-                  <img
-                    className="product-image"
-                    src={item.image}
-                  />
-                </div>
-
-                <div className="words-search-ascen">
-                  <h6 className="title">{item.title}</h6>
-                  <h6 className="price"><b>{item.price}</b> $</h6>
-                  <p className="show-more-detailes"  onClick={(e) => {
-                      productCompContext.setProductIdDetailes(item);
-                      history("/product/detailes");
-                    }}>Show More Detailes</p>
-                </div>
-              </div>
-            );
-          })}
+      <div className="back_to_home">
+        <div className="home">
+          <FcHome
+            size={35}
+            onClick={() => {
+              history("/");
+            }}
+          />
         </div>
+        <div className="back">
+          <FcLeft
+            className="back-icon-react"
+            size={30}
+            onClick={() => {
+              history(-1);
+            }}
+          />
+          <p className="back-string">Back</p>
+        </div>
+      </div>
+      <div className="search-products-page">
+        {productCompContext.categoriesFilter.map((item, index) => {
+          return (
+            <div key={index} className="product-search">
+              <div className="image-div-search">
+                <img className="product-image" src={item.image} />
+              </div>
 
-        <footer className="footer">
+              <div className="words-search-ascen">
+                <h6 className="title">{item.title}</h6>
+                <h6 className="price">
+                  <b>{item.price}</b> $
+                </h6>
+                <p
+                  className="show-more-detailes"
+                  onClick={(e) => {
+                    productCompContext.setProductIdDetailes(item);
+                    history("/product/detailes");
+                  }}
+                >
+                  Show More Detailes
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <footer className="footer">
         <div className="div1">
           <div className="left-area">
             <h2>Content</h2>

@@ -6,8 +6,8 @@ import {
   FcDislike,
   FcApproval,
   FcCurrencyExchange,
-  FcPlus,
-  FcLeft
+  FcLeft,
+  FcHome
 } from "react-icons/fc";
 import "./style.css";
 import { orderContext } from "../contexts/order";
@@ -97,13 +97,16 @@ const Cart = () => {
   };
 
   var totalCount = 0;
-  console.log(totalCount);
 
   orderCompContext.setTotalPrice(totalCount);
 
   return (
     <>
-     <div className="back">
+    <div className="back_to_home">
+    <div className="home"><FcHome size={35} onClick={() => {
+            history("/");
+          }}/></div>
+    <div className="back">
         <FcLeft
           className="back-icon-react"
           size={30}
@@ -113,9 +116,7 @@ const Cart = () => {
         />
         <p className="back-string">Back</p>
       </div>
-    {/* <div className="shopping-cart-name">
-        <h3>Shopping cart</h3>
-      </div> */}
+    </div>
       <div className="cart-container">
         <div className="cart">
           {productElem.map((item, index) => {
@@ -123,7 +124,7 @@ const Cart = () => {
             orderCompContext.setTotalPrice(totalCount);
             return (
               <>
-                <div key={index} className="cart-prduct">
+                <div key={item[index]} className="cart-prduct">
                   <div className="image-div-cart">
                     <img
                       className="product-image-cart"
@@ -174,7 +175,7 @@ const Cart = () => {
           <spnan className="total-price">
             {totalCount} $ <FcCurrencyExchange size={25} />
           </spnan>
-          <button className="button-checkout" onClick={()=>{history("/cart/by")}}>
+          <button className="button-checkout" onClick={()=>{history("/cart/selectpay")}}>
             CheckOut <FcApproval className="icon-checkout" size={25} />
           </button>
         </div>

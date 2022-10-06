@@ -1,0 +1,22 @@
+.select_pay_method {
+    display: grid;
+    grid-template-rows: repeat(3, 80px);
+    margin-top: 50px;
+    height: 100vh;
+}
+
+.pay_method {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    justify-items: center;
+}
+
+.paiement_when_recieving {
+    margin-top: 25px;
+}
+
+.pay_by_bank_card {
+    margin-top: 25px;
+}

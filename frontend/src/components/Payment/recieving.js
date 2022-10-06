@@ -1,19 +1,73 @@
 import React, { useContext, useState } from "react";
-import { loginContext } from "../contexts/login";
 import { orderContext } from "../contexts/order";
-import axios from "axios";
 import "./style.css";
+// import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { loginContext } from "../contexts/login";
 import { useNavigate } from "react-router-dom";
 import { FcLeft, FcHome } from "react-icons/fc";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import axios from "axios";
 
-const Order = () => {
-  const loginCompContext = useContext(loginContext);
+const Recieving = () => {
   const orderCompContext = useContext(orderContext);
-  const [message, setMessage] = useState("");
-  const stripe = useStripe();
-  const element = useElements();
+  // const stripe = useStripe();
+  // const element = useElements();
+  const loginCompContext = useContext(loginContext);
+  const [message, setMessage] = useState();
+
   const history = useNavigate();
+
+  const orderProduct = async () => {
+    try {
+      await axios
+        .post(
+          `http://localhost:5000/order`,
+          {
+            fullName: orderCompContext.fullName,
+            phoneNumber: orderCompContext.phoneNumber,
+            country: orderCompContext.country,
+            city: orderCompContext.city,
+            address: orderCompContext.address,
+            state: orderCompContext.statee,
+            zipCode: orderCompContext.zipCode,
+            totalPrice: orderCompContext.totalPrice,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${loginCompContext.token}`,
+            },
+          }
+        )
+        .then((result) => {
+          // console.log(result);
+          // console.log(result.data.statusText);
+          setMessage("Done!");
+          history("/");
+        })
+        .catch((err) => {
+          if (!orderCompContext.country) {
+            setMessage("Enter Country");
+          } else if (!orderCompContext.fullName) {
+            setMessage("Enter Full Name");
+          } else if (!orderCompContext.phoneNumber) {
+            setMessage("Enter Phone Number");
+          } else if (!orderCompContext.city) {
+            setMessage("Enter City");
+          } else if (!orderCompContext.address) {
+            setMessage("Enter Address");
+          } else if (!orderCompContext.statee) {
+            setMessage("Enter State");
+          } else if (!orderCompContext.zipCode) {
+            setMessage("Enter ZipCode");
+          }
+        });
+    } catch (err) {
+      throw err;
+    }
+  };
+
+  const deleteCart = async () => {
+    await axios.delete("");
+  };
 
   return (
     <>
@@ -438,23 +492,25 @@ const Order = () => {
               }}
             ></input>
           </div>
-          <div className="payment">
-            <CardElement
-              options={{
-                hidePostalCode: true,
-                style: {
-                  base: {
-                    fontSize: "20px",
-                  },
-                  invalid: {
-                    color: "red",
-                  },
-                },
-              }}
-            />
-          </div>
+          {/* <div className="payment">
+          <CardElement
+        options={{
+          hidePostalCode: true,
+          style: {
+            base: {
+              fontSize: "20px",
+            },
+            invalid: {
+              color: "red",
+            },
+          },
+        }}
+      />
+      </div> */}
           <div>
-            <button className="button-ship">Deliver to this address</button>
+            <button className="button-ship" onClick={orderProduct}>
+              Deliver to this address
+            </button>
           </div>
           {message && (
             <div className="message-div">
@@ -467,4 +523,4 @@ const Order = () => {
   );
 };
 
-export default Order;
+export default Recieving;

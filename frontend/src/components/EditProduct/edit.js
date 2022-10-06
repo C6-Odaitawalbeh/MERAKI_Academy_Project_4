@@ -34,7 +34,7 @@ const EditProduct = () => {
           quantity: newQuantity,
           location: newLocation,
           shorttitle: NewShortDescription,
-          image: newImage
+          image: newImage,
         },
         { headers: { Authorization: `Bearer ${loginCompContext.token}` } }
       )
@@ -56,7 +56,8 @@ const EditProduct = () => {
         );
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+        throw err;
       });
   };
 
@@ -65,23 +66,22 @@ const EditProduct = () => {
   // add upload preset =>  eeshop
 
   const uploadImage = async () => {
-
     const form = new FormData();
-    form.append('file', file);
-    form.append('upload_preset', "eeshop");
+    form.append("file", file);
+    form.append("upload_preset", "eeshop");
 
     // send form to cloudenary
-    await axios.post(`https://api.cloudinary.com/v1_1/dykjbbeoi/upload`,form)
-    .then((result)=>{
-      console.log(result.data.secure_url);
-      setNewImage(result.data.secure_url);
-    })
-    .catch((err)=>{
-      console.log(err);
-      throw err;
-    })
+    await axios
+      .post(`https://api.cloudinary.com/v1_1/dykjbbeoi/upload`, form)
+      .then((result) => {
+        // console.log(result.data.secure_url);
+        setNewImage(result.data.secure_url);
+      })
+      .catch((err) => {
+        // console.log(err);
+        throw err;
+      });
   };
-
 
   return (
     <>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { RegiContext, RegisterContext } from "../contexts/register";
-import { FcShipped, FcLeft } from "react-icons/fc";
+import { FcShipped, FcLeft, FcHome } from "react-icons/fc";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import { ImYoutube } from "react-icons/im";
@@ -19,15 +19,25 @@ const Register = () => {
 
   return (
     <>
-      <div className="back">
-        <FcLeft
-          className="back-icon-react"
-          size={30}
-          onClick={() => {
-            history(-1);
-          }}
-        />
-        <p className="back-string">Back</p>
+      <div className="back_to_home">
+        <div className="home">
+          <FcHome
+            size={35}
+            onClick={() => {
+              history("/");
+            }}
+          />
+        </div>
+        <div className="back">
+          <FcLeft
+            className="back-icon-react"
+            size={30}
+            onClick={() => {
+              history(-1);
+            }}
+          />
+          <p className="back-string">Back</p>
+        </div>
       </div>
       <div className="rigester-page">
         <div className="sign-up">

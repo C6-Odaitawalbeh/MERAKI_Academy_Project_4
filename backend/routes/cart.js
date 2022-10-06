@@ -9,7 +9,7 @@ const cartRouter = express.Router();
 cartRouter.post('/', authentication, sendToCart);
 cartRouter.get('/show', authentication, showCart);
 cartRouter.delete('/delete/:id', authentication, deleteCart);
-cartRouter.get('/showcart/:id', showCartById);
-cartRouter.put('/update/:id', updateCartById);
+cartRouter.get('/showcart/:id',authentication, showCartById);
+cartRouter.put('/update/:id',authentication, updateCartById);
 
 module.exports = cartRouter;

@@ -25,9 +25,12 @@ import AutomotivePartsAccessories from "./components/Caterories/automotivePartsA
 import ArtsAndCraftsSewing from "./components/Caterories/artsAndCraftsAndSewing";
 import AppsAGames from "./components/Caterories/appsAndGames";
 import Order from "./components/Order/order";
-import Payment from "./components/Payment/payment";
+// import Payment from "./components/Payment/payment";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import SelectPayMethod from "./components/Select-Pay-Method/selectPayMethod";
+import Recieving from "./components/Payment/recieving";
+import HelpAndCustomer from "./components/Main-Page/helpAndCustomerService";
 
 const stripePromise = loadStripe(
   "pk_test_51LpQ8yCzTls4L5kgpWN9iqW5WkWzZnbVvbzl2DWRIBVyA9mMSxmMsE9w9gjgZ9NFEDBbhyvRIGlWcMSp7A2WuT5N00o2L7JV36"
@@ -60,6 +63,7 @@ function App() {
           <Route path="/admin/manage" element={<Controller />} />
           <Route path="/admin/manage/create" element={<Creat />} />
           <Route path="/product/detailes" element={<ProductDetailes />} />
+          <Route path="/cart/selectpay" element={<SelectPayMethod />} />
           <Route
             path="/admin/manage/users"
             element={<HandelUsersAndDelete />}
@@ -101,7 +105,8 @@ function App() {
             element={<AppsAGames />}
           />
           <Route path="/cart/by" element={<Order />} />
-          <Route path="/cart/payment" element={<Payment />} />
+          <Route path="/cart/recieving" element={<Recieving />} />
+          <Route path="eshop/help" element={<HelpAndCustomer />} />
       </Routes>
     </div>
     </Elements>

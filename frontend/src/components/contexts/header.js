@@ -1,7 +1,6 @@
 import axios from "axios";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { productContext } from "./main";
 
 export const headerContext = createContext();
 
@@ -18,7 +17,6 @@ const HeaderProvider = (props) => {
       await axios
         .get(`http://localhost:5000/products/search_1?title=${search}`)
         .then((rseult) => {
-          // console.log(rseult.data.searchProduct);
           setSearchProd(rseult.data.searchProduct);
           history("/products/search");
         });

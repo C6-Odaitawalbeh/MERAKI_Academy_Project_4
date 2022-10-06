@@ -10,7 +10,7 @@ const ProductProvider = (props) => {
   const [editState, setEditState] = useState();
   const [productItemId, setProductItemId] = useState("");
 
-  const [limit, setLimit] = useState(15);
+  const [limit] = useState(15);
   const [pageNumber, setPageNumber] = useState(1);
 
   const [idProductEdit, setIdProductEdit] = useState("");
@@ -28,23 +28,26 @@ const ProductProvider = (props) => {
         )
         .then((result) => {
           setProduct(result.data);
-          setCategoriesFilter(result.data)
+          setCategoriesFilter(result.data);
         });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       throw err;
     }
   };
 
   const filterByCategories = async (categories) => {
     try {
-    await axios.get(`http://localhost:5000/products/categories?categories=${categories}`)
-    .then((result)=>{
-      console.log(result.data);
-      setCategoriesFilter(result.data);
-    })
+      await axios
+        .get(
+          `http://localhost:5000/products/categories?categories=${categories}`
+        )
+        .then((result) => {
+          // console.log(result.data);
+          setCategoriesFilter(result.data);
+        });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       throw err;
     }
   };
@@ -69,7 +72,7 @@ const ProductProvider = (props) => {
     categoriesFilter,
     setCategoriesFilter,
     showMyProduct,
-    filterByCategories
+    filterByCategories,
   };
 
   return (

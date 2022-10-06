@@ -2,10 +2,8 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { loginContext } from "../contexts/login";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineRollback } from "react-icons/ai";
 import { productContext } from "../contexts/main";
 import { FcLeft } from "react-icons/fc";
-
 
 const Creat = () => {
   const loginCompContext = useContext(loginContext);
@@ -25,26 +23,22 @@ const Creat = () => {
   const [message, setMeesage] = useState("");
   const [categories, setCategories] = useState("");
 
-  // cloudName => dykjbbeoi
-  // POST https://api.cloudinary.com/v1_1/demo/image/upload
-  // add upload preset =>  eeshop
-
   const uploadImage = async () => {
-
     const form = new FormData();
-    form.append('file', file);
-    form.append('upload_preset', "eeshop");
+    form.append("file", file);
+    form.append("upload_preset", "eeshop");
 
     // send form to cloudenary
-    await axios.post(`https://api.cloudinary.com/v1_1/dykjbbeoi/upload`,form)
-    .then((result)=>{
-      console.log(result.data.secure_url);
-      setImage(result.data.secure_url);
-    })
-    .catch((err)=>{
-      console.log(err);
-      throw err;
-    })
+    await axios
+      .post(`https://api.cloudinary.com/v1_1/dykjbbeoi/upload`, form)
+      .then((result) => {
+        console.log(result.data.secure_url);
+        setImage(result.data.secure_url);
+      })
+      .catch((err) => {
+        console.log(err);
+        throw err;
+      });
   };
 
   const addNewProduct = async () => {
@@ -61,7 +55,7 @@ const Creat = () => {
             shorttitle,
             image,
             userId,
-            categories
+            categories,
           },
           {
             headers: {
@@ -70,21 +64,21 @@ const Creat = () => {
           }
         )
         .then((result) => {
-          console.log(result);
+          // console.log(result);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           // setMeesage(err);
         });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       throw err;
     }
   };
 
   return (
     <>
-    <div className="back">
+      <div className="back">
         <FcLeft
           className="back-icon-react"
           size={30}
@@ -100,7 +94,9 @@ const Creat = () => {
           type="file"
           id="myFile"
           name="filename"
-          onChange={(e)=>{setFile(e.target.files[0])}}
+          onChange={(e) => {
+            setFile(e.target.files[0]);
+          }}
         />
 
         <button onClick={uploadImage}>upload</button>

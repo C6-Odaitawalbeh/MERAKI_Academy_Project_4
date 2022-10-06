@@ -13,9 +13,8 @@ const LoginProvider = (props) => {
   const [userId, setUserId] = useState("");
   const [adminRole, setAdminRole] = useState("");
   const [found, setFound] = useState(false);
-  const [ profile, setProfile ] = useState([]);
-  console.log(profile);
-  // console.log(adminRole);
+  const [profile, setProfile] = useState([]);
+
   const history = useNavigate();
 
   const saveToken = (token) => {
@@ -42,17 +41,18 @@ const LoginProvider = (props) => {
       const result = await axios.post("http://localhost:5000/login", {
         email,
         password,
-      });
-
+      },{headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+      console.log(result);
       saveToken(result.data.token);
-      saveId(result.data);
-      saveRole(result.data.role);
+      saveId(result.data._id);
+      saveRole(result.data.role._id);
       setFound(true);
       history("/"); // main page
       setIsLoggedIn(true);
-      
     } catch (err) {
-      console.log(err.response.data.message);
       setMeesage(err.response.data.message);
     }
   };

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { loginContext } from "../contexts/login";
 import axios from "axios";
-import { FcDeleteDatabase, FcLeft  } from "react-icons/fc";
+import { FcDeleteDatabase, FcLeft } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 
 const HandelUsersAndDelete = () => {
@@ -78,7 +78,13 @@ const HandelUsersAndDelete = () => {
                   <td>{user.city}</td>
                   <td>{user.email}</td>
                   <td>
-                    <FcDeleteDatabase className="icon-delete" size={28} onClick={()=>{deleteUser(user._id)}}/>
+                    <FcDeleteDatabase
+                      className="icon-delete"
+                      size={28}
+                      onClick={() => {
+                        deleteUser(user._id);
+                      }}
+                    />
                   </td>
                 </tr>
               </table>

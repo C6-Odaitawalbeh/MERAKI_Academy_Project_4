@@ -2,16 +2,16 @@ import React, { useContext, useEffect, useState } from "react";
 import "./style.css";
 import { loginContext } from "../contexts/login";
 import { Link, useNavigate } from "react-router-dom";
-import { FcShipped, FcLeft } from "react-icons/fc";
+import { FcShipped, FcLeft, FcHome } from "react-icons/fc";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import { ImYoutube } from "react-icons/im";
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import { gapi } from 'gapi-script';
+import { GoogleLogin, GoogleLogout } from "react-google-login";
+import { gapi } from "gapi-script";
 
 const Login = () => {
   const loginCompContext = useContext(loginContext);
-  
+
   const history = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -23,33 +23,43 @@ const Login = () => {
 
   useEffect(() => {
     const initClient = () => {
-          gapi.client.init({
-          clientId: clientId,
-          scope: ''
-        });
-     };
-     gapi.load('client:auth2', initClient);
- });
+      gapi.client.init({
+        clientId: clientId,
+        scope: "",
+      });
+    };
+    gapi.load("client:auth2", initClient);
+  });
 
- const onSuccess = (res) => {
-  loginCompContext.setProfile(res.profileObj);
-};
+  const onSuccess = (res) => {
+    loginCompContext.setProfile(res.profileObj);
+  };
 
-const onFailure = (err) => {
-  console.log('failed', err);
-}
+  const onFailure = (err) => {
+    // console.log("failed", err);
+  };
 
   return (
     <>
-      <div className="back">
-        <FcLeft
-          className="back-icon-react"
-          size={30}
-          onClick={() => {
-            history(-1);
-          }}
-        />
-        <p className="back-string">Back</p>
+      <div className="back_to_home">
+        <div className="home">
+          <FcHome
+            size={35}
+            onClick={() => {
+              history("/");
+            }}
+          />
+        </div>
+        <div className="back">
+          <FcLeft
+            className="back-icon-react"
+            size={30}
+            onClick={() => {
+              history(-1);
+            }}
+          />
+          <p className="back-string">Back</p>
+        </div>
       </div>
       <div className="login">
         <div className="login-page">
@@ -80,16 +90,15 @@ const onFailure = (err) => {
             ></input>
 
             <button className="button-login">Login</button>
-            
+
             <GoogleLogin
-                    clientId={clientId}
-                    buttonText="Sign in with Google"
-                    onSuccess={onSuccess}
-                    onFailure={onFailure}
-                    cookiePolicy={'single_host_origin'}
-                    isSignedIn={true}
-                />
-            
+              clientId={clientId}
+              buttonText="Sign in with Google"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={"single_host_origin"}
+              isSignedIn={true}
+            />
           </form>
 
           {loginCompContext.message && (
