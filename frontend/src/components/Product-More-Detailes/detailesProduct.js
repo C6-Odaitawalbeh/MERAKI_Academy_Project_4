@@ -5,10 +5,12 @@ import "./style.css";
 import axios from "axios";
 import { loginContext } from "../contexts/login";
 import { useNavigate } from "react-router-dom";
+import { headerContext } from "../contexts/header";
 
 const ProductDetailes = () => {
   const productCompContext = useContext(productContext);
   const loginCompContext = useContext(loginContext);
+  const headerCompContext = useContext(headerContext);
 
   const history = useNavigate();
 
@@ -37,6 +39,10 @@ const ProductDetailes = () => {
   };
 
   // console.log(productCompContext.productIdDetailes._id);
+
+  const cartNum = () => {
+    headerCompContext.setCartNumber(headerCompContext.cartNumber+1);
+  }
 
   return (
     <>
@@ -95,7 +101,7 @@ const ProductDetailes = () => {
               <FcLike
                 size={40}
                 onClick={() => {
-                  sendToCart(productCompContext.productIdDetailes._id);
+                  sendToCart(productCompContext.productIdDetailes._id); cartNum();
                 }}
               />
             </div>

@@ -14,6 +14,8 @@ const LoginProvider = (props) => {
   const [adminRole, setAdminRole] = useState("");
   const [found, setFound] = useState(false);
   const [profile, setProfile] = useState([]);
+  const [userIdd, setUserIdd] = useState('');
+  console.log(userId);
 
   const history = useNavigate();
 
@@ -45,9 +47,9 @@ const LoginProvider = (props) => {
         Authorization: `Bearer ${token}`,
       },
     });
-      console.log(result);
+      // console.log(result);
       saveToken(result.data.token);
-      saveId(result.data._id);
+      saveId(result.data);
       saveRole(result.data.role._id);
       setFound(true);
       history("/"); // main page
@@ -76,6 +78,8 @@ const LoginProvider = (props) => {
     setFound,
     profile,
     setProfile,
+    userIdd,
+    setUserIdd,
     login,
   };
 

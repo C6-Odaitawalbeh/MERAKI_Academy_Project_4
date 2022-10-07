@@ -138,3 +138,10 @@ select {
 .icons-react {
     color: rgb(228, 11, 11);
 }
+
+.cart_number {
+    color: rgb(248, 6, 6);
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: larger;
+}

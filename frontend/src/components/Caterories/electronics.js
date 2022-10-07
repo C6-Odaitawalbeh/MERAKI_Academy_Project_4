@@ -44,7 +44,7 @@ const ElectronicsCategories = () => {
               </div>
 
               <div className="words-search-ascen">
-                <h6 className="title">{item.description}</h6>
+                <h6 className="title">{item.title}</h6>
                 <h6 className="price">
                   <b>{item.price}</b> $
                 </h6>

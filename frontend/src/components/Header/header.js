@@ -125,6 +125,7 @@ const Header = () => {
                       history("/cart");
                     }}
                   />
+                  <span className="cart_number">{headerCompContext.cartNumber}</span>
                 </div>
               )}
             </>

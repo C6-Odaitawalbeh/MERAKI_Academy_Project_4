@@ -16,11 +16,13 @@ import { FcShipped } from "react-icons/fc";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import { ImYoutube } from "react-icons/im";
+import { headerContext } from "../contexts/header";
 
 const Cart = () => {
   const productCompContext = useContext(productContext);
   const loginCompContext = useContext(loginContext);
   const orderCompContext = useContext(orderContext);
+  const headerCompContext = useContext(headerContext);
 
   const [productElem, setProductElem] = useState([]);
 
@@ -100,6 +102,10 @@ const Cart = () => {
 
   orderCompContext.setTotalPrice(totalCount);
 
+  const cartNum = () => {
+    headerCompContext.setCartNumber(headerCompContext.cartNumber-1);
+  }
+
   return (
     <>
     <div className="back_to_home">
@@ -122,6 +128,7 @@ const Cart = () => {
           {productElem.map((item, index) => {
             totalCount = totalCount + item.product.price * item.product.count;
             orderCompContext.setTotalPrice(totalCount);
+            loginCompContext.setUserIdd(item.userId);
             return (
               <>
                 <div key={item[index]} className="cart-prduct">
@@ -158,7 +165,7 @@ const Cart = () => {
                       className="delete-icon"
                       size={24}
                       onClick={() => {
-                        deleteFromCart(item._id);
+                        deleteFromCart(item._id); cartNum();
                       }}
                     />
                     <p>delete item</p>

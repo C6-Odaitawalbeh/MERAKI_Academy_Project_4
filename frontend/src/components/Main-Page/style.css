@@ -23,8 +23,6 @@
 
 .products {
     border: 1px solid rgb(234, 230, 230);
-    /* border-radius: 8px; */
-    /* background-color: white; */
     height: 220px;
     /* box-shadow: 2px 2px rgb(46, 46, 96) ,-2px -2px 2px rgb(137, 0, 0); */
     /* background: linear-gradient(-45deg,  #1f3243, rgb(189, 183, 183) ,rgb(115, 113, 118), #ea9a97); */
@@ -221,8 +219,6 @@ h2 {
     grid-template-rows: 1fr 1fr;
     margin-top: 20px;
     margin-bottom: 20px;
-    /* border-top: 3px solid #25242a;
-    border-bottom: 2px solid #25242a; */
     margin-left: 10px;
     margin-right: 10px;
 }

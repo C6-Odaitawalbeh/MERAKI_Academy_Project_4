@@ -42,7 +42,7 @@ const SelectPayMethod = () => {
               history("/cart/recieving");
             }}
           />
-          <h5 className="paiement_when_recieving">
+          <h5 className="paiement_when_recieving" onClick={()=>{history("/cart/recieving")}}>
             Paiement when recieving{" "}
             <BsPiggyBank size={28} className="icons-react" />
           </h5>

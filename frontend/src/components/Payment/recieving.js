@@ -16,6 +16,23 @@ const Recieving = () => {
 
   const history = useNavigate();
 
+  const deleteCart = async (id) => {
+    console.log(id);
+    await axios.delete(`http://localhost:5000/cart/delete/cart/${id}`, {
+      headers: {
+        Authorization: `Bearer ${loginCompContext.token}`,
+      },
+    })
+    .then((result)=>{
+      console.log(result);
+      // history("/");
+      setMessage('Done Order');
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  }
+
   const orderProduct = async () => {
     try {
       await axios
@@ -41,7 +58,7 @@ const Recieving = () => {
           // console.log(result);
           // console.log(result.data.statusText);
           setMessage("Done!");
-          history("/");
+          // history("/");
         })
         .catch((err) => {
           if (!orderCompContext.country) {
@@ -63,10 +80,6 @@ const Recieving = () => {
     } catch (err) {
       throw err;
     }
-  };
-
-  const deleteCart = async () => {
-    await axios.delete("");
   };
 
   return (
@@ -512,6 +525,12 @@ const Recieving = () => {
               Deliver to this address
             </button>
           </div>
+          {/* <div>
+          <button className="button-ship" onClick={()=>{deleteCart(loginCompContext.userIdd)}}>
+            Create Order
+          </button>
+          </div> */}
+          
           {message && (
             <div className="message-div">
               <p className="messamge-register">{message}</p>

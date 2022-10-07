@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginContext } from "../contexts/login";
+// import { loginContext } from "../contexts/login";
 import { productContext } from "../contexts/main";
 import "./style.css";
 import ReactPaginate from "react-paginate";
@@ -17,11 +17,10 @@ import { GiNestedHearts, GiElectricalResistance } from "react-icons/gi";
 import { TbBabyCarriage } from "react-icons/tb";
 import { IoManOutline } from "react-icons/io5";
 import { AiOutlineAppstore, AiOutlineShopping } from "react-icons/ai";
-import Help from "./helpAndCustomerService";
 
 const Main = () => {
   const productCompContext = useContext(productContext);
-  const loginCompContext = useContext(loginContext);
+  // const loginCompContext = useContext(loginContext);
   const history = useNavigate();
 
   const [priceFilterFrom, setPriceFilterFrom] = useState(0);
@@ -44,10 +43,10 @@ const Main = () => {
     productCompContext.showMyProduct(data.selected + 1);
   };
 
-  const detailes = (product) => {
-    productCompContext.setProductIdDetailes(product);
-    history("/product/detailes");
-  };
+  // const detailes = (product) => {
+  //   productCompContext.setProductIdDetailes(product);
+  //   history("/product/detailes");
+  // };
 
   const pageCount = 10;
 
@@ -237,7 +236,7 @@ const Main = () => {
                 }}
               >
                 <div className="image-div">
-                  <img
+                  <img alt="products"
                     className="product-imagee"
                     src={item.image}
                     onClick={(e) => {
@@ -278,69 +277,69 @@ const Main = () => {
 
       <div className="brand-container">
         <div className="brand-div1">
-          <img
+          <img alt=""
             className="image-brand"
             src="https://www.tailorbrands.com/wp-content/uploads/2021/01/apple_logo_1988.jpg"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://www.pngall.com/wp-content/uploads/2016/06/Adidas-Logo-PNG-Clipart.png"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://media.designrush.com/inspiration_images/137383/conversions/_1531333191_865_Lacoste-Minimal-Logo-Design_fb009c5034c3-mobile.jpg"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://png.pngtree.com/element_our/png/20181226/logo-luxury-royal-brand-png_280333.jpg"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://cms-assets.tutsplus.com/cdn-cgi/image/width=360/uploads/users/151/posts/33040/image/simplicity-in-logo.jpg"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://digistatement.com/wp-content/uploads/2021/03/lg-logo_480x480.png"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://vectorseek.com/wp-content/uploads/2021/01/Samsung-Logo-Vector-scaled.jpg"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://www.logotypes101.com/logos/888/5726E52D596337BED03EF02F68D6EEB1/Armani_Jeans.png"
           />
         </div>
         <div className="brand-div2">
-          <img
+          <img alt=""
             className="image-brand"
             src="https://miro.medium.com/max/1400/0*LjMrbWyfeQTQPn-a.png"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://thumbs.dreamstime.com/b/image-describes-chanel-brand-logo-background-two-intersected-c-letters-gold-metal-effect-under-font-177005943.jpg"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://blog.logomyway.com/wp-content/uploads/2016/12/gucci-logo-gold.jpg"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://www.clickedstudios.com/wp-content/uploads/2019/02/louis-vuitton-logo.png"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://1000logos.net/wp-content/uploads/2021/05/Mango-logo.png"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://www.designhill.com/design-blog/wp-content/uploads/2019/04/5.png"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://logo-download.com/wp-content/data/images/svg/Fila,-Inc.-logo.svg"
           />
-          <img
+          <img alt=""
             className="image-brand"
             src="https://i.pinimg.com/736x/6d/2c/cd/6d2ccd795e409bb68eec5db364e797ef.jpg"
           />
@@ -368,16 +367,16 @@ const Main = () => {
                 <h2>Useful Link</h2>
                 <ul className="box h-box">
                   <li>
-                    <Link to="#">Home</Link>
+                    <Link to="/">Home</Link>
                   </li>
                   <li>
-                    <a href="#">Pricing</a>
+                    <Link>Pricing</Link>
                   </li>
                   <li>
-                    <a href="#">Policy</a>
+                    <Link>Policy</Link>
                   </li>
                   <li>
-                    <a href="#">Terms</a>
+                    <Link>Terms</Link>
                   </li>
                 </ul>
               </li>
@@ -407,26 +406,26 @@ const Main = () => {
           </form>
 
           <div className="socials">
-            <a href="#">
+            <Link>
               <i className="fa fa-facebook">
                 <FaFacebookF />
               </i>
-            </a>
-            <a href="#">
+            </Link>
+            <Link>
               <i className="fa fa-instagram">
                 <FaInstagram />
               </i>
-            </a>
-            <a href="#">
+            </Link>
+            <Link>
               <i className="fa fa-twitter">
                 <BsTwitter />
               </i>
-            </a>
-            <a href="#">
+            </Link>
+            <Link>
               <i className="fa fa-youtube">
                 <ImYoutube />
               </i>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="footer-buttom">

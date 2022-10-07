@@ -1,6 +1,7 @@
 .shipping-container {
     display: grid;
     grid-template-columns: repeat(1,center);
+    /* height: 100vh; */
 }
 
 .header-text {

@@ -83,5 +83,19 @@ const updateCartById = (req,res) => {
     });
 };
 
+const deleteCartByUserId = (req,res) => {
+    const userId = req.params.id;
 
-module.exports = { sendToCart, showCart, deleteCart, showCartById, updateCartById }
+    cartModel.findOneAndDelete({userId: userId}).
+    then((result)=>{
+        res.status(201);
+        res.json(result);
+    })
+    .catch((err)=>{
+        res.status(500);
+        res.json(err.message);
+    });
+};
+
+
+module.exports = { sendToCart, showCart, deleteCart, showCartById, updateCartById, deleteCartByUserId }

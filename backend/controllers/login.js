@@ -30,6 +30,7 @@ const login = async (req,res) => {
 
             res.status(200);
             res.json({success: true, massage: "Valid login credentials", token: token, userId: user._id, role: user.role});
+            return;
         }
 
         res.status(403);

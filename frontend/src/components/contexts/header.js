@@ -9,6 +9,7 @@ const HeaderProvider = (props) => {
   const [filterByPrice, setFilterByPrice] = useState("");
   const [name, setName] = useState("");
   const [searchProd, setSearchProd] = useState();
+  const [cartNumber, setCartNumber] = useState(0);
 
   const history = useNavigate();
 
@@ -35,6 +36,8 @@ const HeaderProvider = (props) => {
     searchProd,
     setSearchProd,
     searchProduct,
+    cartNumber,
+    setCartNumber
   };
 
   return (

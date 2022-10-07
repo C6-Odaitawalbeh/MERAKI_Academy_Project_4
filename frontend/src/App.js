@@ -14,7 +14,7 @@ import HandelUsersAndDelete from "./components/Delete-Users/deleteuser";
 import Ascending from "./components/Filter-Products/ascending";
 import Descending from "./components/Filter-Products/descending";
 import FilterByPrice from "./components/Filter-Products/filterByPrice";
-import ProtectedRouter from "./components/ProtuctedRoute/protucted";
+// import ProtectedRouter from "./components/ProtuctedRoute/protucted";
 import AppliancesCategories from "./components/Caterories/appliances";
 import ElectronicsCategories from "./components/Caterories/electronics";
 import Computers from "./components/Caterories/computers";
