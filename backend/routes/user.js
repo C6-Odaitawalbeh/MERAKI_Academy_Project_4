@@ -2,7 +2,7 @@ const express = require('express');
 
 const userRouter = express.Router();
 
-const { createUser, getAllUsers, getUserById, editProfile, deleteProfile } = require('../controllers/user');
+const { createUser, getAllUsers, getUserById, editProfile, deleteProfile, getUserName } = require('../controllers/user');
 const authentication = require('../middlewaers/authentication');
 const authorization = require('../middlewaers/authorization');
 

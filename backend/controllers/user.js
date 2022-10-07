@@ -13,7 +13,8 @@ const createUser = (req,res) => {
             email,
             password,
             confirmPassword,
-            role
+            role,
+            welcomeUser
         }
     )
 
@@ -87,6 +88,7 @@ const deleteProfile = (req,res) => {
         res.status(404);
         res.json(err.message);
     })
-}
+};
+
 
 module.exports = {createUser, getAllUsers, getUserById, editProfile, deleteProfile}

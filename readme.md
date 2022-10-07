@@ -1,15 +1,15 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://www.meraki-academy.org/assets/img/logov02.svg" alt="Project logo"></a>
+ <img width=600px height=250px src="./project.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">MERAKI</h3>
+<h3 align="center">E Shop</h3>
 
 ---
 
-<p align="center"> An awesome Project to descripe README 
+<p align="center"> E-Commerce WebApp 
     <br> 
-<a href=''>Demo</a>
+<!-- <a href=''>Demo</a> -->
     <br> 
 </p>
 
@@ -25,9 +25,9 @@
 
 ## 🧐 About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+> Users on **[ e shop ]** site can interact with each other to purchase items. The **owner or admin** of the site can display his products to users, delete them and modify them, so that users can buy these products, and users can search products within the site either by categories or according to the price of the product or the name of the product, and they can add these products to the cart.
 
-Ex. Are you looking for a quick and easy way to action, action, and action? The **(name of application)** is the greatest and most accurate application to do this for you. It helps you to **(list of activities)**. The **(name of application)** provides a simple design to ensure having the best user experience.
+> After adding their products to the shopping cart, users can complete the payment by paying upon receipt or by bank card.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -35,23 +35,44 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-- Visual Studio Code follow this <a href=''>link</a> to install.
-- Git Bash follow this <a href=''>link</a> to install.
-- MongoDB follow this <a href=''>link</a> to install.
-- Node.js follow this <a href=''>link</a> to install.
+- Visual Studio Code follow this <a href='https://visualstudio.microsoft.com/'>link</a> to install.
+- Git Bash follow this <a href='https://gitforwindows.org/'>link</a> to install.
+- MongoDB follow this <a href='https://www.mongodb.com/'>link</a> to install.
+- Node.js follow this <a href='https://nodejs.org/en/'>link</a> to install.
 
 ### Installing:
 
-1. Clone the repo to your local machine using git bash.
+Here is step by step series of examples that tell you how to get a development env running.
 
+Main folder that contains two files **BackEnd** and **FrontEnd**.
+
+1. Open code
 ```
-git clone https://github.com/your_username_/Project-Name.git
+$ code.
 ```
 
 2. Install packeges repeat this step in backend and frontend folder
 
 ```
 npm i
+```
+```
+npm i axios
+```
+```
+npm i becrypt
+```
+```
+npm i jsonwebtoken
+```
+```
+npm i mongoose
+```
+```
+npm i express
+```
+```
+npm i nodemon
 ```
 
 3. Run server using git bash inside backend folder
@@ -70,12 +91,16 @@ Now app ready to use
 
 ## 🎈 Usage <a name="usage"></a>
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+- On the main page the items are displayed.
 
-Ex.
-- You don't have to register to navigate our web app
-- You can click on the **Home** tab provided in the navigation bar to view the home section
-- You can click on the **Add to cart** button to add this product to your cart but you have to be one of our users, so you should create an account 
+- On the left of the screen, you can search for the product by price, ascending or descending, or by product category. Click the Register button to create a new account.
+
+- On the main page, you can check item details, add to cart, exchange , and a back button that will take you a step back.
+
+- After adding the items to the cart, you can click the cart icon at the top right of the screen to access the cart that checks all the items that have been added, change the quantity of the desired item, or you can remove it from the shopping cart, at the bottom you can check the total of all Items and behinde them there is a button to buy .
+
+- The admin part, when you log in via the admin settings will appear at the top right of the screen, in the settings dropdown menu you can: Create a product and view and edit existing products
+  And delete them and record the products sold and suspended products and also he can control the accounts by deleting them for example, the logout button to log out.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
